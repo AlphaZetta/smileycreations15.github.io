@@ -1,5 +1,4 @@
 <h2>This is my website</h2>
 <p>Website of <a href="https://github.com/smileycreations15/">smileycreations15</a></p>
-<embed>
-  <h2>test</h2>
-</embed>
+<hr>
+<h3 align="center">Hosted with GitHub :octocat: Pages.</h3>
