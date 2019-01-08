@@ -1,5 +1,5 @@
 <h2>This is my website</h2>
 <p>Website of <a href="https://github.com/smileycreations15/">smileycreations15</a></p>
-<iframe src="https://github.com/smileycreations15/">
-  <p>Your browser does not support iframes.</p>
-</iframe>
+<embed>
+  <h2>test</h2>
+</embed>
