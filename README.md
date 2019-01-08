@@ -1,4 +1,4 @@
 # smileycreations15.github.io
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <br />
+![license](https://img.shields.io/github/license/mashape/apistatus.svg) <br />
 This is my website <br />
 Hosted with Github Pages
