@@ -39,7 +39,7 @@
 			</form>
 			<script>
 				function addUsername(){
-				    document.cookie = "username= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";let username = prompt("Username", ""); if (null === username){} else {document.cookie = "username=" + username + "; expires=Thu, 18 Dec 2099 12:00:00 UTC; path=/";}
+				    let username = prompt("Username", ""); if (null === username){} else {document.cookie = "username= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";document.cookie = "username=" + username + "; expires=Thu, 18 Dec 2099 12:00:00 UTC; path=/";}
 				    return false
 				};
 				function resetUsername(){
