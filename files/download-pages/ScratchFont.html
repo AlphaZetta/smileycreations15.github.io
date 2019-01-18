@@ -38,9 +38,9 @@
 				};	
 			       return "";
 			}
-			if ("" === getCookie("downloadScratchFont"))
+			if ("" === getCookie("downloadScratchFont")){
 				open("https://smileycreations15.github.io/files/ScratchFont.ttf", "_self");	
-			setCookie("downloadScratchFont", "1", 1)
+				setCookie("downloadScratchFont", "1", 1)
 			} else {
 				if (getCookie("username") === "") {	
 				} else {	
