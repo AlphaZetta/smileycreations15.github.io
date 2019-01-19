@@ -30,3 +30,21 @@ function setStatus(status, tutorial){
   eval("parsedData." + tutorial + " = " + status)
   setCookie("tutorials", JSON.stringify(parsedData), 9999)
  }
+
+function getStatus(tutorial){
+    if (getCookie("tutorials") === ""){
+    let data13456 = {}
+    setCookie("tutorials", JSON.stringify(data13456), 9999)
+  }
+  var cookieData = getCookie("tutorials")
+  var parsedData = JSON.parse(cookieData)
+  eval("var tutorialData = parsedData." + tutorial)
+  if (undefined === tutorialData){
+    return ""
+  } else {
+    return tutorialData
+  }
+}
+function setStatus(tutorial){
+  document.getElementById("status").innerHTML = getstatus(tutorial)
+}
