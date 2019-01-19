@@ -4,5 +4,5 @@
 <p>Set your GitHub username by <a href="https://smileycreations15.github.io/Setup-Username">clicking here</a>.</p>
 
 
-Note: We are using cookies to give you a better experience. By continuing to browse this site, you agree this site's use of cookies
+Note: We are using cookies to give you a better experience. By continuing to browse this site, you agree this site's use of cookies. <br />
 <a href="https://smileycreations15.github.io/Delete-Cookies">Delete all cookies</a>
