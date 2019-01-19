@@ -15,6 +15,7 @@ First, create a GitHub acoount if you didn't created one by [clicking here](http
 Then, click the plus icon next your avater in the GitHub homepage and select `New Repository` (or [click here](https://github.com/new)) <br />
 Name your repository `My-First-Repostiory`. <br />
 Select `Initalise this repository with a README`. <br />
+Click `Create repository`. <br />
 Now, create a file named `my-first-file.txt`. <br />
 Now type anything you want into it and click `Commit new file`. <br />
 Now you created your first repository!
