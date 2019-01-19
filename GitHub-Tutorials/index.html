@@ -49,10 +49,11 @@ function getCookie(cname) { // cname = Cookie name
   }
   return "";
 }
+var cookies = {}
 if ("" === getCookie("tutorials")) {
-let cookies = {}
+  cookies = {}
 } else {
-let cookies = JSON.parse(getCookie("tutorials"));
+  cookies = JSON.parse(getCookie("tutorials"));
 }
 if ("y" === cookies["1"]) {
   document.getElementById("tutorial1-status").innerHTML = " (Completed)"
