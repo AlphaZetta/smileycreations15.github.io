@@ -111,12 +111,12 @@ function getStatus(tutorial){
   }
 }
 function set(){
-  if (getStatus("1a") === "y"){
-    setStatus("n", "1a")
+  if (getStatus("1") === "y"){
+    setStatus("n", "1")
   } else {
-    setStatus("y", "1a")
+    setStatus("y", "1")
   }
-  if (getStatus("1a") === "y"){
+  if (getStatus("1") === "y"){
     document.getElementById("status").innerHTML = "Status: Completed"
     status = "y"
     statusSetButton.value = "Mark tutorial not complete"
@@ -126,7 +126,7 @@ function set(){
     statusSetButton.value = "Mark tutorial complete"
   }
 }
-if (getStatus("1a") === "y"){
+if (getStatus("1") === "y"){
   document.getElementById("status").innerHTML = "Status: Completed"
   status = "y"
   statusSetButton.value = "Mark tutorial not complete"
