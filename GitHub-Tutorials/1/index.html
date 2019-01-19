@@ -84,7 +84,7 @@ function setStatus(status, tutorial){
   }
   var cookieData = getCookie("tutorials")
   var parsedData = JSON.parse(cookieData)
-  var eval1 = "parsedData." + tutorial + " = " + status
+  var eval1 = "parsedData[\"" + tutorial + "\"] = " + status
   eval(eval1)
   setCookie("tutorials", JSON.stringify(parsedData), 9999)
  }
@@ -96,7 +96,7 @@ function getStatus(tutorial){
   }
   var cookieData = getCookie("tutorials")
   var parsedData = JSON.parse(cookieData)
-  var eval1 = "var tutorialData = parsedData." + tutorial
+  var eval1 = "var tutorialData = "parsedData" + [\"" + tutorial + "\"]
   eval(eval1)
   if (undefined === tutorialData){
     return ""
