@@ -20,6 +20,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="#157878">
 		<link rel="stylesheet" href="/assets/css/style.css?v=e15a8e37de6f1b7a228c389e4656ad0f2139c4aa">
+		<style>
+			.tooltip-wrap {
+			position: relative;
+			}
+			.tooltip-wrap .tooltip-content {
+			display: none;
+			position: absolute;
+			bottom: 5%;
+			left: 5%;
+			right: 5%;
+			background-color: #fff;
+			padding: .5em;
+			}
+			.tooltip-wrap:hover .tooltip-content {
+			display: block;
+			}
+		</style>
 	</head>
 	<body>
 		<section class="page-header">
@@ -27,7 +44,8 @@
 			<h2 class="project-tagline">A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site's use of cookies)</h2>
 		</section>
 		<section class="main-content">
-			<h3 id="to-set-your-username-on-this-github-pages-website-click-the-button-below">To set your username on this GitHub Pages website, click the button below.</h3>
+			<h3 id="to-set-your-username-on-this-github-pages-website-click-the-button-below">To set your GitHub username on this GitHub Pages website, click the button below.</h3>
+			<p>Please use your GitHub username.</p>
 			<form onsubmit="return addUsername()">
 				<input type="submit" value="Set username">
 			</form>
@@ -37,6 +55,13 @@
 			<form onsubmit="return testUsername()">
 				<input type="submit" value="Test username">
 			</form>
+			<!-- <br>
+			<div class="tooltip-wrap">
+				<img style="cursor: help" src="https://smileycreations15.github.io/files/info.png" height="20" width="20">
+				<div class="tooltip-content">
+					<p>We use cookies to store your username.</p>
+				</div>
+			</div> -->
 			<script>
 				function addUsername(){
 				    let username = prompt("Username", ""); if (null === username){} else {document.cookie = "username= ; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";document.cookie = "username=" + username + "; expires=Thu, 18 Dec 2099 12:00:00 UTC; path=/";}
