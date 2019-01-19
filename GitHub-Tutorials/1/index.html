@@ -125,6 +125,7 @@ function set(){
     status = "n"
     statusSetButton.value = "Mark tutorial complete"
   }
+  return false
 }
 if (getStatus("1") === "y"){
   document.getElementById("status").innerHTML = "Status: Completed"
