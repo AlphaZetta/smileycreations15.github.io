@@ -1,0 +1,145 @@
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>What is GitHub and Git? | smileycreations15.github.io</title>
+<meta name="generator" content="Jekyll v3.7.4">
+<meta property="og:title" content="What is GitHub and Git?">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site’s use of cookies)">
+<meta property="og:description" content="A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site’s use of cookies)">
+<link rel="canonical" href="https://smileycreations15.github.io/GitHub-Tutorials/1/">
+<meta property="og:url" content="https://smileycreations15.github.io/GitHub-Tutorials/1/">
+<meta property="og:site_name" content="smileycreations15.github.io">
+<script type="application/ld+json">
+{"headline":"What is GitHub and Git?","@type":"WebPage","url":"https://smileycreations15.github.io/GitHub-Tutorials/1/","description":"A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site’s use of cookies)","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=16f360bd992bde8d4533d81a2d8d0b6ab3e88d67">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">smileycreations15.github.io</h1>
+      <h2 class="project-tagline">A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site's use of cookies)</h2>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h3 id="what-is-github-and-git">What is GitHub and Git?</h3>
+
+<h4 id="what-is-git">What is Git?</h4>
+<p>Git is a version control software that allows you to track what changes are made to a file. <br>
+When you create a Git repository, there is a branch called master. The master branch holds the main files. <br>
+Think the master branch as the production branch. You can create different branches. Any changes made on one branch won’t affect other branches. <br>
+To create a git repository in the current working directory, you can type <code class="highlighter-rouge">git init</code>.
+Git works in the Linux-macOS command line.</p>
+<h4 id="what-is-github">What is GitHub?</h4>
+<p>GitHub is a web-based UI version of Git. In GitHub, Git is running in the servers in the background. GitHub also haves extra features like issues, pull requests etc. <br>
+You can use Git and GitHub for lots of things. From creating software to writing poems. <br></p>
+
+<h3 id="create-your-first-repository">Create your first repository</h3>
+<p>First, create a GitHub acoount if you didn’t created one by <a href="https://github.com/join">clicking here</a>. <br>
+Then, click the plus icon next your avater in the GitHub homepage and select <code class="highlighter-rouge">New Repository</code> (or <a href="https://github.com/new">click here</a>) <br>
+Name your repository <code class="highlighter-rouge">My-First-Repostiory</code>. <br>
+Select <code class="highlighter-rouge">Initalise this repository with a README</code>. <br>
+Click <code class="highlighter-rouge">Create repository</code>. <br>
+Now, create a file named <code class="highlighter-rouge">my-first-file.txt</code>. <br>
+Now type anything you want into it and click <code class="highlighter-rouge">Commit new file</code>. <br>
+Now you created your first repository!</p>
+<!-- start tutorial status code -->
+<br>
+<br>
+<p id="status"></p>
+<script>
+var status = "n"
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function setStatus(status, tutorial){
+  if (getCookie("tutorials") === ""){
+    let data13456 = {}
+    setCookie("tutorials", JSON.stringify(data13456), 9999)
+  }
+  var cookieData = getCookie("tutorials")
+  var parsedData = JSON.parse(cookieData)
+  eval("parsedData." + tutorial + " = " + status)
+  setCookie("tutorials", JSON.stringify(parsedData), 9999)
+ }
+
+function getStatus(tutorial){
+    if (getCookie("tutorials") === ""){
+    let data13456 = {}
+    setCookie("tutorials", JSON.stringify(data13456), 9999)
+  }
+  var cookieData = getCookie("tutorials")
+  var parsedData = JSON.parse(cookieData)
+  eval("var tutorialData = parsedData." + tutorial)
+  if (undefined === tutorialData){
+    return ""
+  } else {
+    return tutorialData
+  }
+}
+function set(){
+  if (getstatus("1") === "y"){
+  setStatus("n", "1")
+  } else {
+    setStatus("y", "1")
+  }
+  if (getstatus("1") === "y"){
+    document.getElementById("status").innerHTML = "Status: Completed"
+    status = "y"
+    document.getElementById("statusSetButton").value = "Mark tutorial not complete"
+  } else {
+    document.getElementById("status").innerHTML = "Status: Not Completed"
+    status = "n"
+    document.getElementById("statusSetButton").value = "Mark tutorial complete"
+  }
+}
+if (getstatus("1") === "y"){
+  document.getElementById("status").innerHTML = "Status: Completed"
+  status = "y"
+  document.getElementById("statusSetButton").value = "Mark tutorial not complete"
+} else {
+  document.getElementById("status").innerHTML = "Status: Not Completed"
+  status = "n"
+  document.getElementById("statusSetButton").value = "Mark tutorial complete"
+}
+</script>
+<form onsubmit="return set())">
+  <input type="submit" id="statusSetButton" value="">
+</form>
+<!-- end tutorial status code -->
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  
+
+</body></html>
