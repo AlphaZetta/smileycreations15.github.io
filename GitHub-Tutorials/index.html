@@ -30,10 +30,8 @@
 
     <section class="main-content">
       <h3 id="github-tutorials">GitHub Tutorials</h3>
-<p>I will start working on these soon.</p>
-
 <ul>
-  <li><a href="https://smileycreations15.github.io/GitHub-Tutorials/1">Part 1</a><p id="tutorial1-status"></p></li>
+  <li><a href="https://smileycreations15.github.io/GitHub-Tutorials/1">Part 1 | What is Git And GitHub</a><p id="tutorial1-status"></p></li>
 </ul>
 <script>
 function getCookie(cname) { // cname = Cookie name
@@ -56,7 +54,7 @@ let cookies = {}
 } else {
 let cookies = JSON.parse(getCookie("tutorials"));
 }
-if ("y" === cookies.tutorial1) {
+if ("y" === cookies["1"]) {
   document.getElementById("tutorial1-status").innerHTML = " (Completed)"
 }
 </script>
