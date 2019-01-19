@@ -2,7 +2,7 @@
 name: Questions about my GitHub tutorials
 about: Ask a question about my GitHub tutorials
 title: "[GitHub Tutorial Question] "
-labels: ''
+labels: GitHub Tutorial Question
 assignees: smileycreations15
 
 ---
