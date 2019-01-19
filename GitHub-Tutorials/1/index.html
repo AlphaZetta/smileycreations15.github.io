@@ -111,11 +111,11 @@ function set(){
   if (getStatus("1a") === "y"){
     document.getElementById("status").innerHTML = "Status: Completed"
     status = "y"
-    document.getElementById("statusSetButton").value = "Mark tutorial not complete"
+    statusSetButton.value = "Mark tutorial not complete"
   } else {
     document.getElementById("status").innerHTML = "Status: Not Completed"
     status = "n"
-    document.getElementById("statusSetButton").value = "Mark tutorial complete"
+    statusSetButton.value = "Mark tutorial complete"
   }
 }
 if (getStatus("1a") === "y"){
