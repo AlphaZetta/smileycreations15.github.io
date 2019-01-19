@@ -96,7 +96,7 @@ function getStatus(tutorial){
   }
   var cookieData = getCookie("tutorials")
   var parsedData = JSON.parse(cookieData)
-  var eval1 = "var tutorialData = "parsedData" + [\"" + tutorial + "\"]
+  var eval1 = "var tutorialData = parsedData[\"" + tutorial + "\"]"
   eval(eval1)
   if (undefined === tutorialData){
     return ""
