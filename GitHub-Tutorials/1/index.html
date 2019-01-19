@@ -95,7 +95,11 @@ function getStatus(tutorial){
     setCookie("tutorials", JSON.stringify(data13456), 9999)
   }
   var cookieData = getCookie("tutorials")
-  var parsedData = JSON.parse(cookieData)
+  if ("" === cookieData){
+      var parsedData = JSON.parse({})
+  } else {
+      var parsedData = JSON.parse(cookieData)
+  }
   var tutorialData = parsedData[tutorial]
   if (undefined === tutorialData){
     return ""
