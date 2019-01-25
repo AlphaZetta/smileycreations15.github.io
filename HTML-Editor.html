@@ -13,7 +13,7 @@
 		<meta property="og:url" content="https://smileycreations15.github.io/HTML-Editor.html">
 		<meta property="og:site_name" content="smileycreations15.github.io">
 		<script type="application/ld+json">
-			{"headline":"HTML Editor"","@type":"WebPage","url":"https://smileycreations15.github.io/HTML-Editor.html","description":"
+			{"headline":"HTML Editor","@type":"WebPage","url":"https://smileycreations15.github.io/HTML-Editor.html","description":"
 			","@context":"http://schema.org"}
 		</script>
 		<!-- End Jekyll SEO tag -->
@@ -45,21 +45,24 @@
 		</section>
 		<section class="main-content">
       <textarea rows="4" cols="50" id="htmlData">
-       <!DOCTYPE HTML>
-       <html>
-       <body>
-       </body>
-       </html>
+<!DOCTYPE HTML>
+<html>
+<body>
+</body>
+</html>
       </textarea>
 			<h3 id="to-set-your-username-on-this-github-pages-website-click-the-button-below">HTML Editor</h3>
 			<form onsubmit="return embed()">
 				<input type="submit" title="Run the following HTML code in the box below" value="Run HTML Code">
 			</form>
-      <embed id="embed">
-      </embed>
+      <iframe id="embed" src="about:blank">
+      </iframe>
 			<script>
 				function embed() {
-          document.getElementById("embed").innerHTML = document.getElementById("htmlData").value
+					var doc = document.getElementById('embed').contentWindow.document;
+doc.open();
+doc.write(document.getElementById('htmlData').value);
+doc.close();
           return false
         }
 			</script>
