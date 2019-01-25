@@ -44,7 +44,7 @@
 			<h2 class="project-tagline">A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site's use of cookies)</h2>
 		</section>
 		<section class="main-content">
-      <textarea rows="4" cols="50" id="htmlData">
+      <textarea rows="4" cols="50" id="htmlData" onChange="embed();">
 <!DOCTYPE HTML>
 <html>
 <body>
@@ -65,16 +65,12 @@
     }
   }
 }			
-				var htmlDocument = document.getElementById('embed').contentWindow.document
-				while (true) {
+				function embed() {
 					sleep(10)
-					if (htmlDocument === document.getElementById('embed').contentWindow.document) {
-						} else {
 						var doc = document.getElementById('embed').contentWindow.document;
 doc.open();
 doc.write(document.getElementById('htmlData').value);
-doc.close();}
-					var htmlDocument = document.getElementById('embed').contentWindow.document
+doc.close();
 				}
 			</script>
 			<footer class="site-footer">
