@@ -6,3 +6,5 @@
 
 Note: We are using cookies to give you a better experience. By continuing to browse this site, you agree this site's use of cookies. <br />
 <a href="https://smileycreations15.github.io/Delete-Cookies">Delete all cookies</a>
+
+Website status: <br />![Website Status](https://smileycreations15.github.io/status/smileycreations15.github.io/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
