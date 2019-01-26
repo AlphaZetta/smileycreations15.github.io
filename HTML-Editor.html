@@ -45,17 +45,25 @@
 		</section>
 		<section class="main-content">
 			<h3 id="to-set-your-username-on-this-github-pages-website-click-the-button-below">HTML Editor v2.0.1</h3>
+			<!--
       <textarea rows="20" cols="86" id="htmlData" onChange="embed();" placeholder="Enter your HTML code here...">
 <!DOCTYPE HTML>
 <html>
 <body>
 </body>
 </html></textarea>
-	
+-->
+<textarea rows="20" cols="86" id="htmlData" oninput="embed();" placeholder="Enter your HTML code here...">
+<!DOCTYPE HTML>
+<html>
+<body>
+</body>
+</html></textarea>
+
 			<p></p>
       <iframe id="embed" src="about:blank" height="700" width="800">
       </iframe>
-			
+
 			<script>
 								function sleep(milliseconds) { // miliseconds = miliseconds to wait
   var start = new Date().getTime();
@@ -64,7 +72,7 @@
       break;
     }
   }
-}			
+}
 				function embed() {
 						var doc = document.getElementById('embed').contentWindow.document;
 doc.open();
