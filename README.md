@@ -5,6 +5,6 @@ Hosted with Github Pages
 
 Image sources:
 
-| Image | URL|
+| Image | Source URL|
 |-------|----|
 |||
