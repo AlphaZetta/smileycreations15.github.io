@@ -66,8 +66,8 @@
       </iframe>
 
 			<script>
-      if (null !== localStroage.getItem("htmlData")){
-        document.getElementById('htmlData').value = localStroage.getItem("htmlData")
+      if (null !== localStorage.getItem("htmlData")){
+        document.getElementById('htmlData').value = localStorage.getItem("htmlData")
       }
 								function sleep(milliseconds) { // miliseconds = miliseconds to wait
   var start = new Date().getTime();
@@ -82,7 +82,7 @@
 doc.open();
 doc.write(document.getElementById('htmlData').value);
 doc.close();
-localStroage.setItem("htmlData", document.getElementById('htmlData').value)
+localStorage.setItem("htmlData", document.getElementById('htmlData').value)
 				}
 			</script>
 			<footer class="site-footer">
