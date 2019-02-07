@@ -34,6 +34,6 @@ function setCookie(cname, cvalue, exdays) {
 if (null === getCookie("sessionID")){
     setSessionCookie("sessionID", create_UUID())
 }
-if (null === getCookie("ID")){
-    setCookie("ID", create_UUID(), 30)
+if (null === getCookie("userID")){
+    setCookie("userID", create_UUID(), 30)
 }
