@@ -12,6 +12,7 @@
 |[Image Sources](https://smileycreations15.github.io/Image-Sources)|
 |[HTML Editor Autosave](https://smileycreations15.github.io/HTML-Editor-Autosave)|
 |[Cookie Info](https://smileycreations15.github.io/Cookie-Info)|
+
 <!-- Begin Cookie Script -->
 <script type="text/javascript" src="https://smileycreations15.github.io/files/javascript/set-ID-Cookie.js"></script> 
 <!-- End Cookie Script -->
