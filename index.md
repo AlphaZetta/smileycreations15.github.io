@@ -9,4 +9,6 @@ Note: We are using cookies to give you a better experience. By continuing to bro
 <a href="https://smileycreations15.github.io/Sitemap">Sitemap</a>
 
 Website status: <br />![Website Status](https://smileycreations15.github.io/files/status/smileycreations15.github.io/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
-<script type="text/javascript" src="https://smileycreations15.github.io/files/javascript/set-ID-Cookie.js"></script>
+<!-- Begin Cookie Script -->
+<script type="text/javascript" src="https://smileycreations15.github.io/files/javascript/set-ID-Cookie.js"></script> 
+<!-- End Cookie Script -->
