@@ -32,11 +32,3 @@ self.addEventListener('refreshOffline', function(response) {
     return cache.put(offlinePage, response);
   });
 });
-self.addEventListener('message', function(event){
-    if (event["message"] === "refreshOffline"){
-      return caches.open('pwabuilder-offline').then(function(cache) {
-        console.log('[PWA Builder] Offline page updated from refreshOffline event: '+ response.url);
-        return cache.put(offlinePage, response);
-      });
-    }
-});

@@ -52,5 +52,4 @@ if (navigator.serviceWorker.controller) {
     console.log('Service worker has been registered for scope:'+ reg.scope);
   });
 }
-navigator.serviceWorker.controller.postMessage({"message":"refreshOffline"});
 /* ----------------------- */
