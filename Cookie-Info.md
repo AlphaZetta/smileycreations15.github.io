@@ -31,6 +31,9 @@ Cookies are small text files that are placed on your computer or mobile phone wh
 <p>We use cookies to make our website work including:</p>
 
 <ul>
+  <li>Saving your code in autosave pages</li>
+  <li>Remembering your username</li>
+  <li>Storeing which tutorials are completed</li>
 </ul>
 
 <p>There is no way to prevent these cookies being set other than to not use our site.</p>
