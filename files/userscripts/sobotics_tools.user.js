@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      0.1
+// @version      1.0.0
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
