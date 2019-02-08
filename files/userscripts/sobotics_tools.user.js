@@ -13,10 +13,10 @@
 (function() {
     // Natty report button
     document.getElementById("roomdesc").innerHTML = document.getElementById("roomdesc").innerHTML + '<div id=\"smileycreations15-tools\"><h3><br>Tools</h2><hr><div id=\"smileycreations15-tools-buttons\"></div>'
-    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://smileycreations15.github.io/stackoverflow-stuff/stackoverflow-report\" target=\"_self\" id=\"smileycreations15-tools-buttons-reportToNatty\"><button class="button" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)</button></a>'
+    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"javascript:window.open(\'https:\/\/smileycreations15.github.io\/stackoverflow-stuff\/stackoverflow-report\',\'\', \'width = 700, height = 250\')\" id=\"smileycreations15-tools-buttons-reportToNatty\"><button class=\"button\" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)<\/button><\/a>'
     function getQueryVariable(variable){
        var query = window.location.search.substring(1);
-       var vars = query.split("&");
+       var vars = query.split("&")
        for (var i=0;i<vars.length;i++) {
                var pair = vars[i].split("=");
                if(pair[0] == variable){return decodeURIComponent(pair[1]);}
@@ -28,7 +28,8 @@
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
-        open("https://" + window.location.hostname + window.location.pathname,"_self")
+        alert("Done!")
+        window.close()
     }/*
         if (getQueryVariable("b") === "1"){
             let data = ["Sent."]
