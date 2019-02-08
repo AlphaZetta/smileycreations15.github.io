@@ -57,7 +57,12 @@ function send() {
 		document.getElementById("error").innerHTML = "Please enter a URL"
 		return
 	}
-        let value = "@Natty feedback " + document.getElementById("link").value + " " + status_abcdef
+	var value123 = document.getElementById("link").value
+	if (value123.contains("https:\/\/"){
+	} else {
+	    value123 = "https://" + value123
+	}
+        let value = "@Natty feedback " + value123 + " " + status_abcdef
 open("https://chat.stackoverflow.com/rooms/111347/sobotics?c=" + encodeURIComponent(value) + "&r=true&i=0", "_self")
 }
 </script>
