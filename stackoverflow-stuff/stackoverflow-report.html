@@ -51,9 +51,11 @@ function send() {
             status_abcdef = "ne"
         } else {
 		document.getElementById("error").innerHTML = "Please select a option"
+		return
 	}
 	if (document.getElementById("link").value.length === 0) {
 		document.getElementById("error").innerHTML = "Please enter a URL"
+		return
 	}
         let value = "@Natty feedback " + document.getElementById("link").value + " " + status_abcdef
 open("https://chat.stackoverflow.com/rooms/111347/sobotics?c=" + encodeURIComponent(value) + "&r=true&i=0", "_self")
