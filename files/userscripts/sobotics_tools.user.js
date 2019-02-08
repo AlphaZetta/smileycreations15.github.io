@@ -13,7 +13,7 @@
 (function() {
     // Natty report button
     document.getElementById("roomdesc").innerHTML = document.getElementById("roomdesc").innerHTML + '<div id=\"smileycreations15-tools\"><h3><br>Tools</h2><hr><div id=\"smileycreations15-tools-buttons\"></div>'
-    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://smileycreations15.github.io/stackoverflow-stuff/stackoverflow-report\" target=\"_self\" id=\"smileycreations15-tools-buttons-reportToNatty\"><button class="button" id=\"smileycreations15-tools-buttons-reportToNatty-button\">report answer (Natty)</button></a>'
+    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://smileycreations15.github.io/stackoverflow-stuff/stackoverflow-report\" target=\"_self\" id=\"smileycreations15-tools-buttons-reportToNatty\"><button class="button" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)</button></a>'
     function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
