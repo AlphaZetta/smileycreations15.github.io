@@ -37,8 +37,7 @@
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
-        sleep(2000)
-        // alert("Done!")
+        alert("Sent.")
         window.close()
     }/*
         if (getQueryVariable("b") === "1"){
