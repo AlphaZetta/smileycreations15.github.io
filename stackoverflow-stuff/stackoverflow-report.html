@@ -58,7 +58,7 @@ function send() {
 		return
 	}
 	var value123 = document.getElementById("link").value
-	if (value123.contains("https:\/\/")){
+	if (value123.includes("https:\/\/")){
 	} else {
 	    value123 = "https://" + value123
 	}
