@@ -29,7 +29,7 @@
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
         dcouemtn.write("")
-        alert("Done!")
+        // alert("Done!")
         window.close()
     }/*
         if (getQueryVariable("b") === "1"){
