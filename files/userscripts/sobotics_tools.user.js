@@ -23,11 +23,21 @@
        }
        return(null);
 }
+    function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
     if (getQueryVariable("r") === "true"){
         const data = ["Sending request..."]
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
+        sleep(2000)
         // alert("Done!")
         window.close()
     }/*
