@@ -1,13 +1,17 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.1.5
+// @version      1.1.6
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?*
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics/
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics/?*
+// @grant        GM_listValues
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_deleteValue
 // ==/UserScript==
 
 (function() {
