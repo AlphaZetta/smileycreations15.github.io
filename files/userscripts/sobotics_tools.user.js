@@ -38,8 +38,8 @@
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
-        let data = ["Sent."]
-        alert(data[getQueryVariable("i")])
+        let data1 = ["Sent."]
+        alert(data1[getQueryVariable("i")])
         window.close()
     }/*
         if (getQueryVariable("b") === "1"){
