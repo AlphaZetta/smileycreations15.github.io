@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.1.2
+// @version      1.1.4
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
@@ -38,11 +38,12 @@
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
+        let data = ["Sent."]
+        alert(data[getQueryVariable("i")])
         window.close()
     }/*
         if (getQueryVariable("b") === "1"){
-            let data = ["Sent."]
-            alert(data[getQueryVariable("a")])
+
             window.history.replaceState("", "", window.location.pathname);
         }
         */
