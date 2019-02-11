@@ -21,7 +21,7 @@
         .then(function(data) {
         if (GM_getValue("update-" + data.version) === "dismiss-true"){
         } else {
-            if (data.version !== "1.3.1"){
+            if (data.version !== "1.3.2"){
                 if (confirm(data.updateMsg + " Press cancel to permanently dismiss.")){
                 } else {
                     GM_setValue("update-" + data.version, "dismiss-true")
