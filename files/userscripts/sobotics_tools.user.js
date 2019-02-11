@@ -21,7 +21,7 @@
         if (GM_getValue("update-" + data.version) === "dismiss-true"){
         } else {
             if (data.version !== "1.3.1"){
-                if (confirm(data.updateMsg " Press cancel to permanently dismiss.")){
+                if (confirm(data.updateMsg + " Press cancel to permanently dismiss.")){
                   if (GM_getValue("update-" + data.version + "-installed") === "dismiss-true"){
                   } else {
                     if (confirm("Do you want to install the update?")){
