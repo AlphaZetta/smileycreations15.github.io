@@ -42,15 +42,15 @@
       Buttons:
       <hr>
       <input type="checkbox" id="show-reportToNatty"> Show "send answer feedback (Natty)"<br>
-      <input type="checkbox" id="show-reportToNatty"> Show "get Natty links"<br>
+      <input type="checkbox" id="show-getNattyLinks"> Show "get Natty links"<br>
       <button onclick="save()">Save</button><button onclick="window.close()">Exit</button>
       </pre>
 <script>
     window.addEventListener("message", receiveMessage, false);
     function receiveMessage(event){
         if (event.data.sender === "userscript"){
-        
-            
+        if (event["conf-show-reportToNatty"] === "1"){document.getElementById("show-reportToNatty").checked = true}
+         if (event["conf-show-getNattyLinks"] === "1"){document.getElementById("show-getNattyLinks").checked = true}   
         }
         return undefined
     }
