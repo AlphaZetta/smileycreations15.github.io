@@ -1,19 +1,24 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.0.0
+// @version      1.1.6
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?*
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics/
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics/?*
+// @grant        GM_listValues
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_deleteValue
 // ==/UserScript==
 
 (function() {
     // Natty report button
     document.getElementById("roomdesc").innerHTML = document.getElementById("roomdesc").innerHTML + '<div id=\"smileycreations15-tools\"><h3><br>Tools</h2><hr><div id=\"smileycreations15-tools-buttons\"></div>'
     document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"javascript:window.open(\'https:\/\/smileycreations15.github.io\/stackoverflow-stuff\/stackoverflow-report\',\'\', \'width = 700, height = 250\')\" id=\"smileycreations15-tools-buttons-reportToNatty\"><button class=\"button\" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)<\/button><\/a>'
+    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '&nbsp;<a href=\"javascript:document.getElementById(\'input\').value = \'@Housekeeping open\';document.getElementById(\'sayit-button\').click()\" id=\"smileycreations15-tools-buttons-getNattyLinks\"><button class=\"button\" id=\"smileycreations15-tools-buttons-getNattyLinks-button\">get Natty links<\/button><\/a>'
     function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&")
@@ -37,12 +42,12 @@
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
-        alert("Sent.")
+        let data1 = ["Sent."]
+        alert(data1[getQueryVariable("i")])
         window.close()
     }/*
         if (getQueryVariable("b") === "1"){
-            let data = ["Sent."]
-            alert(data[getQueryVariable("a")])
+
             window.history.replaceState("", "", window.location.pathname);
         }
         */
