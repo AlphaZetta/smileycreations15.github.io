@@ -20,7 +20,7 @@
         .then(function(data) {
         if (GM_getValue("update-" + data.version) === "dismiss-true"){
         } else {
-            if (data.version !== "1.1.6"){
+            if (data.version !== "1.2.0"){
                 if (confirm("A new version of SOBotics Tools is available! Press cancel to permanently dismiss.")){
                 } else {
                     GM_setValue("update-" + data.version, "dismiss-true")
