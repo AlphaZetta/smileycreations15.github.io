@@ -21,7 +21,16 @@
         if (GM_getValue("update-" + data.version) === "dismiss-true"){
         } else {
             if (data.version !== "1.2.0"){
-                if (confirm("A new version of SOBotics Tools is available! Press cancel to permanently dismiss.")){
+                if (confirm(data.updateMsg " Press cancel to permanently dismiss.")){
+                  if (GM_getValue("update-" + data.version + "-installed") === "dismiss-true"){
+                  } else {
+                    if (confirm("Do you want to install the update?")){
+                      GM_setValue("update-" + data.version + "-installed", "dismiss-true")
+                      open("https://github.com/smileycreations15/smileycreations15.github.io/raw/master/files/userscripts/sobotics_tools.user.js")
+                    } else {
+                      GM_setValue("update-" + data.version + "-installed", "dismiss-true")
+                    }
+                  }
                 } else {
                     GM_setValue("update-" + data.version, "dismiss-true")
                 }
