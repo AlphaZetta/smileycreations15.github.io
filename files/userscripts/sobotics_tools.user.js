@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.3.0
+// @version      1.3.1
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
@@ -20,7 +20,7 @@
         .then(function(data) {
         if (GM_getValue("update-" + data.version) === "dismiss-true"){
         } else {
-            if (data.version !== "1.2.0"){
+            if (data.version !== "1.3.1"){
                 if (confirm(data.updateMsg " Press cancel to permanently dismiss.")){
                   if (GM_getValue("update-" + data.version + "-installed") === "dismiss-true"){
                   } else {
