@@ -34,9 +34,11 @@ function setCookie(cname, cvalue, exdays) {
 
 if (null === getCookie("sessionID")){
     setSessionCookie("sessionID", create_UUID())
+    console.log("%c Successfully set session cookie ", "color: #4CAF50; background-color: green;")
 }
 if (null === getCookie("userID")){
     setCookie("userID", create_UUID(), 30)
+    console.log("%c Successfully set persistent cookie ", "color: #4CAF50; background-color: green;")
 }
 /* ----------------------- */
 //This is the "Offline page" service worker
