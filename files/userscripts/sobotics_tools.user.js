@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.6.6
+// @version      1.7.0
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
@@ -15,18 +15,19 @@
 // ==/UserScript==
 
 (function() {
+  fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript_news.json", {cache: "no-cache"}).then((resp) => resp.json()).then(function(data) {if ("Nothing to show." !== data.news && GM_getValue("news-dismiss") !== data.id){GM_setValue("news-dismiss", data.id);alert(data.news)}})
   document.getElementById("roomdesc").innerHTML = document.getElementById("roomdesc").innerHTML + '<div id=\"smileycreations15-tools\"><h3><br>Tools</h2><hr><div id=\"smileycreations15-tools-buttons\"></div>'
     fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript.json", {cache: "no-cache"})
         .then((resp) => resp.json()) // Transform the data into json
         .then(function(data) {
         if (GM_getValue("update-dismiss") === data.version){
         } else {
-            if (data.version !== "1.6.6"){
+            if (data.version !== "1.7.0"){
                 alert(data.updateMsg + " Click \"Install script update\" to install the update")
                 GM_setValue("update-dismiss", data.version)
             }
         }
-            if (data.version !== "1.6.6"){
+            if (data.version !== "1.7.0"){
                 document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://github.com/smileycreations15/smileycreations15.github.io/raw/master/files/userscripts/sobotics_tools.user.js\" id=\"smileycreations15-tools-buttons-installUpdate\" target=\"_self\"><button class=\"button\" id=\"smileycreations15-tools-buttons-installUpdate-button\">Install script update<\/button><\/a>'
             }
     })
