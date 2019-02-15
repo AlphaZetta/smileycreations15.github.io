@@ -16,6 +16,9 @@
 
 (function() {
   document.getElementById("roomdesc").innerHTML = document.getElementById("roomdesc").innerHTML + '<div id=\"smileycreations15-tools\"><h3><br>Tools</h2><hr><div id=\"smileycreations15-tools-buttons\"></div>'
+  document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"javascript:window.open(\'https:\/\/smileycreations15.github.io\/stackoverflow-stuff\/stackoverflow-report\',\'\', \'width = 700, height = 250\')\" id=\"smileycreations15-tools-buttons-feedbackToNatty\"><button class=\"button\" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)<\/button><\/a>'
+  document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '&nbsp;<a href=\"javascript:document.getElementById(\'input\').value = \'@Housekeeping open\';document.getElementById(\'sayit-button\').click()\" id=\"smileycreations15-tools-buttons-getNattyLinks\"><button class=\"button\" id=\"smileycreations15-tools-buttons-getNattyLinks-button\">get Natty links<\/button><\/a>'
+  document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '&nbsp;<a href=\"javascript:fetch(\'https://smileycreations15.github.io/files/text/sobotics_tools_userscript_news.json\', {cache: \'no-cache\'}).then((resp) => resp.json()).then(function(data) {alert(data.news)})\" id=\"smileycreations15-tools-buttons-getStatus\"><button class=\"button\" id=\"smileycreations15-tools-buttons-getStatus-button\">get status<\/button><\/a>'
     fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript.json", {cache: "no-cache"})
         .then((resp) => resp.json()) // Transform the data into json
         .then(function(data) {
@@ -32,9 +35,6 @@
     })
     fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript_news.json", {cache: "no-cache"}).then((resp) => resp.json()).then(function(data) {if ("Nothing to show." !== data.news && GM_getValue("news-dismiss") !== data.id){GM_setValue("news-dismiss", data.id);alert("Status: " + data.news)}})
     // Natty report button
-    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"javascript:window.open(\'https:\/\/smileycreations15.github.io\/stackoverflow-stuff\/stackoverflow-report\',\'\', \'width = 700, height = 250\')\" id=\"smileycreations15-tools-buttons-feedbackToNatty\"><button class=\"button\" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)<\/button><\/a>'
-    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '&nbsp;<a href=\"javascript:document.getElementById(\'input\').value = \'@Housekeeping open\';document.getElementById(\'sayit-button\').click()\" id=\"smileycreations15-tools-buttons-getNattyLinks\"><button class=\"button\" id=\"smileycreations15-tools-buttons-getNattyLinks-button\">get Natty links<\/button><\/a>'
-    document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '&nbsp;<a href=\"javascript:fetch(\'https://smileycreations15.github.io/files/text/sobotics_tools_userscript_news.json\', {cache: \'no-cache\'}).then((resp) => resp.json()).then(function(data) {alert(data.news)})\" id=\"smileycreations15-tools-buttons-getStatus\"><button class=\"button\" id=\"smileycreations15-tools-buttons-getStatus-button\">get status<\/button><\/a>'
     function getQueryVariable(variable){
         var query = window.location.search.substring(1);
         var vars = query.split("&")
