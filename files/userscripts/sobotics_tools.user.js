@@ -21,12 +21,12 @@
         .then(function(data) {
         if (GM_getValue("update-dismiss") === data.version){
         } else {
-            if (data.version !== "1.7.1"){
+            if (data.version !== "1.7.2"){
                 alert(data.updateMsg + " Click \"Install script update\" to install the update")
                 GM_setValue("update-dismiss", data.version)
             }
         }
-            if (data.version !== "1.7.1"){
+            if (data.version !== "1.7.2"){
                 document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://github.com/smileycreations15/smileycreations15.github.io/raw/master/files/userscripts/sobotics_tools.user.js\" id=\"smileycreations15-tools-buttons-installUpdate\" target=\"_self\"><button class=\"button\" id=\"smileycreations15-tools-buttons-installUpdate-button\">Install script update<\/button><\/a>'
             }
     })
