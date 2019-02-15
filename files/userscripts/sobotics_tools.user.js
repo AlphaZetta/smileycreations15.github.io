@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.7.1
+// @version      1.7.2
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
@@ -15,7 +15,6 @@
 // ==/UserScript==
 
 (function() {
-  fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript_news.json", {cache: "no-cache"}).then((resp) => resp.json()).then(function(data) {if ("Nothing to show." !== data.news && GM_getValue("news-dismiss") !== data.id){GM_setValue("news-dismiss", data.id);alert("Status: "data.news)}})
   document.getElementById("roomdesc").innerHTML = document.getElementById("roomdesc").innerHTML + '<div id=\"smileycreations15-tools\"><h3><br>Tools</h2><hr><div id=\"smileycreations15-tools-buttons\"></div>'
     fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript.json", {cache: "no-cache"})
         .then((resp) => resp.json()) // Transform the data into json
@@ -31,6 +30,7 @@
                 document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://github.com/smileycreations15/smileycreations15.github.io/raw/master/files/userscripts/sobotics_tools.user.js\" id=\"smileycreations15-tools-buttons-installUpdate\" target=\"_self\"><button class=\"button\" id=\"smileycreations15-tools-buttons-installUpdate-button\">Install script update<\/button><\/a>'
             }
     })
+    fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript_news.json", {cache: "no-cache"}).then((resp) => resp.json()).then(function(data) {if ("Nothing to show." !== data.news && GM_getValue("news-dismiss") !== data.id){GM_setValue("news-dismiss", data.id);alert("Status: " + data.news)}})
     // Natty report button
     document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"javascript:window.open(\'https:\/\/smileycreations15.github.io\/stackoverflow-stuff\/stackoverflow-report\',\'\', \'width = 700, height = 250\')\" id=\"smileycreations15-tools-buttons-feedbackToNatty\"><button class=\"button\" id=\"smileycreations15-tools-buttons-feedbackToNatty-button\">send answer feedback (Natty)<\/button><\/a>'
     document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '&nbsp;<a href=\"javascript:document.getElementById(\'input\').value = \'@Housekeeping open\';document.getElementById(\'sayit-button\').click()\" id=\"smileycreations15-tools-buttons-getNattyLinks\"><button class=\"button\" id=\"smileycreations15-tools-buttons-getNattyLinks-button\">get Natty links<\/button><\/a>'
