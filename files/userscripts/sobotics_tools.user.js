@@ -21,7 +21,7 @@
         .then(function(data) {
         if (GM_getValue("update-" + data.version) === "dismiss-true"){
         } else {
-            if (data.version !== "1.3.4"){
+            if (data.version !== "1.4.4"){
                 alert(data.updateMsg + " Click \"Install script update\" to install the update")
                 GM_setValue("update-" + data.version, "dismiss-true")
             }
