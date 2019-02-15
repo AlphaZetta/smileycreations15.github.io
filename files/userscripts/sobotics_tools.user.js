@@ -26,7 +26,7 @@
                 GM_setValue("update-" + data.version, "dismiss-true")
             }
         }
-            if (data.version !== "1.3.4"){
+            if (data.version !== "1.4.4"){
                 document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://github.com/smileycreations15/smileycreations15.github.io/raw/master/files/userscripts/sobotics_tools.user.js\" id=\"smileycreations15-tools-buttons-installUpdate\" target=\"_self\"><button class=\"button\" id=\"smileycreations15-tools-buttons-installUpdate-button\">Install script update<\/button><\/a>'
             }
     })
