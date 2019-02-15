@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.3.4
+// @version      1.4.4
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
@@ -56,8 +56,11 @@
         document.getElementById("loading-message").innerHTML = data[getQueryVariable("i")]
         document.getElementById("input").value = getQueryVariable("c")
         document.getElementById("sayit-button").click()
-        let data1 = ["Sent."]
-        alert(data1[getQueryVariable("i")])
+        let data1 = ["Sent.", "Message sent."]
+        let data2 = [true, true]
+        if (data2[getQueryVariable("i")] === true){
+          alert(data1[getQueryVariable("i")])
+        }
         window.close()
     }/*
         if (getQueryVariable("b") === "1"){
