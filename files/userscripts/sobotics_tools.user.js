@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SOBotics Tools
 // @description  Tools for the SOBotics chatroom
-// @version      1.4.4
+// @version      1.5.4
 // @author       smileycreations15 (https://github.com/smileycreations15)
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics
 // @match        https://chat.stackoverflow.com/rooms/111347/sobotics?c=*&r=true
@@ -19,14 +19,14 @@
     fetch("https://smileycreations15.github.io/files/text/sobotics_tools_userscript.json")
         .then((resp) => resp.json()) // Transform the data into json
         .then(function(data) {
-        if (GM_getValue("update-" + data.version) === "dismiss-true"){
+        if (GM_getValue("update-dismiss") === data.version){
         } else {
-            if (data.version !== "1.4.4"){
+            if (data.version !== "1.5.4"){
                 alert(data.updateMsg + " Click \"Install script update\" to install the update")
-                GM_setValue("update-" + data.version, "dismiss-true")
+                GM_setValue("update-dismiss", data.version)
             }
         }
-            if (data.version !== "1.4.4"){
+            if (data.version !== "1.5.4"){
                 document.getElementById("smileycreations15-tools-buttons").innerHTML = document.getElementById("smileycreations15-tools-buttons").innerHTML + '<a href=\"https://github.com/smileycreations15/smileycreations15.github.io/raw/master/files/userscripts/sobotics_tools.user.js\" id=\"smileycreations15-tools-buttons-installUpdate\" target=\"_self\"><button class=\"button\" id=\"smileycreations15-tools-buttons-installUpdate-button\">Install script update<\/button><\/a>'
             }
     })
