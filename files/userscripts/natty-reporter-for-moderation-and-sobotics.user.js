@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 var room = 188497;
-var room2 = 188497;
+var room2 = 111347;
 if (typeof GM !== 'object') {
     GM = {};
 }
