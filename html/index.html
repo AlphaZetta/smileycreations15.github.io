@@ -54,19 +54,14 @@
           document.getElementById("error").value === "Please enter an answer ID."
           return
       }
-      await fetch('https://smileycreations15.github.io/html/' + document.getElementById("link").value)
+      fetch('https://smileycreations15.github.io/html/' + document.getElementById("link").value)
   .then(response => {
     if (response.ok) {
-      ok123 = true
+        open('https://smileycreations15.github.io/html/' + document.getElementById("link").value, "_self")
     } else {
-      ok123 = false
+   document.getElementById("error").value === "The report does not exist"
     }
   });
-  if (ok123 === false){
-   document.getElementById("error").value === "The report does not exist"
-   return
-  }
-  open('https://smileycreations15.github.io/html/' + document.getElementById("link").value, "_self")
       }
 			</script>
 			<footer class="site-footer">
