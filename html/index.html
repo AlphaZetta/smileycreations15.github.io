@@ -3,17 +3,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<!-- Begin Jekyll SEO tag v2.5.0 -->
-		<title>Delete all cookies</title>
+		<title>Natty Reports</title>
 		<meta name="generator" content="Jekyll v3.7.4">
-		<meta property="og:title" content="Delete all cookies">
+		<meta property="og:title" content="Natty Reports">
 		<meta property="og:locale" content="en_US">
 		<meta name="description" content="A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site's use of cookies)">
 		<meta property="og:description" content="A website on GitHub Pages (Note: We are using cookies to give you a better experience. By using this site, you agree this site's use of cookies)">
-		<link rel="canonical" href="https://smileycreations15.github.io/Setup-Username.html">
-		<meta property="og:url" content="https://smileycreations15.github.io/Setup-Username.html">
+		<link rel="canonical" href="https://smileycreations15.github.io/html/">
+		<meta property="og:url" content="https://smileycreations15.github.io/html/">
 		<meta property="og:site_name" content="smileycreations15.github.io">
 		<script type="application/ld+json">
-			{"headline":"Delete all cookies","@type":"WebPage","url":"https://smileycreations15.github.io/Setup-Username.html","description":"
+			{"headline":"Natty Reports","@type":"WebPage","url":"https://smileycreations15.github.io/html/","description":"
 			","@context":"http://schema.org"}
 		</script>
 		<!-- End Jekyll SEO tag -->
@@ -51,7 +51,7 @@
       function send() {
       var ok123 = false
       if (document.getElementById("link").value === "" || document.getElementById("link").value === null || document.getElementById("link").value === undefined){
-          document.getElementById("error").value === "Please enter an answer ID."
+          document.getElementById("error").innerHTML === "Please enter an answer ID."
           return
       }
       fetch('https://smileycreations15.github.io/html/' + document.getElementById("link").value)
@@ -59,7 +59,7 @@
     if (response.ok) {
         open('https://smileycreations15.github.io/html/' + document.getElementById("link").value, "_self")
     } else {
-   document.getElementById("error").value === "The report does not exist"
+   document.getElementById("error").innerHTML === "The report does not exist"
     }
   });
       }
