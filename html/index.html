@@ -56,7 +56,7 @@
       fetch('https://smileycreations15.github.io/html/' + document.getElementById("link").value)
   .then(response => {
     if (response.ok) {
-        open('https://smileycreations15.github.io/html/' + document.getElementById("link").value, "_self")
+        open('https://smileycreations15.github.io/html/reports/' + document.getElementById("link").value, "_self")
     } else {
    document.getElementById("error").innerHTML = "The report does not exist"
     }
