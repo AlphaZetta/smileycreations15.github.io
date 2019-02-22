@@ -7,6 +7,7 @@
 // @grant        GM.xmlHttpRequest
 // @grant        GM_xmlhttpRequest
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
+// @connect      chat.stackoverflow.com
 // ==/UserScript==
 
 var room = 188497;
