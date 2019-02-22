@@ -1,0 +1,11 @@
+<!DOCTYPE html><html><head><title>Compiling Opencv with Gstreamer, cmake not finding GStreamer</title></head><link href='style.css' rel='stylesheet' ><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><body><h2><a href='//stackoverflow.com/a/54829619'>Compiling Opencv with Gstreamer, cmake not finding GStreamer</a></h2><p class='feedback'></p><br /><pre style='border:1px solid black;border-radius:5px'><code><p>For those who are struggling with the same problem on Windows... I had to set following CMake Options:</p>
+
+<ol>
+<li>only set "WITH_GSTREAMER" option to True, "WITH_GSTREAMER_0_10" MUST BE FALSE</li>
+<li>add new entry "GSTREAMER_DIR"=(path to gstreamer)
+    for me it was "C:/gstreamer/1.0/x86_64"
+I found this solution <a href="https://github.com/opencv/opencv/issues/8836" rel="nofollow noreferrer">here</a></li>
+</ol>
+
+<p>My OpenCV version: 3.4.3</p>
+</code></pre><p>Posted by <a href='https://stackoverflow.com/users/3654155'>Butterfly</a> (36) at 2019-02-22T14:48:37Z</p><p>Caught for</p>Contains Blacklisted Word - ...<br/>Low Length<br/>No Code Block<br/>IntelliBL - -2.0<br/>Low Rep<br/></body></html>
