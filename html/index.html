@@ -50,7 +50,7 @@
       function send() {
       var ok123 = false
       if (document.getElementById("link").value === "" || document.getElementById("link").value === null || document.getElementById("link").value === undefined){
-          document.getElementById("error").innerHTML === "Please enter an answer ID."
+          document.getElementById("error").innerHTML = "Please enter an answer ID."
           return
       }
       fetch('https://smileycreations15.github.io/html/' + document.getElementById("link").value)
@@ -58,7 +58,7 @@
     if (response.ok) {
         open('https://smileycreations15.github.io/html/' + document.getElementById("link").value, "_self")
     } else {
-   document.getElementById("error").innerHTML === "The report does not exist"
+   document.getElementById("error").innerHTML = "The report does not exist"
     }
   });
       }
