@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><title>Zoo keeper SASL security</title></head><link href='style.css' rel='stylesheet' ><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><body><h2><a href='//stackoverflow.com/a/54842444'>Zoo keeper SASL security</a></h2><p class='feedback'></p><br /><pre style='border:1px solid black;border-radius:5px'><code><p>@Satya_1</p>
+
+<p>I got exactly the same issue as you. There is no "space" in my jaas. Here's my kafka_server_jaas.conf file.</p>
+
+<pre><code>Client {
+com.sun.security.auth.module.Krb5LoginModule required
+useKeyTab=true
+storeKey=true
+keyTab="/etc/security/keytabs/localhost.keytab"
+principal="kafka/localhost@EXAMPLE.COM";
+};
+</code></pre>
+
+<p>Do you happen to know what's the issue?
+TIA.</p>
+
+<p>BTW. i can't comment directly at the moment.</p>
+</code></pre><p>Posted by <a href='https://stackoverflow.com/users/11106054'>user11106054</a> (1) at 2019-02-23T14:06:54Z</p><p>Caught for</p>Contains Blacklisted Word - I can't comment<br/>Contains ?<br/>Low Length<br/>IntelliBL - -2.0<br/>Low Rep<br/></body></html>
