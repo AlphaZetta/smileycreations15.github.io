@@ -31,7 +31,7 @@
 		</section>
 		<section class="main-content">
 			<h3 id="to-set-your-username-on-this-github-pages-website-click-the-button-below">Gravatar icon display</h3>
-      <pre id="pre">https://gravatar.com/avatar/<input type="text" id="hash" oninput="image()">?d=<input type="text" id="default" oninput="image()" value="identicon">&s=<input type="number" id="size" oninput="image()" value="200">&f=<input type="checkbox" id="forceDefault" onchange="image()"><br>Text: <input type="text" id="text" oninput="text()"><br><br><img src="https://smileycreations15.github.io" id="img"></img></pre>
+      <pre id="pre">https://gravatar.com/avatar/<input type="text" id="hash" oninput="image()">?d=<input type="text" id="default" oninput="image()" value="identicon">&s=<input type="number" id="size" oninput="image()">&f=<input type="checkbox" id="forceDefault" onchange="image()"><br>Text: <input type="text" id="text" oninput="text()"><br><br><img src="https://gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=identicon" id="img"></img></pre>
 		<script src="https://smileycreations15.github.io/files/javascript/md5.js"></script>
 			<script>
 
@@ -41,7 +41,7 @@
         checked = "&f=y"
       }
       document.getElementById("img").setAttribute("src", "https://gravatar.com/avatar/" + encodeURIComponent(document.getElementById("hash").value) + "?d=" + encodeURIComponent(document.getElementById("default").value) + "&s=" + encodeURIComponent(String(document.getElementById("size").value)) + checked)
-      }fo
+      }
 				function text(){
 					document.getElementById("hash").value = md5(decodeURIComponent(encodeURIComponent(document.getElementById("text").value)));
 					image()
