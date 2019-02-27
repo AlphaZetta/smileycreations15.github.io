@@ -1,4 +1,4 @@
-export function setCookie(cname, cvalue, exdays) { // cname = cookie name, cvalue = cookie value, exdays = days the cookie will expire on
+function setCookie(cname, cvalue, exdays) { // cname = cookie name, cvalue = cookie value, exdays = days the cookie will expire on
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires="+d.toUTCString();
@@ -6,12 +6,12 @@ export function setCookie(cname, cvalue, exdays) { // cname = cookie name, cvalu
 }
 
 // Set a session cookie
-export function setSessionCookie(cname, cvalue) { // cname = cookie name, cvalue = cookie value
+function setSessionCookie(cname, cvalue) { // cname = cookie name, cvalue = cookie value
   document.cookie = cname + "=" + cvalue + ";" + ";path=/";
 }
 
 // Get a cookie
-export function getCookie(cname) { // cname = cookie name
+function getCookie(cname) { // cname = cookie name
   var name = cname + "=";
   var ca = document.cookie.split(';');
   for(var i = 0; i < ca.length; i++) {
@@ -27,6 +27,6 @@ export function getCookie(cname) { // cname = cookie name
 }
 
 // Delete a cookie
-export function deleteCookie(cname) { // cname = cookie name
+function deleteCookie(cname) { // cname = cookie name
   socument.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 }
