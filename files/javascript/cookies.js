@@ -29,7 +29,7 @@ _["dnsLookup"] = function(domain, recordType){
   return new Promise(function(resolve, reject){
   fetch("https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(domain) + "&type=" + encodeURIComponent(recordType),{"headers":{"accept":"application/dns-json"}}).then(function(response){
     if (response.ok){
-      resolve(response.json().answer)
+      resolve(response.json().Answer)
     } else {
       reject("Status code not 200. Status code: " + response.status)
     }
