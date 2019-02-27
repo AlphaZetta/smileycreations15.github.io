@@ -27,11 +27,17 @@ _["rmCookie"] = function(cname) {
 }
 _["dnsLookup"] = function(domain, recordType){
   return new Promise(function(resolve, reject){
-  fetch("https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(domain) + "&type=" + encodeURIComponent(recordType),{"headers":{"accept":"application/dns-json"}}).then(function(response){
+  fetch("https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(domain) + "&type=" + encodeURIComponent(recordType),{"headers":{"accept":"application/dns-json"}})
+    .then(response => {
     if (response.ok){
-      resolve(response.json())
+      return response.json();
     } else {
       reject("Status code not 200. Status code: " + response.status)
+    }
+    })
+    .then(function(response1){
+    if (response1 !== {}){
+      resolve(response1["Answer"])
     }
   }).catch(function(error){
     reject(error)
