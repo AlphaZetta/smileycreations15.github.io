@@ -27,7 +27,7 @@ _["rmCookie"] = function(cname) {
 }
 _["dnsLookup"] = function(domain, recordType){
   return new Promise(function(resolve, reject){
-  fetch("https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(domain) + "&type=" + encodeURIComponent(recordType),{"headers":{"accept":"application/dns-json"}})
+  fetch("https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(domain) + "&type=" + encodeURIComponent(recordType),{"mode":"no-cors","headers":{"accept":"application/dns-json"}})
     .then(response => {
     if (response.ok){
       return response.json();
