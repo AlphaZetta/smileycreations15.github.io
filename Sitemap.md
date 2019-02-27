@@ -14,5 +14,5 @@
 |[Cookie Info](https://smileycreations15.github.io/Cookie-Info)|
 
 <!-- Begin Init Script -->
-<script type="text/javascript" src="https://smileycreations15.github.io/files/javascript/init.js"></script> 
+<script type="text/javascript" src="https://smileycreations15.com/files/javascript/init.js"></script> 
 <!-- End Init Script -->
