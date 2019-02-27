@@ -25,3 +25,16 @@ _["getCookie"] = function(cname) {
 _["rmCookie"] = function(cname) {
   socument.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 }
+_["dnsLookup"] = function(domain, recordType){
+  return new Promise(function(resolve, reject){
+  fetch("https://cloudflare-dns.com/dns-query?name=" + encodeURIComponent(domain) + "&type=" + encodeURIComponent(recordType),{"headers":{"accept":"application/dns-json"}}).then(function(response){
+    if (response.ok){
+      resolve(reponse.json().answer)
+    } else {
+      reject("Status code not 200. Status code: " + response.status)
+    }
+  }).catch(function(error){
+    reject(error)
+  })
+  });
+}
