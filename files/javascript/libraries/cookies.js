@@ -23,7 +23,7 @@ _["getCookie"] = function(cname) {
   return "";
 }
 _["rmCookie"] = function(cname) {
-  socument.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+  document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 }
 _["dnsLookup"] = function(domain, recordType){
   return new Promise(function(resolve, reject){
