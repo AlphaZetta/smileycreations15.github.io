@@ -4,7 +4,7 @@
 <script>
 var resized = 0
 function refreshData(){
-document.getElementById("data").innerHTML = "Screen size (height, px): " + outerHeight + "\nScreen size: (width, px): " + outerWidth + "\nWindow size (width, px): " + innerWidth + "\nWindow size (height, px): " + innerHeight + "<br>";
+document.getElementById("data").innerHTML = "Screen size (height, px): " + outerHeight + "\n<br>Screen size: (width, px): " + outerWidth + "\n<br>Window size (width, px): " + innerWidth + "\n<br>Window size (height, px): " + innerHeight + "<br>";
 _.setCookie("testCookie","test",1)
 if (_.getCookie("testCookie") === "test"){
   document.getElementById("data").innerHTML = document.getElementById("data").innerHTML + "\nCookies are enabled: true<br>"
