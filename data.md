@@ -11,8 +11,7 @@ if (_.getCookie("testCookie") === "test"){
 } else {
   document.getElementById("data").innerHTML = document.getElementById("data").innerHTML + "\nCookies are enabled: false<br>"
 }
-document.getElementById("data").innerHTML + "\nPages visited before this page: " + String(history.length - 2) + "<br>"
-document.getElementById("data").innerHTML = document.getElementById("data").innerHTML + "\nPage that redirected you here: " + document.referrer + "<br>"
+document.getElementById("data").innerHTML = document.getElementById("data").innerHTML + "\nPages visited before this page: " + String(history.length - 2) + "<br>"
 document.getElementById("data").innerHTML = document.getElementById("data").innerHTML + "\nPage that redirected you here: " + document.referrer + "<br>"
 document.getElementById("data").innerHTML = document.getElementById("data").innerHTML + "\nWindow resized " + resized + " times" + "<br>"
 resized++
