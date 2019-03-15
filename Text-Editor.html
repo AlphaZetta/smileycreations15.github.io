@@ -39,7 +39,7 @@
 			<p></p>
 			<p>Upload data</p>
 			<input type="file" id="file" accept=".textdata" onchange="dat1()"><br><br>
-			<a id="download" download="data.textdata">Download data</a>
+			<a onclick="download1()">Download data</a>
 			<script>
 			const copyToClipboard = str => {
   const el = document.createElement('textarea');
@@ -51,11 +51,27 @@
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
-};
+};/*
 			if (null === localStorage.getItem("textEditor")){
 				localStorage.setItem("textEditor", "{\"textData\":{}}")
 			}
-			var data = JSON.parse(localStorage.getItem("textEditor"))
+			*/
+				function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+				function download1(){
+					download("data.textdata",JSON.stringify(data))
+				}
+			var data = {}
 			document.getElementById('download').href = "data:text/plain," + encodeURIComponent(JSON.stringify(data))
 			function embed2() {
 				if ("" !== document.getElementById('filename').value && document.getElementById('filename').value !== null && undefined !== data.textData[document.getElementById('filename').value]){
@@ -63,14 +79,12 @@
 				} else {
 					document.getElementById('text1').value = ""
 				}
-				document.getElementById('download').href = "data:text/plain," + encodeURIComponent(JSON.stringify(data))
 			}
 				function embed() {
 					if ("" !== document.getElementById('filename').value && document.getElementById('filename').value !== null && null !== document.getElementById('text1').value){
 						data.textData[document.getElementById('filename').value] = document.getElementById('text1').value
-						localStorage.setItem("textEditor", JSON.stringify(data))
+						// localStorage.setItem("textEditor", JSON.stringify(data))
 					}
-					document.getElementById('download').href = "data:text/plain," + encodeURIComponent(JSON.stringify(data))
 
 				}
 				function dat1(){
@@ -83,10 +97,9 @@
 						} catch {
 							return
 						}
-						document.getElementById('download').href = "data:text/plain," + encodeURIComponent(JSON.stringify(data))
 
 						data = JSON.parse(a)
-						localStorage.setItem("textEditor", JSON.stringify(data))
+						// localStorage.setItem("textEditor", JSON.stringify(data))
 	        })
 				}
 			</script>
