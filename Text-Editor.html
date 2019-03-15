@@ -75,6 +75,9 @@
 				}
 				function dat1(){
 					new Response(document.getElementById("file").files[0].slice()).text().then(a=>{
+						embed()
+						document.getElementById('filename').value = ""
+						document.getElementById('text1').value = ""
 						try {
 							JSON.parse(a)
 						} catch {
