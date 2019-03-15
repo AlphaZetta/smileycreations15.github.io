@@ -72,7 +72,6 @@
 					download("data.textdata",JSON.stringify(data))
 				}
 			var data = {}
-			document.getElementById('download').href = "data:text/plain," + encodeURIComponent(JSON.stringify(data))
 			function embed2() {
 				if ("" !== document.getElementById('filename').value && document.getElementById('filename').value !== null && undefined !== data.textData[document.getElementById('filename').value]){
 					document.getElementById('text1').value = data.textData[document.getElementById('filename').value]
