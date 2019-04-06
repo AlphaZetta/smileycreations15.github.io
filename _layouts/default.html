@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/assets/css/style.css?v=37629cf34105b435c3dc48d4e22617807e89891c">
     <script src="https://smileycreations15.com/files/javascript/init.js"></script>
 <link rel="manifest" href="/manifest.json">
-    {% if site.scripts != "" %}
-    {% for item in site.scripts %}
+    {% if page.scripts And page.scripts != "" And page.scripts != nil %}
+    {% for item in page.scripts %}
         <script src="{{ item }}"></script>
     {% endfor %}
     {% endif %}
@@ -24,7 +24,7 @@
 
     <section class="main-content">
     {{ content }}
-    {% if page.html != "" %}
+    {% if page.html And page.html != "" And page.html != nil %}
         {% include {{ page.html }} %}
     {% endif %}
       <footer class="site-footer">
