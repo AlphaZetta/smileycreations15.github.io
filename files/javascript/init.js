@@ -85,5 +85,5 @@ window.addEventListener('beforeinstallprompt', (e) => {
   b.onclick = installPWA
   b.id = "installPrompt"
     b.innerHTML = "Install app"
-  document.body.apppendChild(b)
+  document.body.appendChild(b)
 });
