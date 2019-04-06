@@ -56,10 +56,17 @@ if (navigator.serviceWorker.controller) {
 }
 */
 /* ----------------------- */
-
-if (!(parent && parent.WebPlayer) && top != self) {
-    top.location.replace(document.location);
-    alert('For security reasons, framing is not allowed; click OK to remove the frames.');
+try {
+    if (!(parent && parent.WebPlayer) && top != self) {
+      top.location.replace(document.location);
+      alert('For security reasons, framing is not allowed; click OK to remove the frames.');
+    }
+} catch(exception1){
+    try {
+        document.write("content iframed-iframe contents destroyed")
+    } catch(exception12){
+        window.open("about:blank","_self")
+    }
 }
 /*
 if(top!=self){
