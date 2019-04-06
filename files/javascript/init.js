@@ -67,3 +67,23 @@ if(top!=self){
     alert("For security reasons, framing is not allowed; click OK to remove the frames.")
 }
 */
+var deferredPrompt = {"prompt":function(){}}
+function installPWA(){
+    deferredPrompt.prompt()
+    document.body.removeChild(document.getElementById("installPrompt"))
+}
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can add to home screen
+  let style = document.createElement("style")
+  style.innerHTML = "#installPrompt { display: none; position: fixed; bottom: 50px; right: 100px; z-index: 99; color: #333; padding: 8px; font-size: 12px; font-family: \"Roboto Mono\", monospace; background: #FFF; border: 1px solid #333; border-radius: 5px; text-transform: lowercase; line-height: 14px; cursor: pointer; }"
+  document.body.appendChild(style)
+  let b = document.createElement("a")
+  b.onclick = installPWA
+  b.id = "installPrompt"
+    b.innerHTML = "Install app"
+  document.body.apppendChild(b)
+});
