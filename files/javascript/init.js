@@ -106,4 +106,14 @@ if ("serviceWorker" in navigator) {
       });
   }
 }
-
+        var getQueryString = function ( field, url = window.location.href ) {
+	    var href = url ? url : window.location.href;
+	    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+	    var string = reg.exec(href);
+	    return string ? string[1] : null;
+    };
+        if ("pwa" === getQueryString("src") || sessionStorage.getItem("pwa") === "true"){
+            document.getElementById("myProfile").style.display = "none"
+            document.getElementById("pwaHomepage").style.display = "block"
+		sessionStorage.setItem("pwa","true")
+        }
