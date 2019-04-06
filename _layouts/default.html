@@ -13,13 +13,26 @@
         <script src="{{ item }}"></script>
     {% endfor %}
     {% endif %}
+    <script>
+        var getQueryString = function ( field, url = window.location.href ) {
+	    var href = url ? url : window.location.href;
+	    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+	    var string = reg.exec(href);
+	    return string ? string[1] : null;
+    };
+        if ("pwa" === getQueryString("src")){
+            document.getElementById("myProfile").style.display = "none"
+            document.getElementById("pwaHomepage").style.display = "block"
+        }
+    </script>
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">smileycreations15.com</h1>
       <h2 class="project-tagline">A website on GitHub Pages</h2>
       
-      <a href="https://github.com/smileycreations15" class="btn">My Profile</a>
+      <a href="https://github.com/smileycreations15" id="myProfile" class="btn">My Github Profile</a>
+        <a href="/" id="pwaHomepage" style="display:none" class="btn">Back To Homepage</a>
     </section>
 
     <section class="main-content">
