@@ -1,4 +1,3 @@
-{% include initial.html %}
 <h2>This is my website</h2>
 <p>Website of <a href="https://github.com/smileycreations15/">smileycreations15</a></p>
 <p>Recently created page: <a href="https://smileycreations15.github.io/ScratchFont">ScratchFont Download</a></p>
@@ -10,3 +9,4 @@ Note: We are using cookies to give you a better experience. By continuing to bro
 <a href="https://smileycreations15.github.io/Sitemap">Sitemap</a>
 
 Website status: <br />![Website Status](https://smileycreations15.com/files/status/smileycreations15.github.io/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
+{% include initial.html %}
