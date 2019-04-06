@@ -3,7 +3,7 @@
     "name" : "smileycreations15",
     "scope" : "/",
     "display" : "browser",
-    "start_url" : "https://smileycreations15.com/?src=pwa",
+    "start_url" : "https://smileycreations15.com/pwa.html?src=pwa",
     "short_name" : "smileycreations15",
     "theme_color" : "#157878",
     "description" : "",
