@@ -11,5 +11,7 @@
     "orientation" : "any",
     "prefer_related_applications" : false,
     "generated" : "true",
+ "display":"fullscreen",
     "icons" : [
+        "/files/images/icon.png"
     ]}
