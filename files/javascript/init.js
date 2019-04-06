@@ -112,4 +112,8 @@ if ("serviceWorker" in navigator) {
 	    var string = reg.exec(href);
 	    return string ? string[1] : null;
     };
-
+     if ("pwa" === getQueryString("src")){
+            document.getElementById("myProfile").style.display = "none"
+            document.getElementById("pwaProfile").style.display = "block"
+		// sessionStorage.setItem("pwa","true")
+        }
