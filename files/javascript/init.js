@@ -63,7 +63,8 @@ try {
     }
 } catch(exception1){
     try {
-        document.write("content iframed-iframe contents destroyed")
+        document.body.innerHTML = "iframe check failed--webpage contents destroyed"
+        document.head.innerHTML = ""
     } catch(exception12){
         window.open("about:blank","_self")
     }
