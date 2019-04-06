@@ -11,7 +11,12 @@
     "orientation" : "any",
     "prefer_related_applications" : false,
     "generated" : "true",
- "display":"fullscreen",
+    "display":"standalone",
     "icons" : [
-        "https://smileycreations15.com/files/images/icon.png"
-    ]}
+        {
+            "src": "https://smileycreations15.com/files/images/icon.png",
+            "type": "image/png",
+            "sizes": "150x150"
+        }
+    ]
+}
