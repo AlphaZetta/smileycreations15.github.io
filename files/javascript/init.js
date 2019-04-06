@@ -41,7 +41,7 @@ if (null === getCookie("userID")){
     console.log("%c Successfully set persistent cookie ", "color: #4CAF50; background-color: green;")
 }
 /* ----------------------- */
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+// This is the "Offline copy of pages" service worker
 
 // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
 
@@ -52,7 +52,7 @@ if ("serviceWorker" in navigator) {
   } else {
     // Register the service worker
     navigator.serviceWorker
-      .register("service.js", {
+      .register("pwabuilder-sw.js", {
         scope: "./"
       })
       .then(function (reg) {
