@@ -13,19 +13,6 @@
         <script src="{{ item }}"></script>
     {% endfor %}
     {% endif %}
-    <script>
-        var getQueryString = function ( field, url = window.location.href ) {
-	    var href = url ? url : window.location.href;
-	    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-	    var string = reg.exec(href);
-	    return string ? string[1] : null;
-    };
-        if ("pwa" === getQueryString("src") || sessionStorage.getItem("pwa") === "true"){
-            document.getElementById("myProfile").style.display = "none"
-            document.getElementById("pwaHomepage").style.display = "block"
-		sessionStorage.setItem("pwa","true")
-        }
-    </script>
   </head>
   <body>
     <section class="page-header">
@@ -34,8 +21,7 @@
       
       <a href="https://github.com/smileycreations15" id="myProfile" class="btn">My Github Profile</a>
         <a href="/" id="pwaHomepage" style="display:none" class="btn">Go To Homepage</a>
-    </section>
-
+	  </section>
     <section class="main-content">
     {{ content }}
     {% if page.html And page.html != "" And page.html != nil %}
