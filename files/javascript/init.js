@@ -113,7 +113,7 @@ if ("serviceWorker" in navigator) {
 	    return string ? string[1] : null;
     };
      if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.html"){
-            docudocument.getElementById("myProfile").style.display = "none"
+            document.getElementById("myProfile").style.display = "none"
             document.getElementById("pwaProfile").style.display = ""
 		// sessionStorage.setItem("pwa","true")
         }
