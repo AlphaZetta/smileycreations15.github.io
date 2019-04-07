@@ -72,3 +72,17 @@ function updateCache(request, response) {
 self.addEventListener('activate', function(event){
     console.log('Service worker activated');
 });
+self.addEventListener('message', function(event){
+   if (typeof event.data !== "object") return;
+   if (event.data.type === "cachePwa"){
+         fetch("/pwa")
+      .then(function (response) {
+        console.log("[service worker] add page to offline cache by request: " + response.url);
+
+        // If request was success, add or update it in the cache
+        event.waitUntil(updateCache("/pwa", response.clone()));
+
+        return response;
+      })
+   }
+});
