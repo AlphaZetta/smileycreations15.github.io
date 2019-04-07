@@ -68,3 +68,12 @@ function updateCache(request, response) {
     return cache.put(request, response);
   });
 }
+// Install Service Worker
+self.addEventListener('install', function(event){
+    console.log('Service worker installed.');
+});
+
+// Service Worker Active
+self.addEventListener('activate', function(event){
+    console.log('Service worker activated');
+});
