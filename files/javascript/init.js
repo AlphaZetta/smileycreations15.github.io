@@ -71,7 +71,7 @@ if(top!=self){
 */
 var deferredPrompt = {"prompt":function(){}}
 function installPWA(){
-    history.replaceState({},"smileycreations15","/pwa")
+    // history.replaceState({},"smileycreations15","/pwa")
     dialogBox("top-left","notice","Please a few seconds to install the app.")
     deferredPrompt.prompt()
     document.body.removeChild(document.getElementById("installPrompt"))
@@ -103,7 +103,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   b.id = "installPrompt"
     b.innerHTML = "Install app"
   let paths = ["/pwa","/pwa.html"]
-  if (paths.includes(window.location.pathname)){
+  if (paths.includes(window.location.pathname)){ //  && savedPath === window.location.pathname
 	dialogBox("top-left","error","A unexpected event is triggered. Please reinstall the app.")
   	return
   }
