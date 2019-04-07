@@ -13,3 +13,4 @@
 |[HTML Editor Autosave](https://smileycreations15.github.io/HTML-Editor-Autosave)|
 |[Cookie Info](https://smileycreations15.github.io/Cookie-Info)|
 |[Browser Tab Data](https://smileycreations15.com/data)|
+|[FAQ](https://smileycreations15.com/FAQ)|
