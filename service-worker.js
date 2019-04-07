@@ -82,7 +82,7 @@ self.addEventListener('message', function(event){
         console.log("[service worker] add page to offline cache by request: " + response.url);
 
         // If request was success, add or update it in the cache
-        event.waitUntil(updateCache("/pwa", response.clone()));
+        updateCache("/pwa", response.clone())
 
         return response;
       })
