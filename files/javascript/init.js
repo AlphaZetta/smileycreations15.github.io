@@ -1,5 +1,6 @@
 /* ----------------------- */
 let savedPath = window.location.pathname
+let init123 = 0
 function create_UUID(){
     var dt = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -79,6 +80,14 @@ function installPWA(){
     	navigator.serviceWorker.controller.postMessage({"type":"cachePwa"});
     }
 }
+if ("1" !== localStoreage.getItem("welcome")){
+  dialogBox("top-left","notice","Welcome! This site uses modern web technology. Please use a up to date browser to use many features!")
+  localStoreage.setItem("welcome","1")
+}
+if ("1" !== localStoreage.getItem("cookie")){
+  dialogBox("bar-bottom","notice","This site uses cookies and other web storage. By continuing to browse thşs site, you agree with the use of cookies.")
+  localStoreage.setItem("cookie","1")
+}
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
@@ -100,6 +109,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
   }
   document.body.appendChild(b)
   history.replaceState({},"smileycreations15",savedPath)
+  init123 = setTimeout(function(){
+    dialogBox("top-left","notice","Hi! You can install our app by clicking the 'Install app' button at the bottom right corner.")
+  },20000)
 })
        // This is the "Offline copy of pages" service worker
 
