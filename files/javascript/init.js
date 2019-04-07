@@ -1,4 +1,5 @@
 /* ----------------------- */
+let savedPath = window.location.pathname
 function create_UUID(){
     var dt = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -69,6 +70,7 @@ if(top!=self){
 */
 var deferredPrompt = {"prompt":function(){}}
 function installPWA(){
+    history.replaceState({},"smileycreations15","/pwa")
     dialogBox("top-left","notice","Please a few seconds to install the app.")
     deferredPrompt.prompt()
     document.body.removeChild(document.getElementById("installPrompt"))
@@ -97,7 +99,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
   	return
   }
   document.body.appendChild(b)
-});
+  history.replaceState({},"smileycreations15",savedPath)
+})
        // This is the "Offline copy of pages" service worker
 
 // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
