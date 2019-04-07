@@ -91,6 +91,11 @@ window.addEventListener('beforeinstallprompt', (e) => {
   b.onclick = installPWA
   b.id = "installPrompt"
     b.innerHTML = "Install app"
+  let paths = ["/pwa","/pwa.html"]
+  if (paths.includes(window.location.pathname)){
+	dialogBox("top-left","error","A unexpected event is triggered. Please reinstall the app.")
+  	return
+  }
   document.body.appendChild(b)
 });
        // This is the "Offline copy of pages" service worker
