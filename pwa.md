@@ -2,10 +2,6 @@
 scripts:
     - /files/javascript/pwa.js
 ---
-<h2 id="error-1">Browser Incompatible</h2>
-<p id="error-2">
-Please enable javascript to use the PWA.
-</p>
 <h2>This is my website</h2>
 <p>Website of <a href="javascript:void(0)" onclick="openPwaUrl('https://github.com/smileycreations15/')" target="_blank">smileycreations15</a></p>
 <p>Recently created page: <a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.github.io/ScratchFont')" target="_blank">ScratchFont Download</a></p>
