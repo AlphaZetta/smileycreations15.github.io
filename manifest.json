@@ -13,12 +13,13 @@
   "prefer_related_applications" : false,
   "generated" : "true",
   "icons" : [
-      "src" : "/pwa/ios/ios-launchimage-1242-2208.png",
-      "sizes" : "1242x2208"
-    },
-    {
-      "src" : "/pwa/ios/ios-launchimage-2208-1242.png",
-      "sizes" : "2208x1242"
-    }
+      {
+          "src" : "/pwa/ios/ios-launchimage-1242-2208.png",
+          "sizes" : "1242x2208"
+      },
+      {
+          "src" : "/pwa/ios/ios-launchimage-2208-1242.png",
+          "sizes" : "2208x1242"
+      }
   ]
 }
