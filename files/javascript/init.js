@@ -85,7 +85,7 @@ if ("1" !== localStorage.getItem("welcome")){
   localStorage.setItem("welcome","1")
 }
 if ("1" !== localStorage.getItem("cookie")){
-  dialogBox("bar-bottom","notice","This site uses cookies and other web storage. By continuing to browse thşs site, you agree with the use of cookies.")
+  dialogBox("bar-bottom","plain","This site uses cookies and other web storage. By continuing to browse this site, you agree with the use of cookies.")
   localStorage.setItem("cookie","1")
 }
 window.addEventListener('beforeinstallprompt', (e) => {
