@@ -1,6 +1,7 @@
 ---
 scripts:
     - /files/javascript/pwa.js
+title: smileycreations15
 ---
 <h2>This is my website</h2>
 <p>Website of <a href="javascript:void(0)" onclick="openPwaUrl('https://github.com/smileycreations15/')" target="_blank">smileycreations15</a></p>
