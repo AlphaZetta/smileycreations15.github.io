@@ -5,7 +5,7 @@
 |[GitHub Tutorials Part 1 - What is Git and GitHub](https://smileycreations15.github.io/GitHub-Tutorials/1)|
 |[Homepage](https://smileycreations15.github.io/)|
 |[Set your Username](https://smileycreations15.github.io/Setup-Username)|
-|[ScratchFont](https://smileycreations15.github.io/ScratchFont)|
+|[ScratchFont Download](https://smileycreations15.github.io/ScratchFont)|
 |[Delete all Cookies](https://smileycreations15.github.io/Delete-Cookies)|
 |[HTML Editor](https://smileycreations15.github.io/HTML-Editor)|
 |[HTML Editor v1.0](https://smileycreations15.github.io/HTML-Editor-v1.0)|
