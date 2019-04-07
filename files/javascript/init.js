@@ -71,6 +71,7 @@ var deferredPrompt = {"prompt":function(){}}
 function installPWA(){
     deferredPrompt.prompt()
     document.body.removeChild(document.getElementById("installPrompt"))
+    navigator.serviceWorker.controller.postMessage({"type":"cachePwa"});
 }
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
