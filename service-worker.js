@@ -74,6 +74,8 @@ self.addEventListener('activate', function(event){
 });
 self.addEventListener('message', function(event){
    if (typeof event.data !== "object") return;
+  console.log("[service worker] message received.")
+  console.log(event.data)
    if (event.data.type === "cachePwa"){
          fetch("/pwa")
       .then(function (response) {
