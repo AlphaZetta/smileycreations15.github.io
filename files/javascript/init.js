@@ -80,13 +80,13 @@ function installPWA(){
     	navigator.serviceWorker.controller.postMessage({"type":"cachePwa"});
     }
 }
-if ("1" !== localStoreage.getItem("welcome")){
+if ("1" !== localStorage.getItem("welcome")){
   dialogBox("top-left","notice","Welcome! This site uses modern web technology. Please use a up to date browser to use many features!")
-  localStoreage.setItem("welcome","1")
+  localStorage.setItem("welcome","1")
 }
-if ("1" !== localStoreage.getItem("cookie")){
+if ("1" !== localStorage.getItem("cookie")){
   dialogBox("bar-bottom","notice","This site uses cookies and other web storage. By continuing to browse thşs site, you agree with the use of cookies.")
-  localStoreage.setItem("cookie","1")
+  localStorage.setItem("cookie","1")
 }
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
