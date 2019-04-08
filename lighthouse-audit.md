@@ -19,4 +19,5 @@ Website status: <br />![Website Status](https://smileycreations15.com/files/stat
   dialogBox("bar-bottom","error","test")
   dialogBox("bar-bottom","question","test")
   dialogBox("bar-bottom","warning","test")
+  dialogBox("bar-bottom","success","test")
 </script>
