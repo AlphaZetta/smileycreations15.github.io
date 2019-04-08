@@ -110,10 +110,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
   	return
   }
   document.body.appendChild(b)
-  history.replaceState({},"smileycreations15",savedPath)
+  // history.replaceState({},"smileycreations15",savedPath)
+	/*
   init123 = setTimeout(function(){
     dialogBox("top-left","notice","Hi! You can install our app by clicking the 'Install app' button at the bottom right corner.")
   },20000)
+  */
   // history.replaceState({},"smileycreations15",savedPath)
 })
        // This is the "Offline copy of pages" service worker
