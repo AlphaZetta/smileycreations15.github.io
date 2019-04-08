@@ -37,6 +37,14 @@
 
       <a href="https://github.com/smileycreations15" id="myProfile" rel="noreferrer" class="btn">My Github Profile</a>
 	    <a href="https://github.com/smileycreations15" id="pwaProfile" rel="noreferrer" target="_blank" style="display:none" class="btn">My Github Profile</a>
+            {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %}
+            {% if page.noScriptWarning != "true" %}
+    <noscript>
+    <h2>JavaScript Required</h2>
+    <p>Please enable JavaScript for the website to function.</p>
+    </noscript>
+    {% endif %}
+        {% endif %}
 	  </section>
     <section class="main-content">
     {{ content }}
