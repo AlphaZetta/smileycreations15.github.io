@@ -3,7 +3,7 @@ dialogBox = function dialogBox(location = "top-left",type = "plain",dialogConten
   dialog.className = "notify " + location + " do-show font-notify"
   dialog.dataset.notificationStatus = type
   dialog.innerHTML = dialogContent
-  let blackText = ["info","success"]
+  let blackText = ["success","notice","error","warning"]
   if (blackText.includes(type) && black !== false){
     dialog.style.color = "black"
   }
