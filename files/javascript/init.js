@@ -72,7 +72,7 @@ if(top!=self){
 var deferredPrompt = {"prompt":function(){}}
 function installPWA(){
     // history.replaceState({},"smileycreations15","/pwa")
-    dialogBox("top-left","notice","Please a few seconds to install the app.")
+    // dialogBox("top-left","notice","Please a few seconds to install the app.")
     deferredPrompt.prompt()
     document.body.removeChild(document.getElementById("installPrompt"))
 	document.body.removeChild(document.getElementById("buttonStyle"))
