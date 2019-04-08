@@ -98,7 +98,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Update UI notify the user they can add to home screen
   let style = document.createElement("style")
   style.id = "buttonStyle"
-style.innerHTML = '#installPrompt { bottom: 50px; right: 100px;background: #FFF;position: fixed; z-index: 99; color: #333; padding: 8px; font-size: 12px; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; border: 1px solid #333; border-radius: 5px; line-height: 14px; cursor: pointer; } @media screen and (max-width:64em) {#installPrompt { bottom: 15px; right: 25px; }}'   // "Roboto Mono\", monospace 
+style.innerHTML = '#installPrompt { bottom: 50px; right: 100px;background: #FFF;position: fixed; z-index: 99; color: #333; padding: 8px; font-size: 12px; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; border: 1px solid #333; border-radius: 5px; line-height: 14px; cursor: pointer; } @media screen and (max-width: 42em) {#installPrompt { bottom: 15px; right: 25px; }}'   // "Roboto Mono\", monospace 
 	/*
    background: #FFF;
   */
