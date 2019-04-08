@@ -5,7 +5,7 @@
   <h4>Installing on MacOS/Linux/Windows/Android with Chrome</h4>
   <ol>
   <li>Open this site in Google Chrome</li>
-  <li>Interact with the domain for 30 seconds until you see the <kbd>Install app</kbd> button.</li>
+  <li>Interact with the domain until you see the <kbd>Install app</kbd> button.</li>
   <li>Click <kbd>Install app</kbd>.</li>
   </ol>
   <h4>Install in iOS</h4>
