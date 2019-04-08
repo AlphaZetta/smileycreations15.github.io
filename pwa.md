@@ -16,5 +16,5 @@ Note: We are using cookies to give you a better experience. By continuing to bro
 Website status: <br />![Website Status](https://smileycreations15.com/files/status/smileycreations15.github.io/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
 <noscript>
     <h2>JavaScript Required</h2>
-    <p<Please enable javascript for the app to function.</p>
+    <p>Please enable javascript for the app to function.</p>
 </noscript>
