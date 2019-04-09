@@ -109,7 +109,7 @@ style.innerHTML = '#installPrompt { bottom: 50px; right: 100px;background: #FFF;
     b.innerHTML = "Install app"
   let paths = ["/pwa","/pwa.html"]
   if (paths.includes(window.location.pathname)){ //  && savedPath === window.location.pathname
-	dialogBox("top-left","error","A unexpected event is triggered. Please reinstall the app.")
+	// dialogBox("top-left","error","A unexpected event is triggered. Please reinstall the app.")
   	return
   }
   document.body.appendChild(b)
