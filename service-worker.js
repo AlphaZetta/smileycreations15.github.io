@@ -90,4 +90,18 @@ self.addEventListener('message', function(event){
         return response;
       })
    }
+     if (event.data.action === "forceCache"){
+       try {
+        fetch((new URL("event.data.cacheUrl")).pathname)
+      .then(function (response) {
+        console.log("[service worker] add page to offline cache by request: " + response.url);
+
+        // If request was success, add or update it in the cache
+        updateCache((new URL("event.data.cacheUrl")).pathname, response.clone())
+
+        return response;
+        } catch(e){
+        }
+      })
+   }
 });
