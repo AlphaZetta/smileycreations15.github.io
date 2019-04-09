@@ -1,4 +1,5 @@
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+// This is the service worker with the combined offline experience (Offline page + Offline copy of pages) 
+// trigger worker update
 
 const CACHE = "pwabuilder-offline-page";
 
