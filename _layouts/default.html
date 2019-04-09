@@ -60,7 +60,7 @@
                                             b.onclick = function(){document.body.removeChild(document.getElementById("updatePrompt"));document.body.removeChild(document.getElementById("buttonStyle1"));window.installUpdatedPwa(newWorker)}
                                             b.id = "updatePrompt"
                                             b.innerHTML = "Update app"
-
+						document.body.appendChild(b)
                                         break;
                                     }
                             }
