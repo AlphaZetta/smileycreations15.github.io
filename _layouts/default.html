@@ -2,8 +2,6 @@
 <html lang="en-US"><head>
     <meta charset="UTF-8">
 
-<title>{{ page.title }}</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link rel="stylesheet" href="/files/css/style.css">
@@ -18,6 +16,11 @@
     {% for item in page.headScripts %}
         <script src="{{ item }}"></script>
     {% endfor %}
+    {% endif %}
+    {% if page.title And page.title != "" And page.title != nil %}
+	<title>{{ page.title }}</title>
+    {% else %}
+	<title>smileycreations15</title>
     {% endif %}
     {% if page.desc And page.desc != "" And page.desc != nil %}
     <meta name="Description" content="{{ page.desc }}">
