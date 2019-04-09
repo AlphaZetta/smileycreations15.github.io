@@ -79,7 +79,7 @@ self.addEventListener('message', function(event){
    if (typeof event.data !== "object") return;
   console.log("[service worker] message received.")
   console.log(event.data)
-   if (event.data.type === "cachePwa"){
+   if (event.data.action === "cachePwa"){
          fetch("/pwa")
       .then(function (response) {
         console.log("[service worker] add page to offline cache by request: " + response.url);
