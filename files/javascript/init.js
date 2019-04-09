@@ -77,7 +77,7 @@ function installPWA(){
     document.body.removeChild(document.getElementById("installPrompt"))
 	document.body.removeChild(document.getElementById("buttonStyle"))
     if (null !== navigator.serviceWorker.controller){
-    	navigator.serviceWorker.controller.postMessage({"type":"cachePwa"});
+    	navigator.serviceWorker.controller.postMessage({"action":"cachePwa"});
     }
 }
 /*
