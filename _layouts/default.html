@@ -1,110 +1,130 @@
 <!DOCTYPE HTML>
-<html lang="en-US"><head>
+<html lang="en-US">
+
+<head>
     <meta charset="UTF-8">
-	<script>
-		if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("[PWA Builder] active service worker found, no need to register");
-  }
-    // Register the service worker
-    navigator.serviceWorker
-      .register("service-worker.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-	    reg.addEventListener('updatefound', () => {
+    <script>
+        window.installUpdatedPwa = function(worker) {
+		            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Preparing...</p>"
 
-        // An updated service worker has appeared in reg.installing!
-        newWorker = reg.installing;
+            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Sending worker message...</p>"
+            worker.postMessage({
+                action: 'skipWaiting'
+            });
+            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Adding event listener...</p>"
+                // The event listener that is fired when the service worker updates
+                // Here we reload the page
+            navigator.serviceWorker.addEventListener('controllerchange', function() {
+                if (window.refreshing) return;
+                document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Done!<br>Reloading page...</p>"
+                window.location.reload();
+                window.refreshing = true;
+            });
+            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Waiting for worker update...</p>"
 
-        newWorker.addEventListener('statechange', () => {
+        }
 
-          // Has service worker state changed?
-          switch (newWorker.state) {
-            case 'installed':
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            }
+            // Register the service worker
+            navigator.serviceWorker
+                .register("service-worker.js", {
+                    scope: "./"
+                })
+                .then(function(reg) {
+                    console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                    reg.addEventListener('updatefound', () => {
 
-	// There is a new service worker available, show the notification
-              if (navigator.serviceWorker.controller) {
-		   if (typeof window.installUpdatedPwa === "function"){window.installUpdatedPwa(newWorker)}
+                        // An updated service worker has appeared in reg.installing!
+                        newWorker = reg.installing;
 
-              break;
-          }
-          }
-        });
-                                  })})}
-            
-	</script>
+                        newWorker.addEventListener('statechange', () => {
+
+                            // Has service worker state changed?
+                            switch (newWorker.state) {
+                                case 'installed':
+
+                                    // There is a new service worker available, show the notification
+                                    if (navigator.serviceWorker.controller) {
+                                        if (typeof window.installUpdatedPwa === "function") {
+                                            let style = document.createElement("style")
+                                            style.id = "buttonStyle1"
+                                            style.innerHTML = '#installPrompt { bottom: 50px; right: 100px;background: #FFF;position: fixed; z-index: 99; color: #333; padding: 8px; font-size: 12px; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; border: 1px solid #333; border-radius: 5px; line-height: 14px; cursor: pointer; } @media screen and (max-width: 42em) {#installPrompt { bottom: 15px; right: 25px; }}' // "Roboto Mono\", monospace 
+                                                /*
+   background: #FFF;
+  */
+                                            document.body.appendChild(style)
+                                            let b = document.createElement("a")
+                                            b.onclick = function(){document.body.removeChild(document.getElementById("updatePrompt"));document.body.removeChild(document.getElementById("buttonStyle1"));window.installUpdatedPwa(newWorker)}
+                                            b.id = "updatePrompt"
+                                            b.innerHTML = "Update app"
+                                        }
+
+                                        break;
+                                    }
+                            }
+                        });
+                    })
+                })
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link rel="stylesheet" href="/files/css/style.css">
     <link rel="manifest" href="/manifest.json">
-	  <link rel="icon" type="image/x-icon" href="/files/images/favicon.ico">
-	<!--
+    <link rel="icon" type="image/x-icon" href="/files/images/favicon.ico">
+    <!--
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/files/images/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 	-->
-    {% if page.headScripts And page.headScripts != "" And page.headScripts != nil %}
-    {% for item in page.headScripts %}
-        <script src="{{ item }}"></script>
-    {% endfor %}
-    {% endif %}
-    {% if page.title And page.title != "" And page.title != nil %}
-	<title>{{ page.title }}</title>
+    {% if page.headScripts And page.headScripts != "" And page.headScripts != nil %} {% for item in page.headScripts %}
+    <script src="{{ item }}"></script>
+    {% endfor %} {% endif %} {% if page.title And page.title != "" And page.title != nil %}
+    <title>{{ page.title }}</title>
     {% else %}
-	<title>smileycreations15</title>
-    {% endif %}
-    {% if page.desc And page.desc != "" And page.desc != nil %}
-    <meta name="Description" content="{{ page.desc }}">
-    {% else %}
-    <meta name="Description" content="A website on GitHub Pages.">
-    {% endif %}
+    <title>smileycreations15</title>
+    {% endif %} {% if page.desc And page.desc != "" And page.desc != nil %}
+    <meta name="Description" content="{{ page.desc }}"> {% else %}
+    <meta name="Description" content="A website on GitHub Pages."> {% endif %}
     <style>
         .site-footer-credits {
-            color:#606c71;
+            color: #606c71;
         }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <section class="page-header">
-      <h1 class="project-name">smileycreations15.com</h1>
-      <h2 class="project-tagline">A website on GitHub Pages</h2>
+        <h1 class="project-name">smileycreations15.com</h1>
+        <h2 class="project-tagline">A website on GitHub Pages</h2>
 
-      <a href="https://github.com/smileycreations15" id="myProfile" rel="noopener noreferrer" class="btn">My Github Profile</a>
-	    <a href="https://github.com/smileycreations15" id="pwaProfile" rel="noopener noreferrer" target="_blank" style="display:none" class="btn">My Github Profile</a>
-            {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %}
-            {% if page.noScriptWarning != "true" %}
-    <noscript>
-    <h2>JavaScript Required</h2>
-    <p>Please enable JavaScript for the website to function.</p>
-    </noscript>
-    {% endif %}
-	    {% else %}
-	        <noscript>
-    <h2>JavaScript Required</h2>
-    <p>Please enable JavaScript for the website to function.</p>
-    </noscript>
+        <a href="https://github.com/smileycreations15" id="myProfile" rel="noopener noreferrer" class="btn">My Github Profile</a>
+        <a href="https://github.com/smileycreations15" id="pwaProfile" rel="noopener noreferrer" target="_blank" style="display:none" class="btn">My Github Profile</a> {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %} {% if page.noScriptWarning != "true" %}
+        <noscript>
+            <h2>JavaScript Required</h2>
+            <p>Please enable JavaScript for the website to function.</p>
+        </noscript>
+        {% endif %} {% else %}
+        <noscript>
+            <h2>JavaScript Required</h2>
+            <p>Please enable JavaScript for the website to function.</p>
+        </noscript>
         {% endif %}
-	  </section>
+    </section>
     <section class="main-content" id="main-content-body">
-    {{ content }}
-    {% if page.html And page.html != "" And page.html != nil %}
-        {% include {{ page.html }} %}
-    {% endif %}
-	        {% if page.scripts And page.scripts != "" And page.scripts != nil %}
-    	{% for item1 in page.scripts %}
-    	    <script style="display:none" src="{{ item1 }}"></script>
-    	{% endfor %}
-    	{% endif %}
-	    <script style="display:none" src="/files/javascript/init.min.js"></script>
-      <footer class="site-footer">
+        {{ content }} {% if page.html And page.html != "" And page.html != nil %} {% include {{ page.html }} %} {% endif %} {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
+        <script style="display:none" src="{{ item1 }}"></script>
+        {% endfor %} {% endif %}
+        <script style="display:none" src="/files/javascript/init.min.js"></script>
+        <footer class="site-footer">
 
-          <span class="site-footer-credits">This site is <a href="https://github.com/smileycreations15/smileycreations15.github.io/" rel="noreferrer noopener">open source</a>. Modified from the Cayman theme.</span>
-      </footer>
+            <span class="site-footer-credits">This site is <a href="https://github.com/smileycreations15/smileycreations15.github.io/" rel="noreferrer noopener">open source</a>. Modified from the Cayman theme.</span>
+        </footer>
     </section>
 
+</body>
 
-
-
-</body></html>
+</html>
