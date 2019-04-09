@@ -13,8 +13,7 @@
       })
       .then(function (reg) {
         console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-	    window.location.reload()
-	    reg.postMessage({"action":"forceCache","cacheUrl":window.location.href})
+	    reg.active.postMessage({"action":"forceCache","cacheUrl":window.location.href})
       });
   }
 }
