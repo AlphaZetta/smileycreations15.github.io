@@ -26,7 +26,7 @@
 
 	// There is a new service worker available, show the notification
               if (navigator.serviceWorker.controller) {
-		   if (typeof window.installUpdatedPwa === "function"){window.installUpdatedPwa()}
+		   if (typeof window.installUpdatedPwa === "function"){window.installUpdatedPwa(newWorker)}
 
               break;
           }
