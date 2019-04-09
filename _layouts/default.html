@@ -4,26 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <script>
-        window.installUpdatedPwa = function(worker) {
-		            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Preparing...</p>"
-
-            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Sending worker message...</p>"
-            worker.postMessage({
-                action: 'skipWaiting'
-            });
-            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Adding event listener...</p>"
-                // The event listener that is fired when the service worker updates
-                // Here we reload the page
-            navigator.serviceWorker.addEventListener('controllerchange', function() {
-                if (window.refreshing) return;
-                document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Done!<br>Reloading page...</p>"
-                window.location.reload();
-                window.refreshing = true;
-            });
-            document.getElementById("main-content-body").innerHTML = "<h2>PWA Update in progress...</h2><p id='pwaStatus'>Status: Waiting for worker update...</p>"
-
-        }
-
         if ("serviceWorker" in navigator) {
             if (navigator.serviceWorker.controller) {
                 console.log("[PWA Builder] active service worker found, no need to register");
@@ -35,37 +15,7 @@
                 })
                 .then(function(reg) {
                     console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-                    reg.addEventListener('updatefound', () => {
-
-                        // An updated service worker has appeared in reg.installing!
-                        window.newWorker = reg.installing;
-			    newWorker = window.newWorker
-
-                        newWorker.addEventListener('statechange', () => {
-
-                            // Has service worker state changed?
-                            switch (newWorker.state) {
-                                case 'installed':
-
-                                    // There is a new service worker available, show the notification
-                                    if (navigator.serviceWorker.controller) {
-                                            let style = document.createElement("style")
-                                            style.id = "buttonStyle1"
-                                            style.innerHTML = '#installPrompt { bottom: 50px; right: 100px;background: #FFF;position: fixed; z-index: 99; color: #333; padding: 8px; font-size: 12px; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; border: 1px solid #333; border-radius: 5px; line-height: 14px; cursor: pointer; } @media screen and (max-width: 42em) {#installPrompt { bottom: 15px; right: 25px; }}' // "Roboto Mono\", monospace 
-                                                /*
-   background: #FFF;
-  */
-                                            document.body.appendChild(style)
-                                            let b = document.createElement("a")
-                                            b.onclick = function(){document.body.removeChild(document.getElementById("updatePrompt"));document.body.removeChild(document.getElementById("buttonStyle1"));window.installUpdatedPwa(newWorker)}
-                                            b.id = "updatePrompt"
-                                            b.innerHTML = "Update app"
-						document.body.appendChild(b)
-                                        break;
-                                    }
-                            }
-                        });
-                    })
+                   
                 })
         }
     </script>
