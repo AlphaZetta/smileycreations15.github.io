@@ -1,4 +1,6 @@
-
+---
+title: Sitemap
+---
 | Page |
 |------|
 |[GitHub Tutorials](https://smileycreations15.github.io/GitHub-Tutorials)|
