@@ -126,20 +126,6 @@ style.innerHTML = '#installPrompt { bottom: 50px; right: 100px;background: #FFF;
 // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
 
 // Check compatibility for the browser we're running this in
-if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("[PWA Builder] active service worker found, no need to register");
-  } else {
-    // Register the service worker
-    navigator.serviceWorker
-      .register("service-worker.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-      });
-  }
-}
         var getQueryString = function ( field, url = window.location.href ) {
 	    var href = url ? url : window.location.href;
 	    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
