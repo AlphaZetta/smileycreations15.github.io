@@ -1,6 +1,5 @@
 /* ----------------------- */
-let savedPath = window.location.pathname
-let init123 = 0
+var savedPath = window.location.pathname
 function create_UUID(){
     var dt = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
