@@ -114,4 +114,13 @@ self.addEventListener('message', function (event) {
     });
       }
   }
+  if (event.data.action === 'clientCount'){
+          if (null !== self.clients){
+        self.clients.matchAll().then(function (clients){
+          event.source.postMessage({"action":"clientCount","count":clients.length})
+    });
+      } else {
+        event.source.postMessage({"action":"clientCount","count":1})
+      }
+  }
 });
