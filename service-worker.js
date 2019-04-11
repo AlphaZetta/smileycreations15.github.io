@@ -10,11 +10,9 @@ const noCache = ["/pwa/windows10/Square71x71Logo.scale-400.png","/pwa/windows10/
 // Install stage sets up the offline page in the cache and opens a new cache
 self.addEventListener("install", function (event) {
   console.log("[PWA Builder] Install Event processing");
-
   event.waitUntil(
     caches.open(CACHE).then(function (cache) {
       console.log("[PWA Builder] Cached offline page during install");
-      
       if (offlineFallbackPage === "ToDo-replace-this-name.html") {
         return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
       }
@@ -23,7 +21,10 @@ self.addEventListener("install", function (event) {
     })
   );
 });
-
+self.addEventListener('updatefound',function(event){
+  console.log("[Service Worker] Detected update")
+  self.clients.matchAll().then(all => all.map(client => client.postMessage({"action":"sw-update-detected"})));
+})
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function (event) {
   let urlData = new URL(event.request.url)
