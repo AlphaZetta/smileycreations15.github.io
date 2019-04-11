@@ -1,5 +1,12 @@
 /* ----------------------- */
 var savedPath = window.location.pathname
+function postSecure(data){
+  if (null !== navigator.serviceWorker){
+    if (null !== navigator.serviceWorker.controller){
+      navigator.serviceWorker.controller.postMessage(data)
+    }
+  }
+}
 function create_UUID(){
     var dt = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -70,7 +77,7 @@ if(top!=self){
 */
 var deferredPrompt = {"prompt":function(){}}
 function installPWA(){
-    navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-prompt"});
+    postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
     deferredPrompt.prompt()
@@ -80,13 +87,13 @@ function installPWA(){
 		  deferredPrompt.userChoice
     .then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-    	navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-accept"});
+    	postSecure({"action":"pwaStatus","status":"pwa-install-accept"});
       } else {
-    	navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-reject"});
+    	postSecure({"action":"pwaStatus","status":"pwa-install-reject"});
       }
       deferredPrompt = null;
     });
-    	navigator.serviceWorker.controller.postMessage({"action":"cachePwa"});
+    	postSecure({"action":"cachePwa"});
 }
 /*
 if ("1" !== localStorage.getItem("welcome")){
@@ -99,7 +106,7 @@ if ("1" !== localStorage.getItem("cookie")){
 }
 */
 window.addEventListener('beforeinstallprompt', (e) => {
-  navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-event-fired"});
+  postSecure({"action":"pwaStatus","status":"pwa-install-event-fired"});
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
