@@ -70,14 +70,23 @@ if(top!=self){
 */
 var deferredPrompt = {"prompt":function(){}}
 function installPWA(){
+    navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-prompt"});
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
     deferredPrompt.prompt()
+	
     document.body.removeChild(document.getElementById("installPrompt"))
 	document.body.removeChild(document.getElementById("buttonStyle"))
-    if (null !== navigator.serviceWorker.controller){
+		  deferredPrompt.userChoice
+    .then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+    	navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-accept"});
+      } else {
+    	navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-reject"});
+      }
+      deferredPrompt = null;
+    });
     	navigator.serviceWorker.controller.postMessage({"action":"cachePwa"});
-    }
 }
 /*
 if ("1" !== localStorage.getItem("welcome")){
@@ -90,6 +99,7 @@ if ("1" !== localStorage.getItem("cookie")){
 }
 */
 window.addEventListener('beforeinstallprompt', (e) => {
+  navigator.serviceWorker.controller.postMessage({"action":"pwaStatus","status":"pwa-install-event-fired"});
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
