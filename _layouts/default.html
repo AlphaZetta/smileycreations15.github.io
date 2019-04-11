@@ -5,14 +5,43 @@
     <meta charset="UTF-8">
     <script>
 	    var refreshing = false
+	    var worker124 = null
         if ("serviceWorker" in navigator) {
-		window.updateSW = function(worker){
-			worker.installing.postMessage({ action: 'skipWaiting' });
+		window.updateSW = function(worker1){
+						worker1.installing.postMessage({ action: 'skipWaiting' });
 			    navigator.serviceWorker.addEventListener('controllerchange', function () {
       				if (refreshing) return;
-					navigator.serviceWorker.addEventListener.postMessage({"action":"reloadAll"})
+				    
+					navigator.serviceWorker.postMessage({"action":"reloadAll"})
 				    refreshing = true;
     				});
+		}
+		window.updateSW1 = function(worker1){
+			worker124 = worker1
+			  let b = document.createElement("a")
+  	b.onclick = function(){
+		navigator.serviceWorker.postMessage({"action":"clientCount"})
+		navigator.serviceWorker.addEventListener('message',function(e){
+			if (e.data.action === "clientCount"){
+				if (1 !== e.data.count){
+					if (confirm("Are you sure to update? All of your tabs from this domain will be reloaded.")){
+						window.updateSW()
+					} else {
+						window.updateSW1()
+					}
+				} else {
+					window.updateSW()
+				}
+			}
+		})
+	}
+  	b.id = "updatePrompt"
+   	 b.innerHTML = "Update app"
+  	let paths = ["/pwa","/pwa.html"]
+  	if (!paths.includes(window.location.pathname)){ 
+  		return
+ 	 }
+			
 		}
             if (navigator.serviceWorker.controller) {
                 console.log("[PWA Builder] active service worker found");
