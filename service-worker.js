@@ -21,10 +21,6 @@ self.addEventListener("install", function (event) {
     })
   );
 });
-self.addEventListener('updatefound',function(event){
-  console.log("[Service Worker] Detected update")
-  self.clients.matchAll().then(all => all.map(client => client.postMessage({"action":"sw-update-detected"})));
-})
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function (event) {
   let urlData = new URL(event.request.url)
@@ -108,5 +104,14 @@ self.addEventListener('message', function(event){
 self.addEventListener('message', function (event) {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting(); // skip waiting
+  }
+    if (event.data.action === 'reloadAll') {
+      if (null !== self.clients){
+        self.clients.matchAll().then(function (clients){
+      clients.forEach(function(client){
+        client.navigate(client.url)
+      });
+    });
+      }
   }
 });
