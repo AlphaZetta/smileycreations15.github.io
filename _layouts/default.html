@@ -50,7 +50,7 @@
         <h2 class="project-tagline">A website on GitHub Pages</h2>
 
         <a href="https://github.com/smileycreations15" id="myProfile" rel="noopener noreferrer" class="btn">My Github Profile</a>
-        {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %} {% if page.noScriptWarning != "true" %}
+        {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %} {% if page.noScriptWarning == true %}
         <noscript>
             <h2>JavaScript Required</h2>
             <p>Please enable JavaScript for the website to function.</p>
@@ -63,16 +63,15 @@
         {% endif %}
     </section>
     <section class="main-content" id="main-content-body">
-        {{ content }} {% if page.html And page.html != "" And page.html != nil %} {% include {{ page.html }} %} {% endif %} {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
-        <script style="display:none" src="{{ item1 }}"></script>
-        {% endfor %} {% endif %}
         <script style="display:none" src="/files/javascript/init.min.js"></script>
         <footer class="site-footer">
 
             <span class="site-footer-credits">This site is <a id="openSource" href="https://github.com/smileycreations15/smileycreations15.github.io/" rel="noreferrer noopener">open source</a>. Modified from the Cayman theme.</span>
         </footer>
     </section>
-
+        {{ content }} {% if page.html And page.html != "" And page.html != nil %} {% include {{ page.html }} %} {% endif %} {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
+        <script style="display:none" src="{{ item1 }}"></script>
+        {% endfor %} {% endif %}
 </body>
 
 </html>
