@@ -76,7 +76,14 @@ if(top!=self){
 }
 */
 var deferredPrompt = {"prompt":function(){}}
+var a1 = false
+if (window.matchMedia('(display-mode: standalone)').matches){
+	postSecure({"action":"pwaStatus","status":"pwa-launch"});
+}
 function installPWA(){
+	window.addEventListener('appinstalled', (evt) => {
+  postSecure({"action":"pwaStatus","status":"pwa-install-success"});
+});
     postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
@@ -87,6 +94,19 @@ function installPWA(){
     .then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
     	postSecure({"action":"pwaStatus","status":"pwa-install-accept"});
+	      if (window.matchMedia('(display-mode: standalone)').matches){
+		      postSecure({"action":"pwaStatus","status":"pwa-after-install-launch"});
+		      postSecure({"action":"pwaStatus","status":"pwa-launch"});
+		  } else {
+		  	window.matchMedia('(display-mode: standalone)').addListener(function(e){
+		if (e.matches && !a1){
+			postSecure({"action":"pwaStatus","status":"pwa-after-install-launch"});
+			postSecure({"action":"pwaStatus","status":"pwa-launch"});
+			window.location.pathname = "/pwa"
+			a1 = true
+		}
+	})
+		  }
       } else {
     	postSecure({"action":"pwaStatus","status":"pwa-install-reject"});
       }
