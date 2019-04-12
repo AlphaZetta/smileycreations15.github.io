@@ -162,8 +162,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	    return string ? string[1] : null;
     };
      if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.html"){
-            document.getElementById("myProfile").href = "javascript:openPwaUrl('https://github.com/smileycreations15')"
-	     document.getElementById("openSource").href = "javascript:openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')"
+            document.getElementById("myProfile").href = "javascript:void(0)"
+	     	     document.getElementById("myProfile").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15')})
+	     document.getElementById("openSource").href = "javascript:void(0)"
+	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
 		// sessionStorage.setItem("pwa","true")
         }
 
