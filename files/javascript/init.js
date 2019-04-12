@@ -97,6 +97,7 @@ function installPWA(){
 	      if (window.matchMedia('(display-mode: standalone)').matches){
 		      postSecure({"action":"pwaStatus","status":"pwa-after-install-launch"});
 		      postSecure({"action":"pwaStatus","status":"pwa-launch"});
+		      window.location.pathname = "/pwa"
 		  } else {
 		  	window.matchMedia('(display-mode: standalone)').addListener(function(e){
 		if (e.matches && !a1){
@@ -161,8 +162,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	    return string ? string[1] : null;
     };
      if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.html"){
-            document.getElementById("myProfile").style.display = "none"
-            document.getElementById("pwaProfile").style.display = ""
+            document.getElementById("myProfile").href = "javascript:openPwaUrl('https://github.com/smileycreations15')"
+	     document.getElementById("openSource").href = "javascript:openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')"
 		// sessionStorage.setItem("pwa","true")
         }
 
