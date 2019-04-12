@@ -63,12 +63,13 @@
         {% endif %}
     </section>
     <section class="main-content" id="main-content-body">
-        <script style="display:none" src="/files/javascript/init.min.js"></script>
         <footer class="site-footer">
 
             <span class="site-footer-credits">This site is <a id="openSource" href="https://github.com/smileycreations15/smileycreations15.github.io/" rel="noreferrer noopener">open source</a>. Modified from the Cayman theme.</span>
         </footer>
     </section>
+	        <script style="display:none" src="/files/javascript/init.min.js"></script>
+
         {{ content }} {% if page.html And page.html != "" And page.html != nil %} {% include {{ page.html }} %} {% endif %} {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
         <script style="display:none" src="{{ item1 }}"></script>
         {% endfor %} {% endif %}
