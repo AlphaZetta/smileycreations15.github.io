@@ -60,12 +60,15 @@
   z-index: 2;
   cursor: wait;
 }
-
-#text{
+	  #text-overlay {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#text-overlay{
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 50px;
+  font-size: 35px;
   color: white;
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
@@ -76,12 +79,9 @@
 <body>
 	<!-- start overlay -->
 	<div id="overlay" style="display:none">
-  <div id="text" style="font-family:sans-serif">Loading...</div>
+  <div id="text-overlay" style="font-family:sans-serif">Loading...</div>
 		  <div class="slider">
   <style>
-    body{
-  background:#ffffff;
-}
 
 .slider{
   position:absolute;
