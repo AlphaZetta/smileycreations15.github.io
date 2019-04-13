@@ -12,4 +12,4 @@ title: Sitemap
 |[Browser Tab Data](https://smileycreations15.com/data)|
 |[FAQ](https://smileycreations15.com/FAQ)|
 |[Blog](https://smileycreations15.com/blog)|
-|[A guide to desktop PWAs | Part 1](https://smileycreations15.com/blog/web-development/PWA/pwa-guide-1)|
+|[A guide to desktop PWAs \| Part 1](https://smileycreations15.com/blog/web-development/PWA/pwa-guide-1)|
