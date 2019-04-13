@@ -18,11 +18,11 @@ They also work offline.
 
 ## Properties of PWAs
 
-+ Responsive
++ Responsive<br>
   They should scale up and down according to the viewport and should feel like a native app.
-+ Fast
++ Fast<br>
   The app should load fast that the user is not distracted from the app.
-+ App-like interface
++ App-like interface<br>
   As they are apps, they should feel like apps.
 
 ## Why a PWA?
@@ -36,11 +36,11 @@ Now we will use <a rel="noopener noreferrer" href="https://www.pwabuilder.com/">
 <!-- You should have Google Chrome installed, because it will help us build our PWA.  
 Open Google Chrome.  -->
 Open <a rel="noopener noreferrer" href="https://www.pwabuilder.com/">pwabuilder.com</a> and enter your website URL and wait.  
-Then click <kbd>Choose Service Worker</kbd>.  
-Then select <kbd>Offline copy with Backup offline page</kbd>.  
+Then click `Choose Service Worker`.  
+Then select `Offline copy with Backup offline page`.  
 Replace `const offlineFallbackPage = "ToDo-replace-this-name.html";` in the section at the bottom right with `const offlineFallbackPage = "offline.html";`.  
 Then create a fallback page named `offline.html`.  
-Then follow the instructions on the page until you click <kbd>Done</kbd>.  
+Then follow the instructions on the page until you click `Done`.  
 Then open your site and open the console.  
 If you seen messages starting with `[PWA Builder]` in the console the service worker is created.  
 Now you have finished setting up one of the most critical things to create a PWA.  
