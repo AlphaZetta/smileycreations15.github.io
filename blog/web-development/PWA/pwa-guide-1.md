@@ -1,6 +1,6 @@
 ---
 title: A Guide to Desktop PWAs | Part 1
-desc: A guide to building a PWA.
+desc: A guide to building a working PWA.
 keywords:
   - guide
   - pwa guide
@@ -92,7 +92,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // TODO: Insert code to update UI to inform the user that they can install the app here.
 }
 window.installPWA = function(){
-  // TODO: Trigger window.installPWA() when user selects to install the apps
+  // TODO: Trigger window.installPWA() when user selects to install the app.
+  // TODO: Insert code to remove the install app button.
   deferredPrompt.prompt()
 }
 ```
