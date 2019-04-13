@@ -11,6 +11,5 @@ a.href = getUrlParameter("redirect")
 a.style.display = "none"
 document.body.appendChild(a)
 a.click()
-document.write(" ")
 </script>
 You should be redirected automatically.
