@@ -3,8 +3,6 @@ title: Sitemap
 ---
 | Page |
 |------|
-|[GitHub Tutorials](https://smileycreations15.com/GitHub-Tutorials)|
-|[GitHub Tutorials Part 1 - What is Git and GitHub](https://smileycreations15.com/GitHub-Tutorials/1)|
 |[Homepage](https://smileycreations15.com/)|
 |[ScratchFont Download](https://smileycreations15.com/ScratchFont)|
 |[Image Sources](https://smileycreations15.com/Image-Sources)|

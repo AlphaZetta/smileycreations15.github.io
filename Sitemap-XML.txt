@@ -47,16 +47,6 @@
   <lastmod>2019-04-13T18:05:34+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-<url>
-  <loc>https://smileycreations15.com/Setup-Username</loc>
-  <lastmod>2019-04-13T18:05:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://smileycreations15.com/Delete-Cookies</loc>
-  <lastmod>2019-04-13T18:05:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
 
 
 </urlset>
