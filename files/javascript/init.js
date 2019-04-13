@@ -188,3 +188,6 @@ dialogBox = function dialogBox(location = "top-left",type = "plain",dialogConten
   }
   document.body.appendChild(dialog)
 }
+if (null !== document.getElementById("overlay")){
+	document.body.removeChild(document.getElementById("overlay"))
+}
