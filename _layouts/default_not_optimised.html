@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <script>
 	    function openPwaUrl(t){
-		    open(t,"","resizable=1,width="+String(screen.width/2)+",height="+String(screen.height/2))
+		    open("/redirect?redirect=" + encodeURIComponent(t),"","resizable=1,width="+String(screen.width/2)+",height="+String(screen.height/2))
 	    }
 	if ("serviceWorker" in navigator) {
             if (navigator.serviceWorker.controller) {
