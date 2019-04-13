@@ -1,6 +1,4 @@
 ---
-scripts:
-    - /files/javascript/pwa.js
 title: smileycreations15
 ---
 <h2>This is my website</h2>
