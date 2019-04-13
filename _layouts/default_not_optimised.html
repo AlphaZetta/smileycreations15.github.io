@@ -53,18 +53,18 @@
         <h2 class="project-tagline">A website on GitHub Pages</h2>
 
         <a href="https://github.com/smileycreations15" id="myProfile" rel="noopener noreferrer" class="btn">My Github Profile</a>
-        {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %} {% if page.noScriptWarning == true %}
-	  
-        <noscript>
-            <h2>JavaScript Required</h2>
-            <p>Please enable JavaScript for the website to function.</p>
-        </noscript>
+        {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %}
+	 {% if page.noScriptWarning == true %}
+      		  <noscript>
+            	<h2>JavaScript Required</h2>
+            	<p>Please enable JavaScript for the website to function.</p>
+       		 </noscript>
 	 {% endif %}
         {% else %}
-        <noscript>
-            <h2>JavaScript Required</h2>
-            <p>Please enable JavaScript for the website to function.</p>
-        </noscript>
+        	<noscript>
+           	 <h2>JavaScript Required</h2>
+          	  <p>Please enable JavaScript for the website to function.</p>
+       		 </noscript>
         {% endif %}
     </section>
     <section class="main-content" id="main-content-body">

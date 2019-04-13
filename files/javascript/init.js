@@ -173,7 +173,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
             document.getElementById("myProfile").href = "javascript:void(0)"
 	     	     document.getElementById("myProfile").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15')})
 	     document.getElementById("openSource").href = "javascript:void(0)"
-	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.com')})
+	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
 		// sessionStorage.setItem("pwa","true")
         }
 
