@@ -45,9 +45,41 @@
     {% endif %} {% if page.desc And page.desc != "" And page.desc != nil %}
     <meta name="description" content="{{ page.desc }}"> {% else %}
     <meta name="description" content="A website on GitHub Pages."> {% endif %}
+	<style>
+		/* Overlay */
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+</style>
 </head>
 
 <body>
+	<div id="overlay" style="display:none">
+  <div id="text" style="font-family:sans-serif">Loading...</div>
+</div>
+<script>
+	document.getElementById("overlay").style.display = "block"
+	</script>
     <section class="page-header">
         <h1 class="project-name truncate">smileycreations15.com</h1><!-- main title /// default class="project-name" -->
         <h2 class="project-tagline">A website on GitHub Pages</h2>
