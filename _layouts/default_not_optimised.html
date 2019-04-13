@@ -37,11 +37,6 @@
     {% endif %} {% if page.desc And page.desc != "" And page.desc != nil %}
     <meta name="description" content="{{ page.desc }}"> {% else %}
     <meta name="description" content="A website on GitHub Pages."> {% endif %}
-    <style>
-        .site-footer-credits {
-            color: #606c71;
-        }
-    </style>
 </head>
 
 <body>
@@ -78,6 +73,12 @@
         <script async style="display:none" src="{{ item12 }}"></script>
         {% endfor %} {% endif %}
 	<link rel="stylesheet" href="/files/css/style.css">
+	    <!-- css override -->
+	<style>
+        .site-footer-credits {
+            color: #606c71;
+        }
+    </style>
 </body>
 
 </html>
