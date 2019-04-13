@@ -12,9 +12,9 @@ keywords:
 # A Guide to Desktop PWAs | Part 1
 
 ## What is a Progressive Web App?
-A Progessive Web App (PWA for short) is a web application actinga as a web application.
-When the app launches, it displays contents of a specified URL.
-They also work offline.
+A Progessive Web App (PWA for short) is a web application acting as a web application.  
+When the app launches, it displays contents of a specified URL.  
+They also work offline.  
 
 ## Properties of PWAs
 
@@ -31,23 +31,23 @@ They also work offline.
 - Automatic updates
 
 ## How to build a PWA
-To build a PWA, you need a web manifest.
-Now we will use <a rel="noopener noreferrer" href="https://www.pwabuilder.com/">pwabuilder.com</a> to build our PWA.
-You should have Google Chrome installed, because it will help us build our PWA.
-Open Google Chrome.
-Open <a rel="noopener noreferrer" href="https://www.pwabuilder.com/">pwabuilder.com</a> and enter your website URL and wait.
-Then click <kbd>Choose Service Worker</kbd>.
-Then select <kbd>Offline copy with Backup offline page</kbd>
-Replace `const offlineFallbackPage = "ToDo-replace-this-name.html";` in the section at the bottom right with `const offlineFallbackPage = "offline.html";`.
-Then create a fallback page named `offline.html`.
-Then follow the instructions on the page until you click done.
-Then open your site and open the console.
-If you seen messages starting with `[PWA Builder]` in the console the service worker is created.
-Now you have finished setting up one of the most critical things to create a PWA.
+To build a PWA, you need a web manifest.  
+Now we will use <a rel="noopener noreferrer" href="https://www.pwabuilder.com/">pwabuilder.com</a> to build our PWA.  
+<!-- You should have Google Chrome installed, because it will help us build our PWA.  
+Open Google Chrome.  -->
+Open <a rel="noopener noreferrer" href="https://www.pwabuilder.com/">pwabuilder.com</a> and enter your website URL and wait.  
+Then click <kbd>Choose Service Worker</kbd>.  
+Then select <kbd>Offline copy with Backup offline page</kbd>.  
+Replace `const offlineFallbackPage = "ToDo-replace-this-name.html";` in the section at the bottom right with `const offlineFallbackPage = "offline.html";`.  
+Then create a fallback page named `offline.html`.  
+Then follow the instructions on the page until you click <kbd>Done</kbd>.  
+Then open your site and open the console.  
+If you seen messages starting with `[PWA Builder]` in the console the service worker is created.  
+Now you have finished setting up one of the most critical things to create a PWA.  
 
 ### Create a manifest
-Without a web manifest, the browser won't know how to display the app.
-Use the following example template for the web manifest.
+Without a web manifest, the browser won't know how to display the app.  
+Use the following example template for the web manifest.  
 ```json
 {
 "dir" : "ltr",
@@ -69,17 +69,17 @@ Use the following example template for the web manifest.
     },
     ]}
 ```
-Fill the places in curly braces with values.
-Then save it in your website server.
-Then add the following tag to your html head section.
+Fill the places in curly braces with values.  
+Then save it in your web server.  
+Then add the following tag to your html head section.   
 
 ```html
 <link href="{manifest url}" rel="manifest">
 ```
 
-Replace `{manifest url}` with the manifest URL.
-Now add you need to listen on the `beforeinstallprompt` event.
-Here is a JavaScript example.
+Replace `{manifest url}` with the manifest URL.  
+Now add you need to listen on the `beforeinstallprompt` event.  
+Here is a JavaScript example.  
 
 
 ```js
@@ -97,5 +97,5 @@ window.installPWA = function(){
 }
 ```
 
-You built your first PWA!
-For more info, go to the [Google Developers](https://developers.google.com/web/fundamentals/app-install-banners/) website.
+You built your first PWA!  
+For more info, go to the [Google Developers](https://developers.google.com/web/fundamentals/app-install-banners/) website.  
