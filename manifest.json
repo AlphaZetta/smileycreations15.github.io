@@ -7,11 +7,10 @@
   "start_url" : "https://smileycreations15.com/pwa",
   "short_name" : "smiley15",
   "theme_color" : "#157878",
-  "description" : "",
+  "description" : "A page on Github Pages.",
   "background_color" : "#157878",
   "orientation" : "any",
   "prefer_related_applications" : false,
-  "generated" : "true",
   "icons" : [
     {
       "src" : "/pwa/windows10/Square71x71Logo.scale-400.png",
