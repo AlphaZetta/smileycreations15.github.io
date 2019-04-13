@@ -26,7 +26,8 @@ self.addEventListener("fetch", function (event) {
   let urlData = new URL(event.request.url)
   if (noCache.includes(urlData.pathname)) return;
   if (event.request.method !== "GET") return;
-  event.respondWith(
+/*
+ event.respondWith(
     fetch(event.request)
       .then(function (response) {
         console.log("[PWA Builder] add page to offline cache: " + response.url);
@@ -41,6 +42,19 @@ self.addEventListener("fetch", function (event) {
         return fromCache(event.request);
       })
   );
+  */
+    fetch(event.request)
+      .then(function (response) {
+        console.log("[PWA Builder] add page to offline cache: " + response.url);
+
+        // If request was success, add or update it in the cache
+        event.waitUntil(updateCache(event.request, response.clone()));
+
+      })
+      .catch(function (error) {
+        console.log("[PWA Builder] Network request Failed. Serving content from cache: " + error);
+           event.respondWith(fromCache(event.request))
+      })
 });
 
 function fromCache(request) {
