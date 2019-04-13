@@ -108,14 +108,7 @@
             <span class="site-footer-credits">This site is <a id="openSource" href="https://github.com/smileycreations15/smileycreations15.github.io/" rel="noreferrer noopener">open source</a>. Modified from the Cayman theme.</span>
         </footer>
     </section>
-	        <script async style="display:none" src="/files/javascript/init.min.js"></script>
 
-{% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
-        <script style="display:none" src="{{ item1 }}"></script>
-        {% endfor %} {% endif %}
-	{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
-        <script async style="display:none" src="{{ item12 }}"></script>
-        {% endfor %} {% endif %}
 	<link rel="stylesheet" href="/files/css/style.css">
 	    <!-- css override -->
 	<style>
@@ -123,6 +116,14 @@
             color: #606c71;
         }
     </style>
+		        <script async style="display:none" src="/files/javascript/init.min.js"></script>
+
+{% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
+        <script style="display:none" src="{{ item1 }}"></script>
+        {% endfor %} {% endif %}
+	{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
+        <script async style="display:none" src="{{ item12 }}"></script>
+        {% endfor %} {% endif %}
 </body>
 
 </html>
