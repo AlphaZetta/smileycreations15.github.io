@@ -16,7 +16,7 @@ function create_UUID(){
     });
     return uuid;
 }
-function setSessionCookie(cname, cvalue) {
+/*function setSessionCookie(cname, cvalue) {
   document.cookie = cname + "=" + cvalue + ";" + ";path=/";
 }
 function getCookie(cname) {
@@ -48,6 +48,7 @@ if (null === getCookie("userID")){
     setCookie("userID", create_UUID(), 30)
     console.log("%c Successfully set persistent cookie ", "color: #4CAF50; background-color: green;")
 }
+*/
 /* ----------------------- */
 // This is the "Offline copy of pages" service worker
 
