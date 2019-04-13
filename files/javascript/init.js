@@ -1,7 +1,4 @@
 /* ----------------------- */
-function openURLInNewTab(url){
-	open(url,"","resizable=1,width=" + String(screen.width / 2) + ",height=" + String(screen.height / 2))
-}
 var savedPath = window.location.pathname
 function postSecure(data){
   if (null !== navigator.serviceWorker){
@@ -9,6 +6,9 @@ function postSecure(data){
       navigator.serviceWorker.controller.postMessage(data)
     }
   }
+}
+/*function openURLInNewTab(url){
+	open(url,"","resizable=1,width=" + String(screen.width / 2) + ",height=" + String(screen.height / 2))
 }
 function create_UUID(){
     var dt = new Date().getTime();
@@ -19,7 +19,7 @@ function create_UUID(){
     });
     return uuid;
 }
-/*function setSessionCookie(cname, cvalue) {
+function setSessionCookie(cname, cvalue) {
   document.cookie = cname + "=" + cvalue + ";" + ";path=/";
 }
 function getCookie(cname) {
@@ -60,7 +60,7 @@ if (null === getCookie("userID")){
 // Check compatibility for the browser we're running this in
 
 /* ----------------------- */
-try {
+/*try {
     if (!(parent && parent.WebPlayer) && top != self) {
       top.location.replace(document.location);
       alert('For security reasons, framing is not allowed; click OK to remove the frames.');
@@ -72,14 +72,14 @@ try {
     } catch(exception12){
         window.open("about:blank","_self")
     }
-}
+}*/
 /*
 if(top!=self){
     top.location.replace(document.location);
     alert("For security reasons, framing is not allowed; click OK to remove the frames.")
 }
 */
-var deferredPrompt = {"prompt":function(){}}
+var deferredPrompt = {prompt:(()=>{})}
 var a1 = false
 if (window.matchMedia('(display-mode: standalone)').matches){
 	if (window.location.pathname === "/pwa"){
