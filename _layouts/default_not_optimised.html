@@ -21,11 +21,6 @@
 	}
     </script>
 		    <link rel="stylesheet" href="/files/css/style.css" media="bogus">
-
-	{% if page.keywords And page.keywords != "" And page.keywords != nil %}
-    {% assign metaString = page.keywords | join: "," %}
-    <meta name="keywords" content="{{ metaString  }}">
-    {% endif %}
  
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
