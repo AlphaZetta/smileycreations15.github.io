@@ -85,7 +85,7 @@ function installPWA(){
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
     deferredPrompt.prompt()
-	
+
     document.body.removeChild(document.getElementById("installPrompt"))
 		  deferredPrompt.userChoice
     .then((choiceResult) => {
@@ -165,7 +165,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
             document.getElementById("myProfile").href = "javascript:void(0)"
 	     	     document.getElementById("myProfile").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15')})
 	     document.getElementById("openSource").href = "javascript:void(0)"
-	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
+	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.com')})
 		// sessionStorage.setItem("pwa","true")
         }
 
