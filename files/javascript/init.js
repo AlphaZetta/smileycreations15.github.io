@@ -81,9 +81,6 @@ if (window.matchMedia('(display-mode: standalone)').matches){
 	postSecure({"action":"pwaStatus","status":"pwa-launch"});
 }
 function installPWA(){
-	window.addEventListener('appinstalled', (evt) => {
-  postSecure({"action":"pwaStatus","status":"pwa-install-success"});
-});
     postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
@@ -93,6 +90,9 @@ function installPWA(){
 		  deferredPrompt.userChoice
     .then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
+	      	window.addEventListener('appinstalled', (evt) => {
+  postSecure({"action":"pwaStatus","status":"pwa-install-success"});
+});
     	postSecure({"action":"pwaStatus","status":"pwa-install-accept"});
 	      if (window.matchMedia('(display-mode: standalone)').matches){
 		      postSecure({"action":"pwaStatus","status":"pwa-after-install-launch"});
