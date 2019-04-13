@@ -1,5 +1,6 @@
 ---
 title: Blog | smileycreations15
+desc: Blog of smileycreations15.
 ---
 
 ## smileycreations15 Blog
