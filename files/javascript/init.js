@@ -78,7 +78,11 @@ if(top!=self){
 var deferredPrompt = {"prompt":function(){}}
 var a1 = false
 if (window.matchMedia('(display-mode: standalone)').matches){
-	postSecure({"action":"pwaStatus","status":"pwa-launch"});
+	if (window.location.pathname === "/pwa"){
+		postSecure({"action":"pwaStatus","status":"pwa-launch"})	
+	} else {
+		postSecure({"action":"pwaStatus","status":"pwa-url-launch","url":window.location.pathname})
+	}
 }
 function installPWA(){
     postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
