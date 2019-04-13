@@ -1,6 +1,6 @@
 ---
 title: A Guide to Desktop PWAs | Part 1
-desc: A guide to building a working PWA.
+desc: A guide to building a Progressive Web App.
 keywords:
   - guide
   - pwa guide
