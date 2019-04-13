@@ -37,9 +37,15 @@
     <title>{{ page.title }}</title>
     {% else %}
     <title>smileycreations15</title>
-    {% endif %} {% if page.desc And page.desc != "" And page.desc != nil %}
-    <meta name="description" content="{{ page.desc }}"> {% else %}
-    <meta name="description" content="A website on GitHub Pages."> {% endif %}
+    {% endif %}
+	{% if page.keywords And page.keywords != "" And page.keywords != nil %}
+    <meta name="keywords" content="{{ page.keywords | join: ", " }}">
+    {% endif %}
+    {% if page.desc And page.desc != "" And page.desc != nil %}
+    <meta name="description" content="{{ page.desc }}">
+	{% else %}
+    <meta name="description" content="A website on GitHub Pages.">
+	{% endif %}
 </head>
 
 <body>
