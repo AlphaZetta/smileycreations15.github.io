@@ -1,6 +1,7 @@
 ---
 title: Blog | smileycreations15
 ---
+
 ## smileycreations15 Blog
 + Web Development
   + Progressive web Apps
