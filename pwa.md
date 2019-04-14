@@ -7,7 +7,7 @@ title: smileycreations15
 
 
 Note: We are using cookies to give you a better experience. By continuing to browse this site, you agree this site's use of cookies. <br />
-x<a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.com/Sitemap')" target="_blank">Sitemap</a>
+<a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.com/Sitemap')" target="_blank">Sitemap</a>
 
 Website status: <br />![Website Status](https://smileycreations15.com/files/status/smileycreations15.com/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
 <noscript>
