@@ -22,9 +22,12 @@ self.addEventListener("install", function(event) {
         })
     );
 });
-async function cacheGet(url){
+async function cacheGet1(url){
   let internalCache = await caches.open(CACHE)
   return await cache.match(url)
+}
+function cacheGet(url){
+    return await cacheGet1(url)
 }
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function(event) {
@@ -45,7 +48,7 @@ self.addEventListener("fetch", function(event) {
                             // Handle if response not found
                             event.waitUntil(caches.open(CACHE).then(function(cache) {
                                 cache.addAll(cacheList)
-                                resolve(await cacheGet(event.request.url))
+                                resolve(cacheGet(event.request.url))
                                 return
                             }))
                         }
