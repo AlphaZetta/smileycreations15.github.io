@@ -33,6 +33,9 @@ self.addEventListener("fetch", function (event) {
         console.log("[PWA Builder] add page to offline cache: " + response.url);
 
         // If request was success, add or update it in the cache
+        caches.open(CACHE).then(function (cache) {
+          cache.delete(event.request.url)
+  });
         event.waitUntil(updateCache(event.request, response.clone()));
 
         return response;
