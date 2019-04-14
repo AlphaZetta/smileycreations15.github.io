@@ -22,61 +22,26 @@ self.addEventListener("install", function(event) {
         })
     );
 });
-async function cacheGet(url){
-  let internalCache = await caches.open(CACHE)
-  return await cache.match(url)
-}
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function(event) {
     let urlData = new URL(event.request.url)
     if (noCache.includes(urlData.pathname)) return;
     if (event.request.method !== "GET") return;
-    if (cacheList.includes(event.request.url)) {
-        let return1 = false
-        event.waitUntil(function() {
-            return new Promise((resolve, reject) => {
-               event.waitUntil( caches.open(CACHE).then((cache) => {
-                    event.waitUntil(cache.match(event.request.url).then((cachedResponse) => {
+ event.respondWith(
+    fetch(event.request)
+      .then(function (response) {
+        console.log("[PWA Builder] add page to offline cache: " + response.url);
 
-                        if (cachedResponse) {
-                            return1 = true
-                            event.respondWith(Promise.resolve(cachedResponse))
-                        } else {
-                            // Handle if response not found
-                            event.waitUntil(caches.open(CACHE).then(function(cache) {
-                                cache.addAll(cacheList)
-                                event.respondWith(cacheGet(event.request.url))
-                                return
-                            }))
-                        }
+        // If request was success, add or update it in the cache
+        event.waitUntil(updateCache(event.request, response.clone()));
 
-                    }));
-                }));
-            })
-        }())
-        if (return1 === true) {
-            return
-        }
-    }
-    event.respondWith(
-        fetch(event.request)
-        .then(function(response) {
-            console.log("[PWA Builder] add page to offline cache: " + response.url);
-
-            // If request was success, add or update it in the cache
-            event.waitUntil(caches.open(CACHE).then(function(cache) {
-                event.waitUntil(cache.delete(event.request.url))
-            }));
-            event.waitUntil(updateCache(event.request, response.clone()));
-
-            return response;
-        })
-        .catch(function(error) {
-            console.log("[PWA Builder] Network request Failed. Serving content from cache: " + error);
-            return fromCache(event.request);
-        })
-    );
-
+        return response;
+      })
+      .catch(function (error) {
+        console.log("[PWA Builder] Network request Failed. Serving content from cache: " + error);
+        return fromCache(event.request);
+      })
+  );
 });
 
 function fromCache(request) {
