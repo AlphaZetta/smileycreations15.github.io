@@ -165,13 +165,13 @@ animation: decrease 2s 0.5s infinite;
             color: #606c71;
         }
     </style>
-		        <script async style="display:none" src="/files/javascript/init.min.js"></script>
 
+		        <script async style="display:none" src="/files/javascript/init.min.js"></script>
+		{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
+        <script async style="display:none" src="{{ item12 }}"></script>
+        {% endfor %} {% endif %}
 {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
         <script style="display:none" src="{{ item1 }}"></script>
-        {% endfor %} {% endif %}
-	{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
-        <script async style="display:none" src="{{ item12 }}"></script>
         {% endfor %} {% endif %}
 </body>
 
