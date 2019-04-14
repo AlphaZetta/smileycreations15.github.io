@@ -36,7 +36,10 @@ self.addEventListener("fetch", function (event) {
           event.respondWith(Promise.resolve(cachedResponse))
         } else {
             // Handle if response not found
-          cache.addAll(cacheList)
+              caches.open(CACHE).then(function (cache) {
+                cache.addAll(cacheList)
+              })
+      
         }
         
     });
