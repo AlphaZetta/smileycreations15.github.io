@@ -10,6 +10,7 @@ const cacheList = ["https://smileycreations15.com/favicon.ico", "https://smileyc
 // Install stage sets up the offline page in the cache and opens a new cache
 self.addEventListener("install", function(event) {
     console.log("[PWA Builder] Install Event processing");
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE).then(function(cache) {
             console.log("[PWA Builder] Cached offline page during install");
@@ -102,6 +103,7 @@ function updateCache(request, response) {
 // Service Worker Active
 self.addEventListener('activate', function(event) {
     console.log('Service worker activated');
+    event.waitUntil(self.clients.claim());
 });
 self.addEventListener('message', function(event) {
     if (typeof event.data !== "object") return;
