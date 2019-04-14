@@ -22,6 +22,10 @@ self.addEventListener("install", function(event) {
         })
     );
 });
+async function cacheGet(url){
+  let internalCache = await caches.open(CACHE)
+  return await cache.match(url)
+}
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function(event) {
     let urlData = new URL(event.request.url)
@@ -29,27 +33,27 @@ self.addEventListener("fetch", function(event) {
     if (event.request.method !== "GET") return;
     if (cacheList.includes(event.request.url)) {
         let return1 = false
-        event.waitUntil(function() {
+        event.respondWith(function() {
             return new Promise((resolve, reject) => {
-                caches.open(CACHE).then((cache) => {
-                    cache.match(event.request.url).then((cachedResponse) => {
+               event.waitUntil( caches.open(CACHE).then((cache) => {
+                    event.waitUntil(cache.match(event.request.url).then((cachedResponse) => {
 
                         if (cachedResponse) {
                             return1 = true
-                            event.respondWith(Promise.resolve(cachedResponse))
-                            resolve()
+                            resolve(cachedResponse)
                         } else {
                             // Handle if response not found
-                            caches.open(CACHE).then(function(cache) {
+                            event.waitUntil(caches.open(CACHE).then(function(cache) {
                                 cache.addAll(cacheList)
-                            })
-                            resolve()
+                                resolve(await cacheGet(event.request.url))
+                                return
+                            }))
                         }
 
-                    });
-                });
+                    }));
+                }));
             })
-        })
+        }())
         if (return1 === true) {
             return
         }
