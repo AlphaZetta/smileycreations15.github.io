@@ -1,5 +1,5 @@
 // This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
-// 
+//
 const CACHE = "pwabuilder-offline-page";
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
@@ -22,12 +22,9 @@ self.addEventListener("install", function(event) {
         })
     );
 });
-async function cacheGet1(url){
+async function cacheGet(url){
   let internalCache = await caches.open(CACHE)
   return await cache.match(url)
-}
-function cacheGet(url){
-    return await cacheGet1(url)
 }
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function(event) {
@@ -36,19 +33,19 @@ self.addEventListener("fetch", function(event) {
     if (event.request.method !== "GET") return;
     if (cacheList.includes(event.request.url)) {
         let return1 = false
-        event.respondWith(function() {
+        event.waitUntil(function() {
             return new Promise((resolve, reject) => {
                event.waitUntil( caches.open(CACHE).then((cache) => {
                     event.waitUntil(cache.match(event.request.url).then((cachedResponse) => {
 
                         if (cachedResponse) {
                             return1 = true
-                            resolve(cachedResponse)
+                            event.respondWith(Promise.resolve(cachedResponse))
                         } else {
                             // Handle if response not found
                             event.waitUntil(caches.open(CACHE).then(function(cache) {
                                 cache.addAll(cacheList)
-                                resolve(cacheGet(event.request.url))
+                                event.respondWith(cacheGet(event.request.url))
                                 return
                             }))
                         }
