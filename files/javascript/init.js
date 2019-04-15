@@ -193,12 +193,14 @@ if (null !== document.getElementById("overlay")){
 }
 window.showLoaderOverlay = function showOverlay(text = null){
   let div = document.createElement("div")
-  document.body.appendChild(div)
+  div.className = "overlay"
+  div.style.display = "none"
   if (null === text || undefined === text){
-    div.outerHTML = '<div class="overlay" style="display:none"><div class="text-overlay">Loading</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div></div>'
+    div.outerHTML = '<div class="text-overlay">Loading</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   } else {
-    div.outerHTML = '<div class="overlay" style="display:none"><div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div></div>'
+    div.outerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   }
+  document.body.appendChild(div)
   return {
     "element":div,
     "show":function(){div.style.display = "block"},
