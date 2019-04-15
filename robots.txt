@@ -2,3 +2,8 @@ User-agent: *
 Disallow: /files/
 Disallow: /404.md
 Disallow: /html/
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://smileycreations15.com/Sitemap-XML.txt
