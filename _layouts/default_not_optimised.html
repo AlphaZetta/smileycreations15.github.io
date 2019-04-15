@@ -26,7 +26,7 @@
     {% assign metaString = page.keywords | join: "," %}
     <meta name="keywords" content="{{ metaString }}">
     {% endif %}
- 
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link rel="manifest" href="/manifest.json">
@@ -45,35 +45,6 @@
     {% endif %} {% if page.desc And page.desc != "" And page.desc != nil %}
     <meta name="description" content="{{ page.desc }}"> {% else %}
     <meta name="description" content="A website on GitHub Pages."> {% endif %}
-	<style>
-		/* Overlay */
-#overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(120deg,#155799,#159957); /* background-color: rgba(0,0,0,0.5); */
-  z-index: 2;
-  cursor: wait;
-}
-	  #text-overlay {
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-#text-overlay{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 35px;
-  color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-}
-</style>
 </head>
 
 <body>
@@ -81,6 +52,35 @@
 	<div id="overlay" style="display:none">
   <div id="text-overlay" style="font-family:sans-serif">Loading</div>
 		  <div class="slider">
+        <style>
+          /* Overlay */
+      #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(120deg,#155799,#159957); /* background-color: rgba(0,0,0,0.5); */
+        z-index: 2;
+        cursor: wait;
+      }
+          #text-overlay {
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+      #text-overlay{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 35px;
+        color: white;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+      }
+      </style>
   <style>
 
 .slider{
@@ -103,7 +103,7 @@
 .subline{
   position:absolute;
   background:#4a8df8;
-  height:5px; 
+  height:5px;
 }
 .inc{
 animation: increase 2s infinite;

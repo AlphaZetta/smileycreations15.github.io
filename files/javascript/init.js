@@ -83,7 +83,7 @@ var deferredPrompt = {prompt:(()=>{})}
 var a1 = false
 if (window.matchMedia('(display-mode: standalone)').matches){
 	if (window.location.pathname === "/pwa"){
-		postSecure({"action":"pwaStatus","status":"pwa-launch"})	
+		postSecure({"action":"pwaStatus","status":"pwa-launch"})
 	} else {
 		postSecure({"action":"pwaStatus","status":"pwa-url-launch","url":window.location.pathname})
 	}
@@ -177,7 +177,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 		// sessionStorage.setItem("pwa","true")
         }
 
-dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
+window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
   let dialog = document.createElement("div")
   dialog.className = "notify " + location + " do-show font-notify"
   dialog.dataset.notificationStatus = type
@@ -190,4 +190,14 @@ dialogBox = function dialogBox(location = "top-left",type = "plain",dialogConten
 }
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
+}
+window.showOverlay = function showOverlay(text = null){
+  let div = document.createElement("div")
+  if (null === text || undefined === text){
+    div.outerHTML = '<div class="overlay" style="display:none"><div class="text-overlay">Loading</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div></div>'
+  } else {
+    div.outerHTML = '<div class="overlay" style="display:none"><div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div></div>'
+  }
+  document.body.appendChild(div)
+  return div
 }
