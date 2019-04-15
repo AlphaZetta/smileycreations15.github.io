@@ -191,7 +191,7 @@ window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialo
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
 }
-window.showLoaderOverlay = function showOverlay(id,text = null){
+window.showLoaderOverlay = function showLoaderOverlay(id,text = null){
   if (null !== document.getElementById(id)) return;
   let div = document.createElement("div")
   div.className = "overlay"
