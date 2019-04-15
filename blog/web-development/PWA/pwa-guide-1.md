@@ -45,10 +45,10 @@ Then open your site and open the console.
 If you seen messages starting with `[PWA Builder]` in the console the service worker is created.  
 Now you have finished setting up one of the most critical things to create a PWA.  
 
-### Create a manifest
+## Create a manifest
 Without a web manifest, the browser won't know how to display the app.  
 Use the following example template for the web manifest.  
-```json
+```
 {
 "dir" : "ltr",
     "lang" : "en",
@@ -73,7 +73,7 @@ Fill the places in curly braces with values.
 Then save it in your web server.  
 Then add the following tag to your html head section.   
 
-```html
+```
 <link href="{manifest url}" rel="manifest">
 ```
 
@@ -82,7 +82,7 @@ Now add you need to listen on the `beforeinstallprompt` event.
 Here is a JavaScript example.  
 
 
-```js
+```
 var deferredPrompt = {prompt:(()=>{})}
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent from automatically showing the prompt
