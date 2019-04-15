@@ -191,20 +191,22 @@ window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialo
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
 }
-window.showLoaderOverlay = function showOverlay(text = null){
+window.showLoaderOverlay = function showOverlay(id,text = null){
+  if (null !== document.getElementById(id)) return;
   let div = document.createElement("div")
   div.className = "overlay"
+  div.id = id
   div.style.display = "none"
-  if (null === text || undefined === text){
-    div.outerHTML = '<div class="text-overlay">Loading</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
-  } else {
-    div.outerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
-  }
   document.body.appendChild(div)
+  if (null === text || undefined === text){
+    document.getElementById(id).outerHTML = '<div class="text-overlay">Loading</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+  } else {
+    document.getElementById(id).outerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+  }
   return {
-    "element":div,
-    "show":function(){div.style.display = "block"},
-    "hide":function(){div.style.display = "none"},
-    "remove":function(){document.body.removeChild(div)}
+    "element":document.getElementById(id),
+    "show":function(){document.getElementById(id).style.display = "block"},
+    "hide":function(){document.getElementById(id).style.display = "none"},
+    "remove":function(){document.body.removeChild(document.getElementById(id))}
   }
 }
