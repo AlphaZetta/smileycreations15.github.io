@@ -191,7 +191,7 @@ window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialo
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
 }
-window.showOverlay = function showOverlay(text = null){
+window.showLoaderOverlay = function showOverlay(text = null){
   let div = document.createElement("div")
   document.body.appendChild(div)
   if (null === text || undefined === text){
@@ -199,5 +199,10 @@ window.showOverlay = function showOverlay(text = null){
   } else {
     div.outerHTML = '<div class="overlay" style="display:none"><div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div></div>'
   }
-  return div
+  return {
+    "element":div,
+    "show":function(){div.style.display = "block"},
+    "hide":function(){div.style.display = "none"},
+    "remove":function(){document.body.removeChild(div)}
+  }
 }
