@@ -176,8 +176,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
 		// sessionStorage.setItem("pwa","true")
         }
-
-window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
+window.smileycreations15 = {}
+window.smileycreations15.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
   let dialog = document.createElement("div")
   dialog.className = "notify " + location + " do-show font-notify"
   dialog.dataset.notificationStatus = type
@@ -191,8 +191,8 @@ window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialo
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
 }
-window.showLoaderOverlay = function showLoaderOverlay(id,text = null){
-  if (null !== document.getElementById(id)) return;
+window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text = null){
+  if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
   let div = document.createElement("div")
   div.className = "overlay"
   div.id = id
@@ -206,15 +206,15 @@ window.showLoaderOverlay = function showLoaderOverlay(id,text = null){
   return {
     "element":document.getElementById(id),
     "show":function(){
-      if (null === document.getElementById(id)) return;
+      if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
       document.getElementById(id).style.display = "block"
     },
     "hide":function(){
-      if (null === document.getElementById(id)) return;
+      if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
       document.getElementById(id).style.display = "none"
     },
     "remove":function(){
-      if (null === document.getElementById(id)) return;
+      if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
       document.body.removeChild(document.getElementById(id))
     }
   }
