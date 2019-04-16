@@ -198,15 +198,24 @@ window.showLoaderOverlay = function showLoaderOverlay(id,text = null){
   div.id = id
   div.style.display = "none"
   if (null === text || undefined === text){
-    div.innerHTML = '<div class="text-overlay">Loading</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    div.innerHTML = '<div class="text-overlay"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   } else {
     div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   }
   document.body.appendChild(div)
   return {
     "element":document.getElementById(id),
-    "show":function(){document.getElementById(id).style.display = "block"},
-    "hide":function(){document.getElementById(id).style.display = "none"},
-    "remove":function(){document.body.removeChild(document.getElementById(id))}
+    "show":function(){
+      if (null === document.getElementById(id)) return;
+      document.getElementById(id).style.display = "block"
+    },
+    "hide":function(){
+      if (null === document.getElementById(id)) return;
+      document.getElementById(id).style.display = "none"
+    },
+    "remove":function(){
+      if (null === document.getElementById(id)) return;
+      document.body.removeChild(document.getElementById(id))
+    }
   }
 }
