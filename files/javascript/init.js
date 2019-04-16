@@ -191,14 +191,18 @@ window.smileycreations15.dialogBox = function dialogBox(location = "top-left",ty
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
 }
-window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text = null){
+window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
   if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
   let div = document.createElement("div")
+  let option = "center"
+  if (true === overlayHtml){
+    option = "overlay"
+  }
   div.className = "overlay"
   div.id = id
   div.style.display = "none"
   if (null === text || undefined === text){
-    div.innerHTML = '<div class="text-center"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    div.innerHTML = '<div class="text-' + option + '"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   } else {
     div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   }
