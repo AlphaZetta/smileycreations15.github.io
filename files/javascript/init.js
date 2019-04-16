@@ -198,7 +198,7 @@ window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text 
   div.id = id
   div.style.display = "none"
   if (null === text || undefined === text){
-    div.innerHTML = '<div class="text-overlay"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    div.innerHTML = '<div class="text-center"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   } else {
     div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   }
@@ -218,4 +218,7 @@ window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text 
       document.body.removeChild(document.getElementById(id))
     }
   }
+}
+window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
+  window.smileycreations15.dialogBox(location = "top-left",type = "plain",dialogContent,black = true)
 }
