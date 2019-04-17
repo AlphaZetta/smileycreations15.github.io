@@ -207,7 +207,7 @@ smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,te
     div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
   }
   document.body.appendChild(div)
-  return {
+  var proto = {
     "element":document.getElementById(id),
     "show":function(){
       if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
@@ -222,6 +222,8 @@ smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,te
       document.body.removeChild(document.getElementById(id))
     }
   }
+  proto[Symbol.toStringTag] = "LoaderOverlay"
+  return Object.create(proto)
 }
 smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
 window.smileycreations15 = Object.create(smileycreations15_prototype)
