@@ -8,7 +8,7 @@ smileycreations15.dialogBox(err[Math.floor(Math.random()*err.length)],"error","E
 } else {
 smileycreations15.dialogBox(err[Math.floor(Math.random()*err.length)],"warning","A error is detected")
 }
-},1000)
+},750)
 setInterval(function(){
 let e = smileycreations15.showLoaderOverlay("load","Reporting error...")
 e.show()
