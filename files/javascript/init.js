@@ -181,8 +181,8 @@ window.smileycreations15.dialogBox = function dialogBox(location = "top-left",ty
   let dialog = document.createElement("div")
   dialog.className = "notify " + location + " do-show font-notify"
   dialog.dataset.notificationStatus = type
-  dialog.innerHTML = dialogContent
-  let blackText = ["success","notice","error","warning"]
+  dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
+  let blackText = ["success","notice","error","warning"] // notification types: success, notice, error, plain, warning, transparent
   if (blackText.includes(type) && black !== false){
     dialog.style.color = "black"
   }
