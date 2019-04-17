@@ -874,31 +874,6 @@ a:hover {
     transform: translateY(0);
   }
 }
-body {
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(to bottom, #be93c5, #7bc6cc);
-  font-family: 'Source Sans Pro', sans-serif;
-  text-rendering: optimizeLegibility;
-}
-main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-h1 {
-  color: #fff;
-  font-size: 55px;
-}
-p {
-  line-height: 1.5;
-}
-nav {
-  margin-top: 50px;
-}
 .button {
   padding: 15px 20px;
   border: 2px solid white;
