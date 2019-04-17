@@ -176,8 +176,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
 		// sessionStorage.setItem("pwa","true")
         }
-window.smileycreations15 = {}
-window.smileycreations15.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
+var smileycreations15_prototype = {}
+smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
   let dialog = document.createElement("div")
   dialog.className = "notify " + location + " do-show font-notify"
   dialog.dataset.notificationStatus = type
@@ -191,7 +191,7 @@ window.smileycreations15.dialogBox = function dialogBox(location = "top-left",ty
 if (null !== document.getElementById("overlay")){
 	document.body.removeChild(document.getElementById("overlay"))
 }
-window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
+smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
   if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
   let div = document.createElement("div")
   let option = "center"
@@ -223,6 +223,5 @@ window.smileycreations15.showLoaderOverlay = function showLoaderOverlay(id,text 
     }
   }
 }
-window.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
-  window.smileycreations15.dialogBox(location = "top-left",type = "plain",dialogContent,black = true)
-}
+smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
+window.smileycreations15 = Object.create(smileycreations15_prototype)
