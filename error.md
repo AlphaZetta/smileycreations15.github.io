@@ -12,7 +12,6 @@ smileycreations15.dialogBox(err[Math.floor(Math.random()*err.length)],"success",
 } else {
 smileycreations15.dialogBox(err[Math.floor(Math.random()*err.length)],a,"A error is detected")
 }
-  b = b - 10
   setTimeout(ed,b)
 }
 setTimeout(ed,b)
@@ -22,7 +21,6 @@ e.show()
 setTimeout(function(){
 e.remove()
 },fdf / 2)
-  fdf = fdf - 10
   }
 setInterval(eaee,fdf)
 </script>
