@@ -79,7 +79,68 @@ if(top!=self){
     alert("For security reasons, framing is not allowed; click OK to remove the frames.")
 }
 */
+function smileycreations15_api(){
+  // privateData
+  var _private = {}
+  // prototype
+  var smileycreations15_prototype = {}
+  // dialog box
+  smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
+    let dialog = document.createElement("div")
+    dialog.className = "notify " + location + " do-show font-notify"
+    dialog.dataset.notificationStatus = type
+    dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
+    let blackText = ["success","notice","error","warning"] // notification types: success, notice, error, plain, warning, transparent
+    if (blackText.includes(type) && black !== false){
+      dialog.style.color = "black"
+    }
+    document.body.appendChild(dialog)
+  }
+  if (null !== document.getElementById("overlay")){
+  	document.body.removeChild(document.getElementById("overlay"))
+  }
+  // loader overlay
+  smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
+    if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
+    let div = document.createElement("div")
+    let option = "center"
+    if (true === overlayHtml){
+      option = "overlay"
+    }
+    div.className = "overlay"
+    div.id = id
+    div.style.display = "none"
+    if (null === text || undefined === text){
+      div.innerHTML = '<div class="text-' + option + '"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    } else {
+      div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    }
+    document.body.appendChild(div)
+    var proto = {
+      "element":document.getElementById(id),
+      "show":function(){
+        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
+        document.getElementById(id).style.display = "block"
+      },
+      "hide":function(){
+        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
+        document.getElementById(id).style.display = "none"
+      },
+      "remove":function(){
+        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
+        document.body.removeChild(document.getElementById(id))
+      }
+    }
+    proto[Symbol.toStringTag] = "LoaderOverlay"
+    return Object.create(proto)
+  }
+  // create object
+  smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
+  return Object.create(smileycreations15_prototype)
+}
+window.smileycreations15 = smileycreations15_api()
 var deferredPrompt = {prompt:(()=>{})}
+var ui = {"remove":(()=>{})}
 var a1 = false
 if (window.matchMedia('(display-mode: standalone)').matches){
 	if (window.location.pathname === "/pwa"){
@@ -92,11 +153,14 @@ function installPWA(){
     postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
+    ui = smileycreations15.showLoaderOverlay("ui-install","Please wait...")
+    ui.show()
     deferredPrompt.prompt()
 
     document.body.removeChild(document.getElementById("installPrompt"))
 		  deferredPrompt.userChoice
     .then((choiceResult) => {
+      ui.remove()
       if (choiceResult.outcome === 'accepted') {
 	      	window.addEventListener('appinstalled', (evt) => {
   postSecure({"action":"pwaStatus","status":"pwa-install-success"});
@@ -176,61 +240,3 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
 		// sessionStorage.setItem("pwa","true")
         }
-function smileycreations15_api(){
-  // prototype
-  var smileycreations15_prototype = {}
-  // dialog box
-  smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
-    let dialog = document.createElement("div")
-    dialog.className = "notify " + location + " do-show font-notify"
-    dialog.dataset.notificationStatus = type
-    dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
-    let blackText = ["success","notice","error","warning"] // notification types: success, notice, error, plain, warning, transparent
-    if (blackText.includes(type) && black !== false){
-      dialog.style.color = "black"
-    }
-    document.body.appendChild(dialog)
-  }
-  if (null !== document.getElementById("overlay")){
-  	document.body.removeChild(document.getElementById("overlay"))
-  }
-  // loader overlay
-  smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
-    if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
-    let div = document.createElement("div")
-    let option = "center"
-    if (true === overlayHtml){
-      option = "overlay"
-    }
-    div.className = "overlay"
-    div.id = id
-    div.style.display = "none"
-    if (null === text || undefined === text){
-      div.innerHTML = '<div class="text-' + option + '"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
-    } else {
-      div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
-    }
-    document.body.appendChild(div)
-    var proto = {
-      "element":document.getElementById(id),
-      "show":function(){
-        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
-        document.getElementById(id).style.display = "block"
-      },
-      "hide":function(){
-        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
-        document.getElementById(id).style.display = "none"
-      },
-      "remove":function(){
-        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
-        document.body.removeChild(document.getElementById(id))
-      }
-    }
-    proto[Symbol.toStringTag] = "LoaderOverlay"
-    return Object.create(proto)
-  }
-  // create object
-  smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
-  return Object.create(smileycreations15_prototype)
-}
-window.smileycreations15 = smileycreations15_api()
