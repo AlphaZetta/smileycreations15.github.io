@@ -176,35 +176,23 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	     document.getElementById("openSource").addEventListener("click",function(){openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')})
 		// sessionStorage.setItem("pwa","true")
         }
-var smileycreations15_prototype = {}
-smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
-  let dialog = document.createElement("div")
-  dialog.className = "notify " + location + " do-show font-notify"
-  dialog.dataset.notificationStatus = type
-  dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
-  let blackText = ["success","notice","error","warning"] // notification types: success, notice, error, plain, warning, transparent
-  if (blackText.includes(type) && black !== false){
-    dialog.style.color = "black"
+function smileycreations15_api(){
+  // prototype
+  var smileycreations15_prototype = {}
+  // dialog box
+  smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left",type = "plain",dialogContent,black = true){
+    let dialog = document.createElement("div")
+    dialog.className = "notify " + location + " do-show font-notify"
+    dialog.dataset.notificationStatus = type
+    dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
+    let blackText = ["success","notice","error","warning"] // notification types: success, notice, error, plain, warning, transparent
+    if (blackText.includes(type) && black !== false){
+      dialog.style.color = "black"
+    }
+    document.body.appendChild(dialog)
   }
-  document.body.appendChild(dialog)
-}
-if (null !== document.getElementById("overlay")){
-	document.body.removeChild(document.getElementById("overlay"))
-}
-smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
-  if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
-  let div = document.createElement("div")
-  let option = "center"
-  if (true === overlayHtml){
-    option = "overlay"
-  }
-  div.className = "overlay"
-  div.id = id
-  div.style.display = "none"
-  if (null === text || undefined === text){
-    div.innerHTML = '<div class="text-' + option + '"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
-  } else {
-    div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+  if (null !== document.getElementById("overlay")){
+  	document.body.removeChild(document.getElementById("overlay"))
   }
   document.body.appendChild(div)
   var proto = {
@@ -221,9 +209,10 @@ smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,te
       if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
       document.body.removeChild(document.getElementById(id))
     }
+    proto[Symbol.toStringTag] = "LoaderOverlay"
+    return Object.create(proto)
   }
   proto[Symbol.toStringTag] = "LoaderOverlay"
   return Object.create(proto)
 }
-smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
-window.smileycreations15 = Object.create(smileycreations15_prototype)
+window.smileycreations15 = smileycreations15_api()
