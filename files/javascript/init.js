@@ -194,23 +194,43 @@ function smileycreations15_api(){
   if (null !== document.getElementById("overlay")){
   	document.body.removeChild(document.getElementById("overlay"))
   }
-  document.body.appendChild(div)
-  var proto = {
-    "element":document.getElementById(id),
-    "show":function(){
-      if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
-      document.getElementById(id).style.display = "block"
-    },
-    "hide":function(){
-      if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
-      document.getElementById(id).style.display = "none"
-    },
-    "remove":function(){
-      if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
-      document.body.removeChild(document.getElementById(id))
+  // loader overlay
+  smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id,text = null,overlayHtml = false){
+    if (null !== document.getElementById(id)) throw new DOMError("elementExists","The element already exists.");
+    let div = document.createElement("div")
+    let option = "center"
+    if (true === overlayHtml){
+      option = "overlay"
     }
+    div.className = "overlay"
+    div.id = id
+    div.style.display = "none"
+    if (null === text || undefined === text){
+      div.innerHTML = '<div class="text-' + option + '"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    } else {
+      div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
+    }
+    document.body.appendChild(div)
+    var proto = {
+      "element":document.getElementById(id),
+      "show":function(){
+        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
+        document.getElementById(id).style.display = "block"
+      },
+      "hide":function(){
+        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
+        document.getElementById(id).style.display = "none"
+      },
+      "remove":function(){
+        if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
+        document.body.removeChild(document.getElementById(id))
+      }
+    }
+    proto[Symbol.toStringTag] = "LoaderOverlay"
+    return Object.create(proto)
   }
-  proto[Symbol.toStringTag] = "LoaderOverlay"
-  return Object.create(proto)
+  // create object
+  smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
+  return Object.create(smileycreations15_prototype)
 }
 window.smileycreations15 = smileycreations15_api()
