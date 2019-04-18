@@ -209,8 +209,6 @@ function smileycreations15_api(){
       if (null === document.getElementById(id)) throw new DOMError("elementNotFound","The element could not be found, and may be removed from the DOM.");
       document.body.removeChild(document.getElementById(id))
     }
-    proto[Symbol.toStringTag] = "LoaderOverlay"
-    return Object.create(proto)
   }
   proto[Symbol.toStringTag] = "LoaderOverlay"
   return Object.create(proto)
