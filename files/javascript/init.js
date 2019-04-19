@@ -153,14 +153,14 @@ function installPWA(){
     postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
-    ui = smileycreations15.showLoaderOverlay("ui-install","Please wait...")
-    ui.show()
+    // ui = smileycreations15.showLoaderOverlay("ui-install","Please wait...")
+    // ui.show()
     deferredPrompt.prompt()
 
     document.body.removeChild(document.getElementById("installPrompt"))
 		  deferredPrompt.userChoice
     .then((choiceResult) => {
-      ui.remove()
+      // ui.remove()
       if (choiceResult.outcome === 'accepted') {
 	      	window.addEventListener('appinstalled', (evt) => {
   postSecure({"action":"pwaStatus","status":"pwa-install-success"});
