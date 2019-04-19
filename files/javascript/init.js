@@ -162,7 +162,7 @@ function installPWA(){
     .then((choiceResult) => {
       ui.remove()
       if (choiceResult.outcome === 'accepted') {
-	          smileycreations15.showLoaderOverlay("ui-install","Installation in progress...<br><span style='font-size:20px'>Please do not close the tab.</span>")
+	          ui = smileycreations15.showLoaderOverlay("ui-install","Installation in progress...<br><span style='font-size:20px'>Please do not close the tab.</span>")
     ui.show()
 	      	window.addEventListener('appinstalled', (evt) => {
   postSecure({"action":"pwaStatus","status":"pwa-install-success"});
