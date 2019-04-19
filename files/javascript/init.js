@@ -151,13 +151,14 @@ if (window.matchMedia('(display-mode: standalone)').matches){
 }
 function installPWA(){
     postSecure({"action":"pwaStatus","status":"pwa-install-prompt"});
+	    document.body.removeChild(document.getElementById("installPrompt"))
+
     // history.replaceState({},"smileycreations15","/pwa")
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
     ui = smileycreations15.showLoaderOverlay("ui-install","Please wait...")
     ui.show()
     deferredPrompt.prompt()
 
-    document.body.removeChild(document.getElementById("installPrompt"))
 		  deferredPrompt.userChoice
     .then((choiceResult) => {
       ui.remove()
