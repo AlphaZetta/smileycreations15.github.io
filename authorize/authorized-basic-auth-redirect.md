@@ -35,6 +35,7 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
    history.replaceState({},"Authorization failure",window.location.pathname)
   } else {
    localStorage.setItem("cookie-github",data.cookie)
+   localStorage.setItem("github-username",data.login)
    document.getElementById("auth-status").innerHTML = "Your GitHub account authorization is complete. <br>Username: " + escapeHtml(data.login) + "<br><a href='/'>Go to homepage</a>"
    history.replaceState({},"Authorization success",window.location.pathname)
   }
