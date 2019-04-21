@@ -36,6 +36,7 @@ function revoke() {
 if (null === localStorage.getItem("github-username")) {
     document.getElementById("username-state").innerHTML = "Not logged in with GitHub.<br><br><button onclick='authorize()'>Log in</button>"
     document.getElementById("revoke").setAttribute("disabled", "disabled")
+    document.getElementById("a").display = "none"
 } else {
     document.getElementById("username-state").innerHTML = "Logged in as " + escapeHtml(localStorage.getItem("github-username")) + ".<br><br><button onclick='logout()'>Log out</button>"
 }
