@@ -1,11 +1,14 @@
 User-agent: *
 Disallow: /files/
-Disallow: /404.md
+Disallow: /404
 Disallow: /html/
 Disallow: /authorize/*
+Disallow: /accounts/*
+
 
 User-agent: Googlebot
 Allow: /
 Disallow: /authorize/*
+Disallow: /accounts/*
 
 Sitemap: https://smileycreations15.com/Sitemap-XML.txt
