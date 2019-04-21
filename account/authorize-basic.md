@@ -36,7 +36,6 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
   } else {
    localStorage.setItem("cookie-github",data.cookie)
    localStorage.setItem("github-username",data.login)
-   document.getElementById("auth-status").innerHTML = "Your GitHub account authorization is complete. <br>Username: " + escapeHtml(data.login) + "<br><a href='/'>Go to homepage</a>"
    window.location.href = "https://smileycreations15.com/account"
   }
   }).catch(e=>{
