@@ -18,6 +18,10 @@ function getQueryVariable(variable){
          .replace(/"/g, "&quot;")
          .replace(/'/g, "&#039;");
  }
+   if (sessionStorage.getItem("state-github-basic-auth") === null){
+  document.getElementById("auth-status").innerHTML = "Authorization failed.<br>Local <code>state</code> not set.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
+                                   history.replaceState({},"Authorization failure",window.location.pathname)
+}
 if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("state")){
   document.getElementById("auth-status").innerHTML = "Authorization failed.<br><code>state</code> parameter does not match.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
                                    history.replaceState({},"Authorization failure",window.location.pathname)
