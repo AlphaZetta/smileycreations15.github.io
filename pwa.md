@@ -7,7 +7,7 @@ title: smileycreations15
 
 
 <a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.com/Sitemap')" target="_blank">Sitemap</a><br>
-<a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.com/authorize/authorize-github')" target="_blank">Authorize GitHub account</a>
+<a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.com/authorize/authorize-github')" target="_blank">Authorize GitHub account</a><br>
 
 Website status: <br />![Website Status](https://smileycreations15.com/files/status/smileycreations15.com/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
 <noscript>
