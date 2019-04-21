@@ -16,3 +16,10 @@
   <li>Click <kbd>Add</kbd></li>
   </ol>
 </details>
+<details>
+  <summary>Backend</summary>
+  <h2>Do you use a backend?</h2>
+  Yes, because you cannot add fully-dynamic content on GitHub Pages.
+  <h2>Is it secure?</h2>
+  Yes. It is encrypted by HTTPS.
+</details>
