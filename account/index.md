@@ -5,8 +5,6 @@ scripts:
 ## smileycreations15 Account Management
 <h2>Username</h2>
 <p id="username-state"></p>
-<h2>GitHub Login</h2>
-<button onclick="authorize()">Authorize</button>
 <p id="load"></p>
 <div id="a">
 <h2>Revoke all sessions</h2>
