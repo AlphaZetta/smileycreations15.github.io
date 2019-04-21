@@ -15,8 +15,8 @@ Revoking your session will log you out from all devices.
      });
    }
      
-                                    function escapeHtml(unsafe) {
-       return unsafe
+function escapeHtml(unsafe) {
+return unsafe
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
