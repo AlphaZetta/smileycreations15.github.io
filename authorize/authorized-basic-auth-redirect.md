@@ -26,8 +26,8 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
   fetch("https://smileycreations15.wixsite.com/analytics/_functions/api_key_github?api-key=" + encodeURIComponent(getQueryVariable("code")))
   .then(a=>{return a.json()})
   .then(data=>{
-  if (data.error === "expired"){
-    document.getElementById("auth-status").innerHTML = "Code has expired.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
+  if (data.error === "unknown"){
+    document.getElementById("auth-status").innerHTML = "A error occured while creating a API key.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
    history.replaceState({},"Authorization failure",window.location.pathname)
   } else {
    localStorage.setItem("cookie-github",data.cookie)
