@@ -13,7 +13,7 @@ function getQueryVariable(variable){
 if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("state")){
   document.getElementById("auth-status").innerHTML = "Authorization failed.<br><code>state</code> parameter does not match.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
 } else {
-  document.getElementById("auth-status").innerHTML = "Getting <code>access_token</code>."
+  document.getElementById("auth-status").innerHTML = "Processing token..."
   fetch("https://smileycreations15.wixsite.com/analytics/_functions/api_key_github?api-key=" + encodeURIComponent(getQueryVariable("code")))
   .then(a=>{return a.json()})
   .then(data=>{
@@ -21,7 +21,8 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
     document.getElementById("auth-status").innerHTML = "Code has expired or scope is invalid.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
   } else {
     localStorage.setItem("github-basic-token",data.token)
-   document.getElementById("auth-status").innerHTML = "Your account has been successfully authorized. <a href='/'>Go to homepage</a>"
+   document.getElementById("auth-status").innerHTML = "Your GitHub account authorization is complete. <a href='/'>Go to homepage</a>"
+   history.replaceState({},"Authorization success",window.location.pathname)
   }
   }).catch(e=>{
   document.getElementById("auth-status").innerHTML = "A error occured. <br>" + e.toString() + "<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
