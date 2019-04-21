@@ -14,6 +14,7 @@ function uuidv4() {
     return v.toString(16);
   });
 }
+  
                                  function escapeHtml(unsafe) {
     return unsafe
          .replace(/&/g, "&amp;")
