@@ -9,6 +9,6 @@ scripts:
 <button onclick="authorize()">Authorize</button>
 <p id="load"></p>
 <h2>Revoke all sessions</h2>
-Revoking your session will log you out from all devices.
+Revoking your session will log you out from all devices.<br>
 <button onclick="revoke()" id="revoke">Revoke all sessions</button>
 
