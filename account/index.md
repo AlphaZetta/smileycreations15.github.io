@@ -8,7 +8,8 @@ scripts:
 <h2>GitHub Login</h2>
 <button onclick="authorize()">Authorize</button>
 <p id="load"></p>
+<div id="a">
 <h2>Revoke all sessions</h2>
 Revoking your session will log you out from all devices.<br><br>
 <button onclick="revoke()" id="revoke">Revoke all sessions</button>
-
+</div>
