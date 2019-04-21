@@ -1,4 +1,4 @@
-## Authorize GitHub profile acess
+## Authorize GitHub profile access
 Authorizing will allow us to access public profile info.<br><br>
 <button onclick="authorize()">Authorize</button>
 <p id="load"></p>
