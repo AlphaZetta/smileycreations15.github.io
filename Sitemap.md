@@ -11,3 +11,4 @@ title: Sitemap
 |[FAQ](https://smileycreations15.com/FAQ)|
 |[Blog](https://smileycreations15.com/blog)|
 |[A guide to desktop PWAs \| Part 1](https://smileycreations15.com/blog/web-development/PWA/pwa-guide-1)|
+|[Manage account](/account)|
