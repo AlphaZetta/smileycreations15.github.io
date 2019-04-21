@@ -11,3 +11,4 @@ scripts:
 <h2>Revoke all sessions</h2>
 Revoking your session will log you out from all devices.
 <button onclick="revoke()" id="revoke">Revoke all sessions</button>
+
