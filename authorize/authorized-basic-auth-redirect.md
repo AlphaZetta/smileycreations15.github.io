@@ -20,7 +20,8 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
   if (data.error === "invalidScope"){
     document.getElementById("auth-status").innerHTML = "Code has expired or scope is invalid.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
   } else {
-    localStorage.setItem("github-basic-token",data.access_token)
+    localStorage.setItem("github-basic-token",data.token)
+   document.getElementById("auth-status").innerHTML = "Your account has been successfully authorized. <a href='/'>Go to homepage</a>"
   }
   }).catch(e=>{
   document.getElementById("auth-status").innerHTML = "A error occured. <br>" + e.toString() + "<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
