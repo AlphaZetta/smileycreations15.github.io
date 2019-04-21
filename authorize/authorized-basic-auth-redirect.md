@@ -30,6 +30,7 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
     document.getElementById("auth-status").innerHTML = "Code has expired.<br>File a <a href='https://github.com/smileycreations15/smileycreations15.github.io/issues/new'>issue</a> with the error message for more info."
    history.replaceState({},"Authorization failure",window.location.pathname)
   } else {
+   localStorage.setItem("cookie-github",data.cookie)
    document.getElementById("auth-status").innerHTML = "Your GitHub account authorization is complete. <br>Username: " + escapeHtml(data.login) + "<br><a href='/'>Go to homepage</a>"
    history.replaceState({},"Authorization success",window.location.pathname)
   }
