@@ -18,7 +18,6 @@ function escapeHtml(unsafe) {
 function authorize() {
     let state = uuidv4()
     sessionStorage.setItem("state-github-basic-auth", state)
-    document.getElementById("load").innerHTML = "Please wait..."
     open("http://github.com/login/oauth/authorize?client_id=691fff7551bb080c0ab2&state=" + state + "&redirect_uri=https://smileycreations15.com/account/authorize-basic", "_self")
 }
 
