@@ -9,4 +9,3 @@ title: smileycreations15
 Note: We are using cookies to give you a better experience. By continuing to browse this site, you agree this site's use of cookies. <br />
 <a href="https://smileycreations15.com/Sitemap">Sitemap</a><br>
 <a href="https://status.smileycreations15.com/" rel="noopener noreferrer">Website Status</a><br><br>
-Website status: <br />![Website Status](https://smileycreations15.com/files/status/smileycreations15.com/5F8015E0-2504-439A-85D0-37EC0342F4DF.svg)
