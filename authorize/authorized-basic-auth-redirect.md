@@ -27,7 +27,7 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
                                    history.replaceState({},"Authorization failure",window.location.pathname)
 } else {
   document.getElementById("auth-status").innerHTML = "Processing token..."
-  fetch("https://smileycreations15.wixsite.com/analytics/_functions/api_key_github?api-key=" + encodeURIComponent(getQueryVariable("code")),{"method":"POST"})
+  fetch("https://smileycreations15.wixsite.com/backend/_functions/api_key_github?api-key=" + encodeURIComponent(getQueryVariable("code")),{"method":"POST"})
   .then(a=>{return a.json()})
   .then(data=>{
   if (data.error === "unknown"){

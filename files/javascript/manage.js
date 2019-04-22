@@ -22,7 +22,7 @@ function authorize() {
 }
 
 function revoke() {
-    fetch("https://smileycreations15.wixsite.com/analytics/_functions/github_revoke?json=" + encodeURIComponent(JSON.stringify({
+    fetch("https://smileycreations15.wixsite.com/backend/_functions/github_revoke?json=" + encodeURIComponent(JSON.stringify({
         "user": localStorage.getItem("github-username"),
         "token": localStorage.getItem("cookie-github")
     })), {
