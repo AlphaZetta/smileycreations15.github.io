@@ -39,7 +39,7 @@ if (null === localStorage.getItem("github-username")) {
     document.getElementById("a").style.display = "none"
 } else {
     document.getElementById("username-state").innerHTML = "Logged in as " + escapeHtml(localStorage.getItem("github-username")) + ".<br><br><button onclick='logout()'>Log out</button>"
-        fetch("https://smileycreations15.wixsite.com/analytics/_functions/session_validate?json=" + encodeURIComponent(JSON.stringify({
+        fetch("https://smileycreations15.wixsite.com/backend/_functions/session_validate?json=" + encodeURIComponent(JSON.stringify({
         "user": localStorage.getItem("github-username"),
         "token": localStorage.getItem("cookie-github")
     })), {
