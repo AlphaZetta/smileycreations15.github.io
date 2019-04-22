@@ -7,7 +7,7 @@ title: smileycreations15
 
 
 <a href="javascript:void(0)" onclick="openPwaUrl('https://smileycreations15.com/Sitemap')" target="_blank">Sitemap</a><br>
-<a href="javascript:void(0)" onclick="openPwaUrl('https://status.smileycreations15.com/')" target="_blank">Website Status</a><br>
+<a href="javascript:void(0)" onclick="openPwaUrl('https://status.smileycreations15.com/')" target="_blank">Website Status</a>
 
 <noscript>
     <h2>JavaScript Required</h2>
