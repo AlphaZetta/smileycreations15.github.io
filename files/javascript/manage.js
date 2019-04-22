@@ -39,6 +39,22 @@ if (null === localStorage.getItem("github-username")) {
     document.getElementById("a").style.display = "none"
 } else {
     document.getElementById("username-state").innerHTML = "Logged in as " + escapeHtml(localStorage.getItem("github-username")) + ".<br><br><button onclick='logout()'>Log out</button>"
+        fetch("https://smileycreations15.wixsite.com/analytics/_functions/session_validate?json=" + encodeURIComponent(JSON.stringify({
+        "user": localStorage.getItem("github-username"),
+        "token": localStorage.getItem("cookie-github")
+    })), {
+        "method": "POST"
+    }).then(e => {
+        return e.json()
+    }).then(a=>{
+        if (false === a.ok){
+                    localStorage.removeItem("github-username")
+                    localStorage.removeItem("cookie-github")
+                        document.getElementById("username-state").innerHTML = "Not logged in with GitHub.<br><br><button onclick='authorize()'>Log in</button>"
+    document.getElementById("revoke").setAttribute("disabled", "disabled")
+    document.getElementById("a").style.display = "none"
+        }
+    }).catch(() => {})
 }
 
 function logout() {
