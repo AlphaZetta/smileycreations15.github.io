@@ -11,7 +11,7 @@ function escapeHtml(unsafe) {
          .replace(/'/g, "&#039;");
  }
 fetch("https://api.github.com/repos/" + encodeURIComponent(localStorage.getItem("github-username")) + "/" + encodeURIComponent(localStorage.getItem("github-username") + ".github.io")).then(e=>{
-if (e.status === 201){
+if (e.status === 200){
   set("You already have a site", "You already have set up a GitHub pages site.")
 } else {
   set("1. Create a repository","Create a repository named " + escapeHtml(localStorage.getItem("github-username") + ".github.io") + ".<br><br><a onclick='next()'>Next</button>")
