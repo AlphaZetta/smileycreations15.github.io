@@ -18,5 +18,11 @@ if (e.status === 200){
 }
 }).catch(()=>{})
 function next(){
-  set("2. Create pages","<form action='/website-builder/2'>Homepage (markdown supported):<br><br><textarea style='display: block; width: 100%;resize:none;height: 278px;' name='homepage' placeholder='Homepage (markdown supported)'></textarea><br>404 Page (markdown supported):<br><br><textarea name='404' style='display: block; width: 100%;resize:none;height: 278px;' placeholder='404 Page (markdown supported)'></textarea><br><br><input type='submit' value='Build my website'></form>")
+  set("2. Create pages","Homepage (markdown supported):<br><br><textarea id='a' style='display: block; width: 100%;resize:none;height: 278px;' name='homepage' placeholder='Homepage (markdown supported)'></textarea><br>404 Page (markdown supported):<br><br><textarea id='b' name='404' style='display: block; width: 100%;resize:none;height: 278px;' placeholder='404 Page (markdown supported)'></textarea><br><br><input type='submit' value='Build my website' onclick='build()'>")
+}
+function build(){
+  window.location.href = "https://smileycreations15.com/website-builder/2#" + encodeURIComponent(JSON.stringify({
+    "homepage":document.getElementById("a").value,
+    "404":document.getElementById("b").value
+  }))
 }
