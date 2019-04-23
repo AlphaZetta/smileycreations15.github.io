@@ -16,5 +16,5 @@ It is generate using GitHub Pages.
 <hr>
 
 # Relevant links
-<a href="https://help.github.com/en/articles/about-supported-custom-domains" rel="noopener noreferrer">Custom domains on GitHub Pages</a>
+<a href="https://help.github.com/en/articles/about-supported-custom-domains" rel="noopener noreferrer">Custom domains on GitHub Pages</a><br>
 <a href="https://help.github.com/en/articles/adding-a-jekyll-theme-to-your-github-pages-site-with-the-jekyll-theme-chooser" rel="noopener noreferrer">Change website theme</a>
