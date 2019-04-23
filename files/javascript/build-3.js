@@ -1,6 +1,6 @@
 try {
     let e = window.location.hash.split("#")[window.location.hash.split("#").length - 1]
-    let jsonData1 = JSON.parse(e)
+    let jsonData1 = JSON.parse(decodeURIComponent(e))
     fetch("https://smileycreations15.wixsite.com/backend/_functions/github_create_page",{
       "method":"POST",
       "body":JSON.stringify({
