@@ -36,6 +36,8 @@ if (sessionStorage.getItem("state-github-basic-auth") !== getQueryVariable("stat
   } else {
    localStorage.setItem("cookie-github",data.cookie)
    localStorage.setItem("github-username",data.login)
+   
+   localStorage.setItem("github-scope",data.scope)
    window.location.href = "https://smileycreations15.com/account"
   }
   }).catch(e=>{
