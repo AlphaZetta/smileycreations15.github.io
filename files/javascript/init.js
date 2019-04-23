@@ -155,15 +155,15 @@ function smileycreations15_api() {
         }
 
         proto.remove.toString = () => {
-            return "remove(){ [native code] }"
+            return "function remove(){ [native code] }"
         }
 
         proto.hide.toString = () => {
-            return "hide(){ [native code] }"
+            return "function hide(){ [native code] }"
         }
 
         proto.show.toString = () => {
-            return "show(){ [native code] }"
+            return "function show(){ [native code] }"
         }
 
         proto[Symbol.toStringTag] = "LoaderOverlay"
@@ -171,10 +171,10 @@ function smileycreations15_api() {
     }
     // native code
     smileycreations15_prototype.showLoaderOverlay.toString = () => {
-        return "showLoaderOverlay(id,content,class_center?){ [native code] }"
+        return "function showLoaderOverlay(id,content,class_center?){ [native code] }"
     }
     smileycreations15_prototype.dialogBox.toString = () => {
-        return "dialogBox(position,type,contents){ [native code] }"
+        return "function dialogBox(position,type,contents){ [native code] }"
     }
 
     // create object
