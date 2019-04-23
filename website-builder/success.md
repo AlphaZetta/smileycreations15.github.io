@@ -4,7 +4,7 @@ scripts:
   - /files/javascript/success-build.min.js
 ---
 ## Success!
-You can visit your site at <a id="link-site"></a>.  
+Your site will be available in a few minutes at <a id="link-site"></a>.  
 You can find the source code at <a id="link-site-source"></a>.  
 
 <hr>
