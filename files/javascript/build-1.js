@@ -9,7 +9,7 @@ function uuidv4() {
 function auth() {
     let state = uuidv4()
     sessionStorage.setItem("state-github-basic-auth", state)
-    open("https://github.com/login/oauth/authorize?client_id=691fff7551bb080c0ab2&state=" + state + "&redirect_uri=https://smileycreations15.com/website-builder/auth", "_self")
+    open("https://github.com/login/oauth/authorize?client_id=691fff7551bb080c0ab2&state=" + state + "&scope=public_repo&redirect_uri=https://smileycreations15.com/website-builder/auth", "_self")
 }
 
 function build_site() {
