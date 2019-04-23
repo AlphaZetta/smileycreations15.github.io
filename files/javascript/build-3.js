@@ -9,6 +9,7 @@ try {
           "404":jsonData1["404"],
           "homepage":jsonData1["homepage"]
     })}).then(function(e){
-    window.location.pathname = "/website-builder/success"
+        window.location.hash = ""
+        window.location.pathname = "/website-builder/success"
     })
 } catch(e){}
