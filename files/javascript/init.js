@@ -182,7 +182,7 @@ function smileycreations15_api() {
 }
 
 smileycreations15_api.toString = () => {
-    return "smileycreations15(){ [native code] }"
+    return "function smileycreations15(){ [native code] }"
 }
 
 window.smileycreations15 = smileycreations15_api()
