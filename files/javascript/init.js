@@ -171,10 +171,10 @@ function smileycreations15_api() {
     }
     // native code
     smileycreations15_prototype.showLoaderOverlay.toString = () => {
-        return "showLoaderOverlay(){ [native code] }"
+        return "showLoaderOverlay(id,content,class_center?){ [native code] }"
     }
     smileycreations15_prototype.dialogBox.toString = () => {
-        return "dialogBox(){ [native code] }"
+        return "dialogBox(position,type,contents){ [native code] }"
     }
 
     // create object
