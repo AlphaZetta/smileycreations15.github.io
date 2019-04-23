@@ -21,5 +21,5 @@ function build_site() {
         auth()
         return
     }
-    window.open("/website_builder/1")
+    window.open("/website-builder/1")
 }
