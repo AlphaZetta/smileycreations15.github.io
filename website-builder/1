@@ -1,0 +1,7 @@
+---
+title: Website Builder
+scripts:
+  - /files/javascript/build-2.js
+---
+<h2 id="stat">Checking status...</h2>
+<p id="stat1">We are currently checking if you have a website set up.</p>
