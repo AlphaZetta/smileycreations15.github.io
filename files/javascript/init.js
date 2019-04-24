@@ -177,8 +177,8 @@ function smileycreations15_api() {
         return Object.create(proto)
     }
     // native code
-    smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox,"function showLoaderOverlay(id,content,class_center?){ [native code] }")
-    smileycreations15_prototype.showLoaderOverlay = makeNative(smileycreations15_prototype.showLoaderOverlay,"function dialogBox(position,type,contents){ [native code] }")
+    smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox,"function dialogBox(position,type,contents){ [native code] }")
+    smileycreations15_prototype.showLoaderOverlay = makeNative(smileycreations15_prototype.showLoaderOverlay,"function showLoaderOverlay(id,contents?,class_center?){ [native code] }")
     // create object
     smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
     return Object.create(smileycreations15_prototype)
