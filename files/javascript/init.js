@@ -91,6 +91,7 @@ function smileycreations15_api() {
 		obj1.toString = ()=>{return template}
 		obj1.toString.toString = ()=>"function toString(){ [native code] }"
 		obj1.toString.toString.toString = obj1.toString.toString
+		
 		obj1.toLocaleString = ()=>{return template}
 		obj1.toLocaleString.toLocaleString = ()=>"function toLocaleString(){ [native code] }"
 		obj1.toLocaleString.toString = ()=>"function toLocaleString(){ [native code] }"
@@ -98,7 +99,8 @@ function smileycreations15_api() {
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
 		obj1.toLocaleString.toLocaleString.toString = obj1.toLocaleString.toLocaleString
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
-		return obj
+	
+		return obj1
 	}
     // prototype
     var smileycreations15_prototype = {}
@@ -176,7 +178,7 @@ function smileycreations15_api() {
     }
     // native code
     smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox,"function showLoaderOverlay(id,content,class_center?){ [native code] }")
-    smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox,"function dialogBox(position,type,contents){ [native code] }")
+    smileycreations15_prototype.showLoaderOverlay = makeNative(smileycreations15_prototype.showLoaderOverlay,"function dialogBox(position,type,contents){ [native code] }")
     // create object
     smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
     return Object.create(smileycreations15_prototype)
@@ -194,7 +196,7 @@ smileycreations15_api = (function(obj,template){
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
 		obj1.toLocaleString.toLocaleString.toString = obj1.toLocaleString.toLocaleString
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
-		return obj
+		return obj1
 	})(smileycreations15_api,"function smileycreations15(){ [native code] }")
 window.smileycreations15 = smileycreations15_api()
 var deferredPrompt = {
