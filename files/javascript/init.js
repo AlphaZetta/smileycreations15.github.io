@@ -84,7 +84,15 @@ function smileycreations15_api() {
 
     // privateData
     var _private = {}
-
+	
+    // make native
+    	var makeNative = function(obj,template){
+		let obj1 = obj
+		obj1.toString = ()=>{return template}
+		obj1.toString.toString = ()=>"function toString(){ [native code] }"
+		obj1.toString.toString.toString = obj1.toString.toString
+		return obj
+	}
     // prototype
     var smileycreations15_prototype = {}
 
@@ -152,30 +160,16 @@ function smileycreations15_api() {
                 document.body.removeChild(document.getElementById(id))
             }
         }
-
-        proto.remove.toString = () => {
-            return "function remove(){ [native code] }"
-        }
-
-        proto.hide.toString = () => {
-            return "function hide(){ [native code] }"
-        }
-
-        proto.show.toString = () => {
-            return "function show(){ [native code] }"
-        }
-
+	
+        proto.remove = makeNative(proto.remove,"function remove(){ [native code] }")
+	proto.show = makeNative(proto.show,"function show(){ [native code] }")
+	proto.hide = makeNative(proto.hide,"function hide(){ [native code] }")
         proto[Symbol.toStringTag] = "LoaderOverlay"
         return Object.create(proto)
     }
     // native code
-    smileycreations15_prototype.showLoaderOverlay.toString = () => {
-        return "function showLoaderOverlay(id,content,class_center?){ [native code] }"
-    }
-    smileycreations15_prototype.dialogBox.toString = () => {
-        return "function dialogBox(position,type,contents){ [native code] }"
-    }
-
+    smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox,"function showLoaderOverlay(id,content,class_center?){ [native code] }")
+    smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox,"function dialogBox(position,type,contents){ [native code] }")
     // create object
     smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
     return Object.create(smileycreations15_prototype)
@@ -184,7 +178,8 @@ function smileycreations15_api() {
 smileycreations15_api.toString = () => {
     return "function smileycreations15(){ [native code] }"
 }
-
+smileycreations15_api.toString.toString = ()=>"function toString(){ [native code] }"
+smileycreations15_api.toString.toString.toString = smileycreations15_api.toString.toString
 window.smileycreations15 = smileycreations15_api()
 var deferredPrompt = {
     prompt: (() => {}
