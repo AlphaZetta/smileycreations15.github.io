@@ -94,7 +94,7 @@ function smileycreations15_api() {
 		
 		obj1.toLocaleString = ()=>{return template}
 		obj1.toLocaleString.toLocaleString = ()=>"function toLocaleString(){ [native code] }"
-		obj1.toLocaleString.toString = ()=>"function toLocaleString(){ [native code] }"
+		obj1.toLocaleString.toString = ()=>"function toString(){ [native code] }"
 		obj1.toLocaleString.toLocaleString.toLocaleString = obj1.toLocaleString.toLocaleString
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
 		obj1.toLocaleString.toLocaleString.toString = obj1.toLocaleString.toLocaleString
@@ -189,13 +189,15 @@ smileycreations15_api = (function(obj,template){
 		obj1.toString = ()=>{return template}
 		obj1.toString.toString = ()=>"function toString(){ [native code] }"
 		obj1.toString.toString.toString = obj1.toString.toString
+		
 		obj1.toLocaleString = ()=>{return template}
 		obj1.toLocaleString.toLocaleString = ()=>"function toLocaleString(){ [native code] }"
-		obj1.toLocaleString.toString = ()=>"function toLocaleString(){ [native code] }"
+		obj1.toLocaleString.toString = ()=>"function toString(){ [native code] }"
 		obj1.toLocaleString.toLocaleString.toLocaleString = obj1.toLocaleString.toLocaleString
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
 		obj1.toLocaleString.toLocaleString.toString = obj1.toLocaleString.toLocaleString
 		obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
+	
 		return obj1
 	})(smileycreations15_api,"function smileycreations15(){ [native code] }")
 window.smileycreations15 = smileycreations15_api()
