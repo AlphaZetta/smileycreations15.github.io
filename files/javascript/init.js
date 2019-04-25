@@ -81,7 +81,7 @@ if(top!=self){
 }
 */
 (function () {
-	function smileycreations15_api() {
+	window.smileycreations15_api = function smileycreations15() {
 
 		// privateData
 		var _private = {}
