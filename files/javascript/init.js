@@ -108,7 +108,7 @@ function smileycreations15_api() {
     // dialog box
     smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left", type = "plain", dialogContent, black = true) {
         let dialog = document.createElement("div")
-        ialog.className = "notify " + location + " do-show font-notify"
+        dialog.className = "notify " + location + " do-show font-notify"
         dialog.dataset.notificationStatus = type
         dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
         let blackText = ["success",
