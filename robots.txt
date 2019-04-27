@@ -16,4 +16,7 @@ Disallow: /website-builder/*
 Allow: /website-builder/
 Allow: /website-builder
 
+User-agent: ia_archiver
+Disallow: /
+
 Sitemap: https://smileycreations15.com/Sitemap-XML.txt
