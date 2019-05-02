@@ -1636,7 +1636,8 @@ a:hover {
 	-ms-transform: translate(-50%, -50%)
 }
 input[type="submit"],button,.button-green {
-	background-color: #4CAF50; /* Green */
+	/*background-color: #4CAF50;*/
+	background-image: linear-gradient(120deg,#155799,#159957);
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -1648,7 +1649,6 @@ input[type="submit"],button,.button-green {
 	cursor: pointer;
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
-	cursor:pointer;
 }
 
 input[type="submit"]:hover,button:hover,.button-green:hover {
