@@ -186,32 +186,31 @@ if(top!=self){
         smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox, "function dialogBox(position,type,contents){ [native code] }")
         smileycreations15_prototype.showLoaderOverlay = makeNative(smileycreations15_prototype.showLoaderOverlay, "function showLoaderOverlay(id,contents?,class_center?){ [native code] }")
         // create object
-        smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15"
-        var Store = class Store {
-            constructor(dbName = 'smileycreations15-store', storeName = 'main') {
-                this.storeName = storeName;
-                this._dbp = new Promise((resolve, reject) => {
-                    const openreq = indexedDB.open(dbName, 1);
-                    openreq.onerror = () => reject(openreq.error);
-                    openreq.onsuccess = () => resolve(openreq.result);
-                    // First time setup: create an empty object store
-                    openreq.onupgradeneeded = () => {
-                        openreq.result.createObjectStore(storeName);
-                    };
-                });
-            }
-            _withIDBStore(type, callback) {
-                return this._dbp.then(db => new Promise((resolve, reject) => {
-                    const transaction = db.transaction(this.storeName, type);
-                    transaction.oncomplete = () => resolve();
-                    transaction.onabort = transaction.onerror = () => reject(transaction.error);
-                    callback(transaction.objectStore(this.storeName));
-                }));
-            }
-        }
+        smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15";
         (function() {
           var store;
-
+          var Store = class Store {
+              constructor(dbName = 'smileycreations15-store', storeName = 'main') {
+                  this.storeName = storeName;
+                  this._dbp = new Promise((resolve, reject) => {
+                      const openreq = indexedDB.open(dbName, 1);
+                      openreq.onerror = () => reject(openreq.error);
+                      openreq.onsuccess = () => resolve(openreq.result);
+                      // First time setup: create an empty object store
+                      openreq.onupgradeneeded = () => {
+                          openreq.result.createObjectStore(storeName);
+                      };
+                  });
+              }
+              _withIDBStore(type, callback) {
+                  return this._dbp.then(db => new Promise((resolve, reject) => {
+                      const transaction = db.transaction(this.storeName, type);
+                      transaction.oncomplete = () => resolve();
+                      transaction.onabort = transaction.onerror = () => reject(transaction.error);
+                      callback(transaction.objectStore(this.storeName));
+                  }));
+              }
+          }
           let getDefaultStore = function getDefaultStore() {
               if (!store)
                   store = new Store();
@@ -264,7 +263,7 @@ if(top!=self){
               "clear": clear,
               "keys": keys
           }
-          smileycreations15_prototype.database = Object.create(obj123)
+          smileycreations15_prototype.database = obj123
         })()
 
         return Object.create(smileycreations15_prototype)
