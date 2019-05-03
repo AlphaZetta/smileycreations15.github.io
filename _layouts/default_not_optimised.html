@@ -20,7 +20,9 @@
                 })
 	}
     </script>
-		    <link rel="stylesheet" href="/files/css/style.min.css" media="bogus">
+		    <!-- <link rel="stylesheet" href="/files/css/style.min.css" media="bogus"> -->
+	  <link rel="preload" href="/files/css/style.min.cs" as="style">
+  <link rel="preload" href="/files/jaavscript/init.min.js" as="script">
 
 	{% if page.keywords And page.keywords != "" And page.keywords != nil %}
     {% assign metaString = page.keywords | join: "," %}
