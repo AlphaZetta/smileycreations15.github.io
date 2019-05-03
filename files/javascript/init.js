@@ -136,7 +136,7 @@ if(top!=self){
 
         // loader overlay
         smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id, text = null, overlayHtml = false) {
-            if (null !== document.getElementById(id)) throw new DOMError("elementExists", "The element already exists.");
+            if (null !== document.getElementById(id)) throw new Error("The element already exists.");
             let div = document.createElement("div")
             let option = "center"
 
@@ -159,19 +159,19 @@ if(top!=self){
 
                 "element": document.getElementById(id),
                 "show": function() {
-                        if (null === document.getElementById(id)) throw new DOMError("elementNotFound", "The element could not be found, and may be removed from the DOM.");
+                        if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                         document.getElementById(id).style.display = "block"
                     }
 
                     ,
                 "hide": function() {
-                        if (null === document.getElementById(id)) throw new DOMError("elementNotFound", "The element could not be found, and may be removed from the DOM.");
+                        if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                         document.getElementById(id).style.display = "none"
                     }
 
                     ,
                 "remove": function() {
-                    if (null === document.getElementById(id)) throw new DOMError("elementNotFound", "The element could not be found, and may be removed from the DOM.");
+                    if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                     document.body.removeChild(document.getElementById(id))
                 }
             }
@@ -209,61 +209,63 @@ if(top!=self){
                 }));
             }
         }
+        (function() {
+          var store;
 
-        var store;
+          let getDefaultStore = function getDefaultStore() {
+              if (!store)
+                  store = new Store();
+              return store;
+          }
 
-        function getDefaultStore() {
-            if (!store)
-                store = new Store();
-            return store;
-        }
+          let get = function get(key, store = getDefaultStore()) {
+              let req;
+              return store._withIDBStore('readonly', store => {
+                  req = store.get(key);
+              }).then(() => req.result);
+          }
 
-        function get(key, store = getDefaultStore()) {
-            let req;
-            return store._withIDBStore('readonly', store => {
-                req = store.get(key);
-            }).then(() => req.result);
-        }
+          let set = function set(key, value, store = getDefaultStore()) {
+              return store._withIDBStore('readwrite', store => {
+                  store.put(value, key);
+              });
+          }
 
-        function set(key, value, store = getDefaultStore()) {
-            return store._withIDBStore('readwrite', store => {
-                store.put(value, key);
-            });
-        }
+          let del = function del(key, store = getDefaultStore()) {
+              return store._withIDBStore('readwrite', store => {
+                  store.delete(key);
+              });
+          }
 
-        function del(key, store = getDefaultStore()) {
-            return store._withIDBStore('readwrite', store => {
-                store.delete(key);
-            });
-        }
+          let clear = function clear(store = getDefaultStore()) {
+              return store._withIDBStore('readwrite', store => {
+                  store.clear();
+              });
+          }
 
-        function clear(store = getDefaultStore()) {
-            return store._withIDBStore('readwrite', store => {
-                store.clear();
-            });
-        }
-
-        function keys(store = getDefaultStore()) {
-            const keys = [];
-            return store._withIDBStore('readonly', store => {
-                // This would be store.getAllKeys(), but it isn't supported by Edge or Safari.
-                // And openKeyCursor isn't supported by Safari.
-                (store.openKeyCursor || store.openCursor).call(store).onsuccess = function() {
-                    if (!this.result)
-                        return;
-                    keys.push(this.result.key);
-                    this.result.continue();
-                };
-            }).then(() => keys);
-        }
-        smileycreations15_prototype.database = {
-            "Store": Store,
-            "get": get,
-            "set": set,
-            "del": del,
-            "clear": clear,
-            "keys": keys
-        }
+          let keys = function keys(store = getDefaultStore()) {
+              const keys = [];
+              return store._withIDBStore('readonly', store => {
+                  // This would be store.getAllKeys(), but it isn't supported by Edge or Safari.
+                  // And openKeyCursor isn't supported by Safari.
+                  (store.openKeyCursor || store.openCursor).call(store).onsuccess = function() {
+                      if (!this.result)
+                          return;
+                      keys.push(this.result.key);
+                      this.result.continue();
+                  };
+              }).then(() => keys);
+          }
+          var obj123 = {
+              "Store": Store,
+              "get": get,
+              "set": set,
+              "del": del,
+              "clear": clear,
+              "keys": keys
+          }
+          smileycreations15_prototype.database = Object.create(obj123)
+        })()
 
         return Object.create(smileycreations15_prototype)
     }
