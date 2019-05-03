@@ -255,7 +255,7 @@ function installPWA() {
 	// dialogBox("top-left","notice","Please a few seconds to install the app.")
 	ui = smileycreations15.showLoaderOverlay("ui-install", "Please wait...")
 	ui.show()
-	eferredPrompt.prompt()
+	deferredPrompt.prompt()
 	deferredPrompt.userChoice.then((choiceResult) => {
 			ui.remove()
 			if (choiceResult.outcome === 'accepted') {
