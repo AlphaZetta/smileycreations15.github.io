@@ -1657,3 +1657,18 @@ input[type="submit"]:hover,button:hover,.button-green:hover {
 input[type="submit"]:focus,button:focus,.button-green:focus {
 	outline:none;
 }
+
+.loading-side-tooltip {
+    position: fixed;
+    left: 1em;
+    bottom: 1.5em;
+    background-color: #E6E6E6;
+    border: 1px solid #959595;
+    margin: 0px;
+    padding: 2px 8px;
+    z-index: 102;
+    color: black;
+    font-size: 80%;
+    width: auto;
+    white-space: nowrap;
+}
