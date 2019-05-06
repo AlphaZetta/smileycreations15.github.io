@@ -2,8 +2,8 @@
 var savedPath = window.location.pathname
 
 function postSecure(data) {
-    if (null !== navigator.serviceWorker) {
-        if (null !== navigator.serviceWorker.controller) {
+    if(null !== navigator.serviceWorker) {
+        if(null !== navigator.serviceWorker.controller) {
             navigator.serviceWorker.controller.postMessage(data)
         }
     }
@@ -27,7 +27,7 @@ function setSessionCookie(cname, cvalue) {
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
+  for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
@@ -118,29 +118,32 @@ if (top!=self){
             dialog.dataset.notificationStatus = type
             dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
             let blackText = ["success"
+
                 , "notice"
+
                 , "error"
+
                 , "warning"
             ] // notification types: success, notice, error, plain, warning, transparent
 
-            if (blackText.includes(type) && black !== false) {
+            if(blackText.includes(type) && black !== false) {
                 dialog.style.color = "black"
             }
 
             document.body.appendChild(dialog)
         }
 
-        if (null !== document.getElementById("overlay")) {
+        if(null !== document.getElementById("overlay")) {
             document.body.removeChild(document.getElementById("overlay"))
         }
 
         // loader overlay
         smileycreations15_prototype.showLoaderOverlay = function showLoaderOverlay(id, text = null, overlayHtml = false) {
-            if (null !== document.getElementById(id)) throw new Error("The element already exists.");
+            if(null !== document.getElementById(id)) throw new Error("The element already exists.");
             let div = document.createElement("div")
             let option = "center"
 
-            if (true === overlayHtml) {
+            if(true === overlayHtml) {
                 option = "overlay"
             }
 
@@ -148,7 +151,7 @@ if (top!=self){
             div.id = id
             div.style.display = "none"
 
-            if (null === text || undefined === text) {
+            if(null === text || undefined === text) {
                 div.innerHTML = '<div class="text-' + option + '"></div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
             } else {
                 div.innerHTML = '<div class="text-overlay">' + text + '</div><div class="progress-slider"><div class="line"></div><div class="progress-subline inc"></div><div class="progress-subline dec"></div></div>'
@@ -159,19 +162,19 @@ if (top!=self){
 
                 "element": document.getElementById(id)
                 , "show": function () {
-                        if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
+                        if(null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                         document.getElementById(id)
                             .style.display = "block"
                     }
 
                 , "hide": function () {
-                        if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
+                        if(null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                         document.getElementById(id)
                             .style.display = "none"
                     }
 
                 , "remove": function () {
-                    if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
+                    if(null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                     document.body.removeChild(document.getElementById(id))
                 }
             }
@@ -212,7 +215,7 @@ if (top!=self){
                 }
             }
             let getDefaultStore = function getDefaultStore() {
-                if (!store)
+                if(!store)
                     store = new Store();
                 return store;
             }
@@ -251,7 +254,7 @@ if (top!=self){
                         (store.openKeyCursor || store.openCursor)
                         .call(store)
                             .onsuccess = function () {
-                                if (!this.result)
+                                if(!this.result)
                                     return;
                                 keys.push(this.result.key);
                                 this.result.continue();
@@ -300,6 +303,15 @@ if (top!=self){
             document.getElementById("loading-side-tooltip")
                 .innerHTML = html
         }
+        smileycreations15_prototype.randomId = function randomId(length, chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
+            var result = '';
+            var characters = chars;
+            var charactersLength = characters.length;
+            for(var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
         return Object.create(smileycreations15_prototype)
     }
 
@@ -338,9 +350,9 @@ var ui = {
 }
 
 var a1 = false
-if (window.matchMedia('(display-mode: standalone)')
+if(window.matchMedia('(display-mode: standalone)')
     .matches) {
-    if (window.location.pathname === "/pwa") {
+    if(window.location.pathname === "/pwa") {
         postSecure({
                 "action": "pwaStatus"
                 , "status": "pwa-launch"
@@ -373,7 +385,7 @@ function installPWA() {
     deferredPrompt.prompt()
     deferredPrompt.userChoice.then((choiceResult) => {
             ui.remove()
-            if (choiceResult.outcome === 'accepted') {
+            if(choiceResult.outcome === 'accepted') {
                 ui = smileycreations15.showLoaderOverlay("ui-install", "Installation in progress...<br><span style='font-size:20px'>Please do not close the tab.</span>")
                 ui.show()
                 window.addEventListener('appinstalled', (evt) => {
@@ -396,7 +408,7 @@ function installPWA() {
 
                 );
 
-                if (window.matchMedia('(display-mode: standalone)')
+                if(window.matchMedia('(display-mode: standalone)')
                     .matches) {
                     postSecure({
                             "action": "pwaStatus"
@@ -415,7 +427,7 @@ function installPWA() {
                 } else {
                     window.matchMedia('(display-mode: standalone)')
                         .addListener(function (e) {
-                                if (e.matches && !a1) {
+                                if(e.matches && !a1) {
                                     postSecure({
                                             "action": "pwaStatus"
                                             , "status": "pwa-after-install-launch"
@@ -485,7 +497,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
         b.innerHTML = "Install app"
 
         let paths = ["/pwa", "/pwa.html"]
-        if (paths.includes(window.location.pathname)) {
+        if(paths.includes(window.location.pathname)) {
             //  && savedPath === window.location.pathname
             // dialogBox("top-left","error","A unexpected event is triggered. Please reinstall the app.")
             return
@@ -514,7 +526,7 @@ var getQueryString = function (field, url = window.location.href) {
 
 ;
 
-if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.html") {
+if(window.location.pathname === "/pwa" || window.location.pathname === "/pwa.html") {
     document.getElementById("myProfile")
         .href = "javascript:void(0)"
 
