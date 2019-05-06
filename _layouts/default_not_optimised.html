@@ -176,6 +176,7 @@ animation: decrease 2s 0.5s infinite;
 {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
         <script style="display:none" src="{{ item1 }}"></script>
         {% endfor %} {% endif %}
+        <div class="loading-side-tooltip" id="loading-side-tooltip" style="display:none"></div>
 </body>
 
 </html>

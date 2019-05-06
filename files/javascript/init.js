@@ -75,12 +75,12 @@ if (null === getCookie("userID")){
     }
 }*/
 /*
-if(top!=self){
+if (top!=self){
     top.location.replace(document.location);
     alert("For security reasons, framing is not allowed; click OK to remove the frames.")
 }
 */
-(function() {
+(function () {
     var internalPrivate = {}
     window.smileycreations15_api = function smileycreations15() {
 
@@ -88,7 +88,7 @@ if(top!=self){
         var _private = {}
 
         // make native
-        var makeNative = function(obj, template) {
+        var makeNative = function (obj, template) {
             let obj1 = obj
             obj1.toString = () => {
                 return template
@@ -117,10 +117,10 @@ if(top!=self){
             dialog.className = "notify " + location + " do-show font-notify"
             dialog.dataset.notificationStatus = type
             dialog.innerHTML = dialogContent // positions : bottom-right, top-left, top-right, bar-bottom, bar-top, bottom-right, bottom-left
-            let blackText = ["success",
-                "notice",
-                "error",
-                "warning"
+            let blackText = ["success"
+                , "notice"
+                , "error"
+                , "warning"
             ] // notification types: success, notice, error, plain, warning, transparent
 
             if (blackText.includes(type) && black !== false) {
@@ -157,138 +157,172 @@ if(top!=self){
             document.body.appendChild(div)
             var proto = {
 
-                "element": document.getElementById(id),
-                "show": function() {
+                "element": document.getElementById(id)
+                , "show": function () {
                         if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
-                        document.getElementById(id).style.display = "block"
+                        document.getElementById(id)
+                            .style.display = "block"
                     }
 
-                    ,
-                "hide": function() {
+                , "hide": function () {
                         if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
-                        document.getElementById(id).style.display = "none"
+                        document.getElementById(id)
+                            .style.display = "none"
                     }
 
-                    ,
-                "remove": function() {
+                , "remove": function () {
                     if (null === document.getElementById(id)) throw new Error("The element could not be found, and may be removed from the DOM.");
                     document.body.removeChild(document.getElementById(id))
                 }
             }
 
-            proto.remove = makeNative(proto.remove, "function remove(){ [native code] }")
-            proto.show = makeNative(proto.show, "function show(){ [native code] }")
-            proto.hide = makeNative(proto.hide, "function hide(){ [native code] }")
+            // proto.remove = makeNative(proto.remove, "function remove(){ [native code] }")
+            // proto.show = makeNative(proto.show, "function show(){ [native code] }")
+            // proto.hide = makeNative(proto.hide, "function hide(){ [native code] }")
             proto[Symbol.toStringTag] = "LoaderOverlay"
             return Object.create(proto)
         }
         // native code
-        smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox, "function dialogBox(position,type,contents){ [native code] }")
-        smileycreations15_prototype.showLoaderOverlay = makeNative(smileycreations15_prototype.showLoaderOverlay, "function showLoaderOverlay(id,contents?,class_center?){ [native code] }")
+        // smileycreations15_prototype.dialogBox = makeNative(smileycreations15_prototype.dialogBox, "function dialogBox(position,type,contents){ [native code] }")
+        // smileycreations15_prototype.showLoaderOverlay = makeNative(smileycreations15_prototype.showLoaderOverlay, "function showLoaderOverlay(id,contents?,class_center?){ [native code] }")
         // create object
         smileycreations15_prototype[Symbol.toStringTag] = "smileycreations15";
-        (function() {
-          var store;
-          var Store = class Store {
-              constructor(dbName = 'smileycreations15-store', storeName = 'main') {
-                  this.storeName = storeName;
-                  this._dbp = new Promise((resolve, reject) => {
-                      const openreq = indexedDB.open(dbName, 1);
-                      openreq.onerror = () => reject(openreq.error);
-                      openreq.onsuccess = () => resolve(openreq.result);
-                      // First time setup: create an empty object store
-                      openreq.onupgradeneeded = () => {
-                          openreq.result.createObjectStore(storeName);
-                      };
-                  });
-              }
-              _withIDBStore(type, callback) {
-                  return this._dbp.then(db => new Promise((resolve, reject) => {
-                      const transaction = db.transaction(this.storeName, type);
-                      transaction.oncomplete = () => resolve();
-                      transaction.onabort = transaction.onerror = () => reject(transaction.error);
-                      callback(transaction.objectStore(this.storeName));
-                  }));
-              }
-          }
-          let getDefaultStore = function getDefaultStore() {
-              if (!store)
-                  store = new Store();
-              return store;
-          }
+        (function () {
+            var store;
+            var Store = class Store {
+                constructor(dbName = 'smileycreations15-store', storeName = 'main') {
+                    this.storeName = storeName;
+                    this._dbp = new Promise((resolve, reject) => {
+                        const openreq = indexedDB.open(dbName, 1);
+                        openreq.onerror = () => reject(openreq.error);
+                        openreq.onsuccess = () => resolve(openreq.result);
+                        // First time setup: create an empty object store
+                        openreq.onupgradeneeded = () => {
+                            openreq.result.createObjectStore(storeName);
+                        };
+                    });
+                }
+                _withIDBStore(type, callback) {
+                    return this._dbp.then(db => new Promise((resolve, reject) => {
+                        const transaction = db.transaction(this.storeName, type);
+                        transaction.oncomplete = () => resolve();
+                        transaction.onabort = transaction.onerror = () => reject(transaction.error);
+                        callback(transaction.objectStore(this.storeName));
+                    }));
+                }
+            }
+            let getDefaultStore = function getDefaultStore() {
+                if (!store)
+                    store = new Store();
+                return store;
+            }
 
-          let get = function get(key, store = getDefaultStore()) {
-              let req;
-              return store._withIDBStore('readonly', store => {
-                  req = store.get(key);
-              }).then(() => req.result);
-          }
+            let get = function get(key, store = getDefaultStore()) {
+                let req;
+                return store._withIDBStore('readonly', store => {
+                        req = store.get(key);
+                    })
+                    .then(() => req.result);
+            }
 
-          let set = function set(key, value, store = getDefaultStore()) {
-              return store._withIDBStore('readwrite', store => {
-                  store.put(value, key);
-              });
-          }
+            let set = function set(key, value, store = getDefaultStore()) {
+                return store._withIDBStore('readwrite', store => {
+                    store.put(value, key);
+                });
+            }
 
-          let del = function del(key, store = getDefaultStore()) {
-              return store._withIDBStore('readwrite', store => {
-                  store.delete(key);
-              });
-          }
+            let del = function del(key, store = getDefaultStore()) {
+                return store._withIDBStore('readwrite', store => {
+                    store.delete(key);
+                });
+            }
 
-          let clear = function clear(store = getDefaultStore()) {
-              return store._withIDBStore('readwrite', store => {
-                  store.clear();
-              });
-          }
+            let clear = function clear(store = getDefaultStore()) {
+                return store._withIDBStore('readwrite', store => {
+                    store.clear();
+                });
+            }
 
-          let keys = function keys(store = getDefaultStore()) {
-              const keys = [];
-              return store._withIDBStore('readonly', store => {
-                  // This would be store.getAllKeys(), but it isn't supported by Edge or Safari.
-                  // And openKeyCursor isn't supported by Safari.
-                  (store.openKeyCursor || store.openCursor).call(store).onsuccess = function() {
-                      if (!this.result)
-                          return;
-                      keys.push(this.result.key);
-                      this.result.continue();
-                  };
-              }).then(() => keys);
-          }
-          var obj123 = {
-              "Store": Store,
-              "get": get,
-              "set": set,
-              "del": del,
-              "clear": clear,
-              "keys": keys
-          }
-          smileycreations15_prototype.database = obj123
+            let keys = function keys(store = getDefaultStore()) {
+                const keys = [];
+                return store._withIDBStore('readonly', store => {
+                        // This would be store.getAllKeys(), but it isn't supported by Edge or Safari.
+                        // And openKeyCursor isn't supported by Safari.
+                        (store.openKeyCursor || store.openCursor)
+                        .call(store)
+                            .onsuccess = function () {
+                                if (!this.result)
+                                    return;
+                                keys.push(this.result.key);
+                                this.result.continue();
+                            };
+                    })
+                    .then(() => keys);
+            }
+            var obj123 = {
+                "Store": Store
+                , "get": get
+                , "set": set
+                , "del": del
+                , "clear": clear
+                , "keys": keys
+            }
+            smileycreations15_prototype.database = obj123
         })()
-
+        smileycreations15_prototype.encoding = {}
+        smileycreations15_prototype.encoding.encode = function encode(string, base = 36) {
+            var number = "";
+            var length = string.length;
+            for(var i = 0; i < length; i++)
+                number += string.charCodeAt(i)
+                .toString(base);
+            return number;
+        }
+        smileycreations15_prototype.encoding.decode = function decode(encoded, base = 36) {
+            var string = "";
+            var length = encoded.length;
+            for(var i = 0; i < length;) {
+                var code = encoded.slice(i, i += 2);
+                string += String.fromCharCode(parseInt(code, base));
+            }
+            return string;
+        }
+        smileycreations15_prototype.tooltip = {}
+        smileycreations15_prototype.tooltip.show = function () {
+            document.getElementById("loading-side-tooltip")
+                .style.display = ""
+        }
+        smileycreations15_prototype.tooltip.hide = function () {
+            document.getElementById("loading-side-tooltip")
+                .style.display = "none"
+        }
+        smileycreations15_prototype.tooltip.setHtml = function (html) {
+            document.getElementById("loading-side-tooltip")
+                .innerHTML = html
+        }
         return Object.create(smileycreations15_prototype)
     }
 
-    smileycreations15_api = (function(obj, template) {
-        let obj1 = obj
-        obj1.toString = () => {
-            return template
-        }
-        obj1.toString.toString = () => "function toString(){ [native code] }"
-        obj1.toString.toString.toString = obj1.toString.toString
-
-        obj1.toLocaleString = () => {
-            return template
-        }
-        obj1.toLocaleString.toLocaleString = () => "function toLocaleString(){ [native code] }"
-        obj1.toLocaleString.toString = () => "function toString(){ [native code] }"
-        obj1.toLocaleString.toLocaleString.toLocaleString = obj1.toLocaleString.toLocaleString
-        obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
-        obj1.toLocaleString.toLocaleString.toString = obj1.toLocaleString.toLocaleString
-        obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
-
-        return obj1
-    })(smileycreations15_api, "function smileycreations15(){ [native code] }")
+    // smileycreations15_api = (function(obj, template) {
+    //     let obj1 = obj
+    //     obj1.toString = () => {
+    //         return template
+    //     }
+    //     obj1.toString.toString = () => "function toString(){ [native code] }"
+    //     obj1.toString.toString.toString = obj1.toString.toString
+    //
+    //     obj1.toLocaleString = () => {
+    //         return template
+    //     }
+    //     obj1.toLocaleString.toLocaleString = () => "function toLocaleString(){ [native code] }"
+    //     obj1.toLocaleString.toString = () => "function toString(){ [native code] }"
+    //     obj1.toLocaleString.toLocaleString.toLocaleString = obj1.toLocaleString.toLocaleString
+    //     obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
+    //     obj1.toLocaleString.toLocaleString.toString = obj1.toLocaleString.toLocaleString
+    //     obj1.toLocaleString.toString.toLocaleString = obj1.toString.toLocaleString
+    //
+    //     return obj1
+    // })(smileycreations15_api, "function smileycreations15(){ [native code] }")
     window.smileycreations15 = smileycreations15_api()
 })()
 var deferredPrompt = {
@@ -304,19 +338,20 @@ var ui = {
 }
 
 var a1 = false
-if (window.matchMedia('(display-mode: standalone)').matches) {
+if (window.matchMedia('(display-mode: standalone)')
+    .matches) {
     if (window.location.pathname === "/pwa") {
         postSecure({
-                "action": "pwaStatus",
-                "status": "pwa-launch"
+                "action": "pwaStatus"
+                , "status": "pwa-launch"
             }
 
         )
     } else {
         postSecure({
-                "action": "pwaStatus",
-                "status": "pwa-url-launch",
-                "url": window.location.pathname
+                "action": "pwaStatus"
+                , "status": "pwa-url-launch"
+                , "url": window.location.pathname
             }
 
         )
@@ -325,8 +360,8 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 
 function installPWA() {
     postSecure({
-            "action": "pwaStatus",
-            "status": "pwa-install-prompt"
+            "action": "pwaStatus"
+            , "status": "pwa-install-prompt"
         }
 
     );
@@ -343,8 +378,8 @@ function installPWA() {
                 ui.show()
                 window.addEventListener('appinstalled', (evt) => {
                         postSecure({
-                                "action": "pwaStatus",
-                                "status": "pwa-install-success"
+                                "action": "pwaStatus"
+                                , "status": "pwa-install-success"
                             }
 
                         );
@@ -355,54 +390,56 @@ function installPWA() {
                 );
 
                 postSecure({
-                        "action": "pwaStatus",
-                        "status": "pwa-install-accept"
+                        "action": "pwaStatus"
+                        , "status": "pwa-install-accept"
                     }
 
                 );
 
-                if (window.matchMedia('(display-mode: standalone)').matches) {
+                if (window.matchMedia('(display-mode: standalone)')
+                    .matches) {
                     postSecure({
-                            "action": "pwaStatus",
-                            "status": "pwa-after-install-launch"
+                            "action": "pwaStatus"
+                            , "status": "pwa-after-install-launch"
                         }
 
                     );
 
                     postSecure({
-                            "action": "pwaStatus",
-                            "status": "pwa-launch"
+                            "action": "pwaStatus"
+                            , "status": "pwa-launch"
                         }
 
                     );
                     window.location.pathname = "/pwa"
                 } else {
-                    window.matchMedia('(display-mode: standalone)').addListener(function(e) {
-                            if (e.matches && !a1) {
-                                postSecure({
-                                        "action": "pwaStatus",
-                                        "status": "pwa-after-install-launch"
-                                    }
+                    window.matchMedia('(display-mode: standalone)')
+                        .addListener(function (e) {
+                                if (e.matches && !a1) {
+                                    postSecure({
+                                            "action": "pwaStatus"
+                                            , "status": "pwa-after-install-launch"
+                                        }
 
-                                );
+                                    );
 
-                                postSecure({
-                                        "action": "pwaStatus",
-                                        "status": "pwa-launch"
-                                    }
+                                    postSecure({
+                                            "action": "pwaStatus"
+                                            , "status": "pwa-launch"
+                                        }
 
-                                );
-                                window.location.pathname = "/pwa"
-                                a1 = true
+                                    );
+                                    window.location.pathname = "/pwa"
+                                    a1 = true
+                                }
                             }
-                        }
 
-                    )
+                        )
                 }
             } else {
                 postSecure({
-                        "action": "pwaStatus",
-                        "status": "pwa-install-reject"
+                        "action": "pwaStatus"
+                        , "status": "pwa-install-reject"
                     }
 
                 );
@@ -432,8 +469,8 @@ if ("1" !== localStorage.getItem("cookie")){
 */
 window.addEventListener('beforeinstallprompt', (e) => {
         postSecure({
-                "action": "pwaStatus",
-                "status": "pwa-install-event-fired"
+                "action": "pwaStatus"
+                , "status": "pwa-install-event-fired"
             }
 
         );
@@ -468,7 +505,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
 
 // Check compatibility for the browser we're running this in
-var getQueryString = function(field, url = window.location.href) {
+var getQueryString = function (field, url = window.location.href) {
     var href = url ? url : window.location.href;
     var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
     var string = reg.exec(href);
@@ -478,17 +515,21 @@ var getQueryString = function(field, url = window.location.href) {
 ;
 
 if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.html") {
-    document.getElementById("myProfile").href = "javascript:void(0)"
+    document.getElementById("myProfile")
+        .href = "javascript:void(0)"
 
-    document.getElementById("myProfile").addEventListener("click", function() {
-            openPwaUrl('https://github.com/smileycreations15')
-        }
+    document.getElementById("myProfile")
+        .addEventListener("click", function () {
+                openPwaUrl('https://github.com/smileycreations15')
+            }
 
-    )
-    document.getElementById("openSource").href = "javascript:void(0)"
+        )
+    document.getElementById("openSource")
+        .href = "javascript:void(0)"
 
-    document.getElementById("openSource").addEventListener("click", function() {
-        openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')
-    })
+    document.getElementById("openSource")
+        .addEventListener("click", function () {
+            openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')
+        })
 }
 // sessionStorage.setItem("pwa","true")
