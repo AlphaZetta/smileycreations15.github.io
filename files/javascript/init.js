@@ -88,11 +88,11 @@ if (top!=self){
         var _private = {}
 
         // make native
-        var makeNative = function (obj, template) {
-            let obj1 = obj
+        var makeNative = function(obj, template) {
+            let obj1 = obj;
             obj1.toString = () => {
                 return template
-            }
+            };
             obj1.toString.toString = () => "function toString(){ [native code] }"
             obj1.toString.toString.toString = obj1.toString.toString
 
@@ -380,11 +380,14 @@ function installPWA() {
     document.body.removeChild(document.getElementById("installPrompt")) // history.replaceState({},"smileycreations15","/pwa")
 
     // dialogBox("top-left","notice","Please a few seconds to install the app.")
-    ui = smileycreations15.showLoaderOverlay("ui-install", "Please wait...")
-    ui.show()
+    smileycreations15.tooltip.setHtml("Please wait...")
+    smileycreations15.tooltip.show()
+    // ui = smileycreations15.showLoaderOverlay("ui-install", "Please wait...")
+    // ui.show()
     deferredPrompt.prompt()
     deferredPrompt.userChoice.then((choiceResult) => {
-            ui.remove()
+            // ui.remove()
+            smileycreations15.tooltip.hide()
             if(choiceResult.outcome === 'accepted') {
                 ui = smileycreations15.showLoaderOverlay("ui-install", "Installation in progress...<br><span style='font-size:20px'>Please do not close the tab.</span>")
                 ui.show()
