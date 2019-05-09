@@ -1654,9 +1654,6 @@ input[type="submit"],button,.button-green {
 input[type="submit"]:hover,button:hover,.button-green:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-input[type="submit"]:focus,button:focus,.button-green:focus {
-	outline:none;
-}
 
 .loading-side-tooltip {
     position: fixed;
