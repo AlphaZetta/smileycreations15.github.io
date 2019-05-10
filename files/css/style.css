@@ -1669,3 +1669,15 @@ input[type="submit"]:hover,button:hover,.button-green:hover {
     width: auto;
     white-space: nowrap;
 }
+.accessible-link {
+	position: absolute;
+	left:-2000px;
+}
+.accessible-link:focus {
+	position: absolute;
+	left:0;
+	top:0;
+	display:inline-block;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+}
