@@ -1671,7 +1671,7 @@ input[type="submit"]:hover,button:hover,.button-green:hover {
 }
 .accessible-link {
 	position: absolute;
-	left:-2000px;
+	left:-1000px;
 }
 .accessible-link:focus {
 	position: absolute;
