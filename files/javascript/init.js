@@ -503,7 +503,7 @@ function installPWA() {
                     postSecure({
                             "action": "pwaStatus"
                             , "status": "pwa-launch"
-                        }
+                    });
 
                     smileycreations15.database.set("pwaNotify",true)
                     window.location.pathname = "/pwa"
@@ -628,9 +628,11 @@ if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.ht
             openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')
         })
 }
-if (window.location.pathname === "/pwa" && smileycreations15.database.get("pwaNotify") === true){
-  smileycreations15.createSoundElement([{"type":"audio/mp3","url":"/files/sounds/notify-notice.mp3"}]).play()
-  smileycreations15.database.set("pwaNotify",false)
-  smileycreations15.dialogBox("top-left", "success", "App installed successfully")
-}
+(async function(){
+  if (window.location.pathname === "/pwa" && await smileycreations15.database.get("pwaNotify") === true){
+    smileycreations15.createSoundElement([{"type":"audio/mp3","url":"/files/sounds/notify-notice.mp3"}]).play()
+    smileycreations15.database.set("pwaNotify",false)
+    smileycreations15.dialogBox("top-left", "success", "App installed successfully")
+  }
+})()
 // sessionStorage.setItem("pwa","true")
