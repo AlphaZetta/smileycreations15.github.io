@@ -110,7 +110,23 @@ if (top!=self){
         }
         // prototype
         var smileycreations15_prototype = {}
-
+        // sound element
+        smileycreations15_prototype.createSoundElement = function createSoundElement(sources){
+	         var a = document.createElement("audio");
+	          if (!Array.isArray(sources)){
+		            throw new TypeError("Expected array.")
+	          }
+	          for (var i = 0;i !== sources.length;i++){
+		            if (typeof sources[i] !== "object" || typeof sources[i].url !== "string" || typeof sources[i].type !== "string"){
+			               throw new Error("Filename or type is not valid or missing.");
+		             }
+		             var b = document.createElement("source");
+		             b.src = sources[i].url;
+		             b.type = sources[i].type;
+		             a.appendChild(b);
+	          }
+	          return a;
+        }
         // dialog box
         smileycreations15_prototype.dialogBox = function dialogBox(location = "top-left", type = "plain", dialogContent, black = true) {
             let dialog = document.createElement("div")
