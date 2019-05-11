@@ -2,6 +2,7 @@
   /* ----------------------- */
   if (window.location.hostname !== "smileycreations15.com"){
     document.body.innerHTML = "unexpected hostname"
+    window.open("about:blank","_self")
   }
   try {
       if (!(parent && parent.WebPlayer) && top != self) {
@@ -15,6 +16,7 @@
       try {
           document.body.innerHTML = "iframe check failed."
           document.head.innerHTML = ""
+          window.open("about:blank","_self")
           return
       } catch(exception12){
           window.open("about:blank","_self")
