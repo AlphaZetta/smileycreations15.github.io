@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <script>
 	    function openPwaUrl(t){
-		    var otherWindow = window.open("https://smileycreations15.com/redirect?redirect=" + encodeURIComponent(t),"","resizable=1,width=" + String(screen.width / 2) + ",height=" + String(screen.height / 2));otherWindow.opener = null;otherWindow.document.title = "Loading..."; return;
+		    var otherWindow = window.open("https://smileycreations15.com/redirect?redirect=" + encodeURIComponent(t),"_blank","resizable=1,width=" + String(screen.width / 2) + ",height=" + String(screen.height / 2));otherWindow.opener = null;otherWindow.document.title = "Loading..."; return;
 	    }
 	if ("serviceWorker" in navigator) {
             if (navigator.serviceWorker.controller) {
