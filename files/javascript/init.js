@@ -505,7 +505,7 @@ function installPWA() {
                             , "status": "pwa-launch"
                         }
 
-                    );
+                    smileycreations15.database.set("pwaNotify",true)
                     window.location.pathname = "/pwa"
                 } else {
                     window.matchMedia('(display-mode: standalone)')
@@ -524,6 +524,7 @@ function installPWA() {
                                         }
 
                                     );
+                                    smileycreations15.database.set("pwaNotify",true)
                                     window.location.pathname = "/pwa"
                                     a1 = true
                                 }
@@ -626,5 +627,10 @@ if (window.location.pathname === "/pwa" || window.location.pathname === "/pwa.ht
         .addEventListener("click", function () {
             openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')
         })
+}
+if (window.location.pathname === "/pwa" && smileycreations15.database.get("pwaNotify") === true){
+  smileycreations15.createSoundElement([{"type":"audio/mp3","url":"/files/sounds/notify-notice.mp3"}]).play()
+  smileycreations15.database.set("pwaNotify",false)
+  smileycreations15.dialogBox("top-left", "success", "App installed successfully")
 }
 // sessionStorage.setItem("pwa","true")
