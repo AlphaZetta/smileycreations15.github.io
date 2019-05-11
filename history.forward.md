@@ -1,1 +1,0 @@
-<script>history.forward()</script>
