@@ -92,9 +92,10 @@
   }
   */
   (function () {
-      var internalPrivate = {}
+      var _internalPrivate = {}
+      _internalPrivate.instanceCount = 0
       window.smileycreations15_api = function smileycreations15() {
-
+          _internalPrivate.instanceCount += 1
           // privateData
           var _private = {}
 
@@ -407,6 +408,10 @@
                   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
               }
           }
+          smileycreations15_prototype.objectId = function(){
+            return _private.id
+          }
+          _private.id = smileycreations15_prototype.randomId(15)
           return Object.create(smileycreations15_prototype)
       }
       // smileycreations15_api = (function(obj, template) {
