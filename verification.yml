@@ -2,4 +2,6 @@ Codes:
   1:
     Hash-Algorithm: sha512
     List:
-      - ed984ad3ecf2fde31889ee4d324a8a0f70a8a857ac8e968dda2bba27ed74e2c8a92b92092bb6c13a592e2510b28028ab73ebfdf8671e252bafd9f34997bdf475
+      - Hash: "ed984ad3ecf2fde31889ee4d324a8a0f70a8a857ac8e968dda2bba27ed74e2c8a92b92092bb6c13a592e2510b28028ab73ebfdf8671e252bafd9f34997bdf475"
+        Nonce: "be6be99da228dcd218bea7c0ac4bf62441d8c59800aa84de757a538d72e28d67fb8c6afa21ff41dadc0ea652260c9602e5673f596433c118aa7b81eae0da34f8"
+        Date: "Sunday, 12 May 2019 17:46:48 GMT"
