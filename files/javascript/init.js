@@ -411,6 +411,13 @@
           smileycreations15_prototype.objectId = function(){
             return _private.id
           }
+          smileycreations15_prototype.scroll = {}
+          smileycreations15_prototype.scroll.disable = function(){
+            document.body.style.overflow = "hidden"
+          }
+          smileycreations15_prototype.scroll.enable = function(){
+            document.body.style.overflow = ""
+          }
           _private.id = smileycreations15_prototype.randomId(15)
           return Object.create(smileycreations15_prototype)
       }
