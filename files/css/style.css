@@ -1721,7 +1721,7 @@ input[type="submit"],button,.button-green {
 }
 .modal:not(:focus-within) {
 	background-color: rgba(255,255,255,1); /* #fff */
-	transition background-color 0.001s;
+	transition: background-color 0.001s;
 }
 .modal:focus-within {
 	background-color: rgba(255,255,255,1);
