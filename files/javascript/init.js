@@ -418,6 +418,18 @@
           smileycreations15_prototype.scroll.enable = function(){
             document.body.style.overflow = ""
           }
+          smileycreations15_prototype.modal = function(html,idFocus){
+            var div = document.createElement("div")
+            div.className = "trap-focus"
+            div.innerHTML = '<div class="grey-overlay"><div class="modal">' + html + '</div></div>'
+            var id = smileycreations15_prototype.randomId(30)
+            div.id = id
+            document.body.appendChild(div)
+            div = document.getElementById(id)
+            div.addEventListener('transitionend',function(e){
+              document.getElementById(idFocus).focus()
+            })
+          }
           _private.id = smileycreations15_prototype.randomId(15)
           return Object.create(smileycreations15_prototype)
       }

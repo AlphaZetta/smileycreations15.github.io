@@ -1690,9 +1690,12 @@ input[type="submit"]:hover,button:hover,.button-green:hover {
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 }
+.trap-focus:focus-within {
+    background-color: rgba(0,0,0,0.000000000000001);
+}
 .trap-focus:not(:focus-within) {
     background-color: rgba(0,0,0,0);
-    transition: background-color 0.001s ease;
+    transition: background-color 0.001s;
 }
 .modal {
     border: 0;
@@ -1709,5 +1712,7 @@ input[type="submit"]:hover,button:hover,.button-green:hover {
     box-shadow: 0 4px 12px rgba(36,39,41,0.2);
     backface-visibility: hidden;
     transform: translate(0, 30%) scale(.6, .6);
-    transition: opacity 200ms cubic-bezier(.165, .84, .44, 1) 0s,z-index 0s 100ms,visibility 0s 100ms,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s;
+}
+.modal[data-transition="true"] {
+	transition: opacity 200ms cubic-bezier(.165, .84, .44, 1) 0s,z-index 0s 100ms,visibility 0s 100ms,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s;
 }
