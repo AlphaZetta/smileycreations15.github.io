@@ -1680,15 +1680,21 @@ input[type="submit"],button,.button-green {
 	transition-duration: 0.4s;
 }
 .grey-overlay {
-  position: fixed; /* Sit on top of the page content */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	z-index: 9000;
+	display: flex;
+	opacity: 1;
+	transition: opacity 100ms cubic-bezier(.165, .84, .44, 1) 10ms,z-index 0s 0s,visibility 0s 0s,transform 100ms cubic-bezier(.165, .84, .44, 1) 10ms,transform 100ms cubic-bezier(.165, .84, .44, 1) 10ms;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(12,13,14,0.5);
+	backface-visibility: hidden;
+	box-sizing: inherit;
 }
 .trap-focus:focus-within {
     background-color: rgba(0,0,0,0.000000000000001);
@@ -1698,26 +1704,25 @@ input[type="submit"],button,.button-green {
     transition: background-color 0.001s;
 }
 .modal {
-    border: 0;
-    vertical-align: baseline;
-    margin: 0;
-    position: relative;
-    overflow-y: auto;
-    z-index: 6000;
-    max-height: 100%;
-    padding: 24px;
-    border-radius: 7px;
-    box-shadow: 0 4px 12px rgba(36,39,41,0.2);
-    backface-visibility: hidden;
-    transform: translate(0, 30%) scale(.6, .6);
+	max-width: 600px;
+	max-height: 100%;
+	padding: 24px;
+	border-radius: 7px;
+	background-color: #FFF;
+	box-shadow: 0 4px 12px rgba(36,39,41,0.2);
+	transition: opacity 100ms cubic-bezier(.165, .84, .44, 1) 10ms,z-index 0s 0s,visibility 0s 0s,transform 100ms cubic-bezier(.165, .84, .44, 1) 10ms,transform 100ms cubic-bezier(.165, .84, .44, 1) 10ms;
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	will-change: visibility,z-index,opacity,transform;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	margin:0;
 }
 .modal:not(:focus-within) {
-	background-color: rgba(255,255,255,1);/* #FFF*/
-	transition: background-color 0.001s;
+	background-color: rgba(255,255,255,1); /* #fff */
+	transition background-color 0.001s;
 }
 .modal:focus-within {
 	background-color: rgba(255,255,255,1);
-}
-.modal[data-transition="true"] {
-	transition: opacity 200ms cubic-bezier(.165, .84, .44, 1) 0s,z-index 0s 100ms,visibility 0s 100ms,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s;
 }
