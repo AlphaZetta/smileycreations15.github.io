@@ -421,8 +421,8 @@
           smileycreations15_prototype.modal = function(html,idFocus){
             var div = document.createElement("div")
             div.className = "grey-overlay"
-            div.innerHTML = '<div class="modal" id="' + id + '-modal">' + html + '</div>'
             var id = smileycreations15_prototype.randomId(30)
+            div.innerHTML = '<div class="modal" id="' + id + '-modal">' + html + '</div>'
             div.id = id
             document.body.appendChild(div)
             div = document.getElementById(id + "-modal")
