@@ -346,8 +346,7 @@
                 }
                 return result;
             }
-            smileycreations15_prototype.deprecated = {}
-            smileycreations15_prototype.deprecated.setDraggable = function setDraggable(dragHandler) {
+            smileycreations15_prototype.setDraggable = function setDraggable(dragHandler) {
                 var dragItem = dragHandler
                 var container = dragHandler
                 var active = false;
@@ -442,7 +441,8 @@
                     , "modal": document.getElementById(id + "-modal")
                 }
             }
-            smileycreations15_prototype.setDraggable = function setDraggable(elmnt, handle) {
+            smileycreations15_prototype.deprecated = {}
+            smileycreations15_prototype.deprecated.setDraggable = function setDraggable(elmnt, handle) {
                 var pos1 = 0
                     , pos2 = 0
                     , pos3 = 0
