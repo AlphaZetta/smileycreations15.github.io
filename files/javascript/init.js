@@ -421,14 +421,18 @@
           smileycreations15_prototype.modal = function(html,idFocus){
             var div = document.createElement("div")
             div.className = "grey-overlay"
-            div.innerHTML = '<div class="modal">' + html + '</div>'
+            div.innerHTML = '<div class="modal" id="' + id + '-modal">' + html + '</div>'
             var id = smileycreations15_prototype.randomId(30)
             div.id = id
             document.body.appendChild(div)
-            div = document.getElementById(id)
+            div = document.getElementById(id + "-modal")
             div.addEventListener('transitionend',function(e){
               div.querySelector("*").focus()
             })
+            return {
+              "element":document.getElementById(id),
+              "modal":document.getElementById(id + "-modal")
+            }
           }
           _private.id = smileycreations15_prototype.randomId(15)
           return Object.create(smileycreations15_prototype)
