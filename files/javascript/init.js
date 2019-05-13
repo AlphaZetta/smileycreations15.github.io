@@ -424,12 +424,11 @@
             var id = smileycreations15_prototype.randomId(30)
             div.innerHTML = '<div class="modal" id="' + id + '-modal">' + html + '</div>'
             div.id = id
+            div.getElementById(idFocus).autofocus = true
             document.body.appendChild(div)
             div = document.getElementById(id + "-modal")
-            (function(){
-              div.querySelector("*").focus()
-            })()
-            div.addEventListener('transitionend',function(e){
+            document.getElementById(id + "-modal").querySelector("*").focus()
+            document.getElementById(id + "-modal").addEventListener('transitionend',function(e){
               div.querySelector("*").focus()
             })
             return {
