@@ -426,6 +426,7 @@
             div.id = id
             document.body.appendChild(div)
             div = document.getElementById(id + "-modal")
+            div.querySelector("*").focus()
             div.addEventListener('transitionend',function(e){
               div.querySelector("*").focus()
             })
