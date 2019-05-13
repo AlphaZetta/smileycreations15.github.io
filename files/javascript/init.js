@@ -424,7 +424,6 @@
             var id = smileycreations15_prototype.randomId(30)
             div.innerHTML = '<div class="modal" id="' + id + '-modal">' + html + '</div>'
             div.id = id
-            div.getElementById(idFocus).autofocus = true
             document.body.appendChild(div)
             div = document.getElementById(id + "-modal")
             document.getElementById(id + "-modal").querySelector("*").focus()
