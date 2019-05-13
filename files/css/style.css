@@ -1707,10 +1707,16 @@ input[type="submit"],button,.button-green {
     max-height: 100%;
     padding: 24px;
     border-radius: 7px;
-    background-color: #FFF;
     box-shadow: 0 4px 12px rgba(36,39,41,0.2);
     backface-visibility: hidden;
     transform: translate(0, 30%) scale(.6, .6);
+}
+.modal:not(:focus-within) {
+	background-color: rgba(255,255,255,1);/* #FFF*/
+	transition: background-color 0.001s;
+}
+.modal:focus-within {
+	background-color: rgba(255,255,255,1);
 }
 .modal[data-transition="true"] {
 	transition: opacity 200ms cubic-bezier(.165, .84, .44, 1) 0s,z-index 0s 100ms,visibility 0s 100ms,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s,transform 100ms cubic-bezier(.165, .84, .44, 1) 0s;
