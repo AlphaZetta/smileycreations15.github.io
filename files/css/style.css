@@ -1647,11 +1647,11 @@ input[type="submit"],button,.button-green {
 	cursor: pointer;
 }
 
-input[type="submit"]:hover,button:hover,.button-green:hover {
+/* input[type="submit"]:hover,button:hover,.button-green:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-	-webkit-transition-duration: 0.4s; /* Safari */
+	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
-}
+} */
 
 .loading-side-tooltip {
     position: fixed;
@@ -1699,7 +1699,6 @@ input[type="submit"]:hover,button:hover,.button-green:hover {
 }
 .modal {
     border: 0;
-    font-size: 100%;
     vertical-align: baseline;
     margin: 0;
     position: relative;
