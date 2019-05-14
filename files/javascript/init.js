@@ -1,9 +1,9 @@
 (function () {
     /* ----------------------- */
-    if(window.location.hostname !== "smileycreations15.com") {
-        document.body.innerHTML = "unexpected hostname"
-        window.open("about:blank", "_self")
-    }
+    // if(window.location.hostname !== "smileycreations15.com") {
+    //     document.body.innerHTML = "unexpected hostname"
+    //     window.open("about:blank", "_self")
+    // }
     try {
         if(!(parent && parent.WebPlayer) && top != self) {
             top.location.replace(document.location);
@@ -420,7 +420,8 @@
             smileycreations15_prototype.scroll.enable = function () {
                 document.body.style.overflow = ""
             }
-            smileycreations15_prototype.modal = function (html, idFocus) {
+            smileycreations15_prototype.modal = function (html) {
+                const focusableQuery = 'input:not([disabled]):not([tabindex="-1"]), area:not([tabindex="-1"]), div:not([tabindex="-1"]), button:not([tabindex="-1"]),[tabindex]:not([tabindex="-1"]):not([tabindex=""]), textarea:not([tabindex="-1"])'
                 var div = document.createElement("div")
                 div.className = "grey-overlay"
                 var id = smileycreations15_prototype.randomId(30)
@@ -428,13 +429,18 @@
                 div.id = id
                 document.body.appendChild(div)
                 div = document.getElementById(id + "-modal")
-                document.getElementById(id + "-modal")
-                    .querySelector("*")
-                    .focus()
+                if (null !== document.getElementById(id + "-modal").querySelector(focusableQuery)){
+                  document.getElementById(id + "-modal")
+                      .querySelector(focusableQuery)
+                      .focus()
+                }
                 document.getElementById(id + "-modal")
                     .addEventListener('transitionend', function (e) {
-                        div.querySelector("*")
+                      if (null !== document.getElementById(id + "-modal").querySelector(focusableQuery)){
+                        document.getElementById(id + "-modal")
+                            .querySelector(focusableQuery)
                             .focus()
+                      }
                     })
                 return {
                     "element": document.getElementById(id)
