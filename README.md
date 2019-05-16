@@ -2,6 +2,8 @@
 This is my website <br />
 Hosted with Github Pages
 
+[![Chat on Gitter](https://badges.gitter.im/smileycreations15/smileycreations15.github.io.png)](https://gitter.im/smileycreations15/smileycreations15.github.io)
+
 Image sources:
 
 | Image | Source URL| Notes |
