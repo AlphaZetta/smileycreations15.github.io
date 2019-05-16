@@ -9,5 +9,3 @@ title: smileycreations15
 Note: We are using cookies to give you a better experience. By continuing to browse this site, you agree this site's use of cookies. <br />
 <a href="https://smileycreations15.com/Sitemap">Sitemap</a><br>
 <a href="https://status.smileycreations15.com/" rel="noopener noreferrer">Website Status</a><br>
-Contribute to Operations Research Stack Exchange:<br>
-<a rel="noreferrer noopener nofollow" href="https://area51.stackexchange.com/proposals/121892/operations-research?referrer=LPsYQnFhZ2PPhrwHTdj1zw2"><img src="https://area51.stackexchange.com/ads/proposal/121892.png" width="300" height="250" alt="Stack Exchange Q&A site proposal: Operations Research" /></a>
