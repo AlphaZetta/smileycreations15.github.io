@@ -24,7 +24,7 @@ self.addEventListener("install", function(event) {
 });
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function(event) {
-    let urlData = new URL(event.request.url)
+    // let urlData = new URL(event.request.url)
     if (noCache.includes(urlData.pathname)) return;
     if (event.request.method !== "GET") return;
     // var uri = urlData.href
@@ -32,7 +32,7 @@ self.addEventListener("fetch", function(event) {
     //     uri = "https://smileycreations15.com/files" + urlData.pathname
     // }
  event.respondWith(
-    fetch(event.request.url)
+    fetch(event.request)
       .then(function (response) {
         console.log("[PWA Builder] add page to offline cache: " + response.url);
 
