@@ -27,12 +27,12 @@ self.addEventListener("fetch", function(event) {
     let urlData = new URL(event.request.url)
     if (noCache.includes(urlData.pathname)) return;
     if (event.request.method !== "GET") return;
-    var uri = urlData.href
-    if ("data" === urlData.hostname){
-        uri = "https://smileycreations15.com/files" + urlData.pathname
-    }
+    // var uri = urlData.href
+    // if ("data" === urlData.hostname){
+    //     uri = "https://smileycreations15.com/files" + urlData.pathname
+    // }
  event.respondWith(
-    fetch(uri)
+    fetch(event.request.url)
       .then(function (response) {
         console.log("[PWA Builder] add page to offline cache: " + response.url);
 
