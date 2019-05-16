@@ -12,4 +12,5 @@ title: Sitemap
 |[Blog](https://smileycreations15.com/blog)|
 |[A guide to desktop PWAs \| Part 1](https://smileycreations15.com/blog/web-development/PWA/pwa-guide-1)|
 |[Manage account](/account)|
+|[Settings](/Settings)|
 |<a rel="noopener noreferrer" href="https://status.smileycreations15.com/">Website Status</a>|

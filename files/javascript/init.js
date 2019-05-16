@@ -1,4 +1,4 @@
-(function () {
+(async function () {
     /* ----------------------- */
     // if(window.location.hostname !== "smileycreations15.com") {
     //     document.body.innerHTML = "unexpected hostname"
@@ -736,5 +736,7 @@
         }
     })()
     // sessionStorage.setItem("pwa","true")
-
+    if (await smileycreations15.database.get("setting-backgronud-music") === true){
+      smileycreations15.createSoundElement([{"url":"/files/sounds/theme.ogg","type":"audio/ogg"}]).play().catch(()=>{})
+    }
 })()
