@@ -81,10 +81,16 @@ self.addEventListener('activate', function(event) {
     console.log('Service worker activated');
     event.waitUntil(self.clients.claim());
 });
+self.addEventListener('sync', function(event) {
+    console.log("[service worker] Sync received")
+    console.log(event)
+    console.log(event.tag)
+});
 self.addEventListener('message', function(event) {
-    if (typeof event.data !== "object") return;
     console.log("[service worker] message received.")
+    console.log(event)
     console.log(event.data)
+    if (typeof event.data !== "object") return;
     if (event.data.action === "cachePwa") {
         fetch("/pwa")
             .then(function(response) {
@@ -108,8 +114,6 @@ self.addEventListener('message', function(event) {
             return response;
         } catch (e) {}
     }
-});
-self.addEventListener('message', function(event) {
     if (event.data.action === 'skipWaiting') {
         self.skipWaiting(); // skip waiting
     }
