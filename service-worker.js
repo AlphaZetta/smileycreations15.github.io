@@ -31,6 +31,9 @@ self.addEventListener("fetch", function(event) {
     if ("data" === urlData.hostname){
         req = "https://smileycreations15.com/files" + urlData.pathname
     }
+    if ("self" === urlData.hostname){
+        req = "https://smileycreations15.com" + urlData.pathname
+    }
  event.respondWith(
     fetch(req)
       .then(function (response) {
