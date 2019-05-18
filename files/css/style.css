@@ -1726,3 +1726,16 @@ input[type="submit"],button,.button-green {
 .modal:focus-within {
 	background-color: rgba(255,255,254,1);
 }
+
+.progress {
+    background-color: rgba(117, 117, 117, 0.48);
+    height: 10px;
+    width: 100%;
+    display: inline-block;
+}
+.progress-inner {
+	background-color: green;
+  height: 10px;
+  width: 10px;
+	display: block;
+}
