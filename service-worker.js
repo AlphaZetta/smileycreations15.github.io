@@ -115,8 +115,8 @@ self.addEventListener('message', function(event) {
     }
     if (event.data.action === 'reloadAll') {
         if (null !== self.clients) {
-            self.clients.matchAll().then(function(clients) {
-                clients.forEach(function(client) {
+            self.clients.matchAll().then(function(clients1) {
+                clients1.forEach(function(client) {
                     client.navigate(client.url)
                 });
             });
