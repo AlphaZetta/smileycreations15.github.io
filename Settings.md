@@ -6,11 +6,11 @@ Play background music: <select class="" name="">
   <option disabled selected></option>
   <option value="enabled" id="b">Enable</option>
   <option value="disabled">Disable</option>
-</select>
+</select><br>
 <button onclick="toggle1()">Save changes</button>
 <script style="display:none">
 function toggle1(){
-  var b = smileycreations15.modal("<h2>Save changes</h2><p>Saving changes will reload all tabs.</p><button onclick='toggle()'>Continue</button><button onclick='a.remove()'>Cancel</button>")
+  var b = smileycreations15.modal('<h2>Save changes</h2><p>Saving changes will reload all tabs.</p><button onclick="toggle()">Continue</button><button onclick="a.remove()">Cancel</button>')
   window.a = b.element
 }
 function toggle(){
