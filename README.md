@@ -2,7 +2,7 @@
 This is my website <br />
 Hosted with Github Pages
 
-[![Chat on Gitter](https://badges.gitter.im/smileycreations15/smileycreations15.github.io.svg)](https://gitter.im/smileycreations15/smileycreations15.github.io)
+[![Chat on Gitter](https://badges.gitter.im/smileycreations15/smileycreations15.github.io.svg)](https://gitter.im/smileycreations15-com/community)
 
 Image sources:
 
