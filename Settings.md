@@ -1,5 +1,7 @@
 ---
 title: Settings
+scripts:
+  - data:application/javascript;base64,ZnVuY3Rpb24gdG9nZ2xlMSgpewogIHZhciBiID0gc21pbGV5Y3JlYXRpb25zMTUubW9kYWwoJzxoMj5TYXZlIGNoYW5nZXM8L2gyPjxwPlNhdmluZyBjaGFuZ2VzIHdpbGwgcmVsb2FkIGFsbCB0YWJzLjwvcD48YnV0dG9uIG9uY2xpY2s9InRvZ2dsZSgpIj5Db250aW51ZTwvYnV0dG9uPjxidXR0b24gb25jbGljaz0iYS5yZW1vdmUoKSI+Q2FuY2VsPC9idXR0b24+JykKICB3aW5kb3cuYSA9IGIuZWxlbWVudAp9CmZ1bmN0aW9uIHRvZ2dsZSgpewogIGEucmVtb3ZlKCkKICB2YXIgc3RhdCA9IGZhbHNlCiAgaWYgKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdiJykuc2VsZWN0ZWQpIHN0YXQgPSB0cnVlCiAgc21pbGV5Y3JlYXRpb25zMTUuZGF0YWJhc2Uuc2V0KCJzZXR0aW5nLWJhY2tncm9udWQtbXVzaWMiLHN0YXQpCiAgaWYgKG5hdmlnYXRvci5zZXJ2aWNlV29ya2VyLmNvbnRyb2xsZXIpewogICAgc21pbGV5Y3JlYXRpb25zMTUubW9kYWwoJzxoMj5QbGVhc2Ugd2FpdC4uLjwvaDI+PGRpdiBhdXRvZm9jdXMgc3R5bGU9IndpZHRoOjAlIiB0YWJpbmRleD0iMCI+PC9kaXY+JykKICAgIG5hdmlnYXRvci5zZXJ2aWNlV29ya2VyLmNvbnRyb2xsZXIucG9zdE1lc3NhZ2UoeyJhY3Rpb24iOiJyZWxvYWRBbGwifSkKICB9Cn0=
 ---
 <h2>Settings</h2>
 Play background music: <select class="" name="">
@@ -8,19 +10,3 @@ Play background music: <select class="" name="">
   <option value="disabled">Disable</option>
 </select><br>
 <button onclick="toggle1()">Save changes</button>
-<script style="display:none">
-function toggle1(){
-  var b = smileycreations15.modal('<h2>Save changes</h2><p>Saving changes will reload all tabs.</p><button onclick="toggle()">Continue</button><button onclick="a.remove()">Cancel</button>')
-  window.a = b.element
-}
-function toggle(){
-  a.remove()
-  var stat = false
-  if (document.getElementById('b').selected) stat = true
-  smileycreations15.database.set("setting-backgronud-music",stat)
-  if (navigator.serviceWorker.controller){
-    smileycreations15.modal('<h2>Please wait...</h2><div autofocus style="width:0%" tabindex="0"></div>')
-    navigator.serviceWorker.controller.postMessage({"action":"reloadAll"})
-  }
-}
-</script>
