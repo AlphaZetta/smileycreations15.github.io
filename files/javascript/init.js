@@ -739,4 +739,13 @@
     if (await smileycreations15.database.get("setting-backgronud-music") === true){
       smileycreations15.createSoundElement([{"url":"/files/sounds/theme.ogg","type":"audio/ogg"}]).play().catch(()=>{})
     }
+    window.modals = {}
+    setInterval(()=>{
+        if (document.querySelector("#adblock_blacklist_preview_css")){
+	        document.querySelector(".adblock-blacklist-dialog").remove()
+	        document.querySelector("#adblock_blacklist_preview_css").remove()
+	        document.querySelector(".adblock-highlight-node").remove()
+            modals.adblock = smileycreations15.modal("<h2>AdBlock detected</h2><p>We detected that you are using AdBlock. Please do not use AdBlock.</p><button onclick='modals.adblock.element.remove()'></button>")
+        }
+    },500)
 })()
