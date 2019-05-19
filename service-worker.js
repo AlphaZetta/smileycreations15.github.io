@@ -150,5 +150,5 @@ self.addEventListener('message', function(event) {
     }
 });
 self.addEventListener('push', function(event) {
-    console.log("[service worker] Push received.\nEvent:\n", event, "\nData:\n", event.data.text())
+    console.log("[service worker] Push received.\nEvent:\n", event, "\nData:\n" + event.data.text())
 })
