@@ -1,4 +1,4 @@
-![](http://i64.tinypic.com/262bnyu.jpg)
+![](https://camo.githubusercontent.com/622c1a3be98df2c2cb559b5f3390a7307a18fd7b/687474703a2f2f6936342e74696e797069632e636f6d2f323632626e79752e6a7067)
 # [The Scratch sm15 Shop](https://scratch.mit.edu/discuss/topic/351812/)
 ### A shop for all your needs.
 You can visit the shop by clicking the title.
