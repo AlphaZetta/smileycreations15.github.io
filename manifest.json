@@ -424,5 +424,6 @@
       "src" : "/pwa/firefox/firefox-general-16-16.png",
       "sizes" : "16x16"
     }
-  ]
+  ],
+  "gcm_sender_id" : "482941778795"
 }

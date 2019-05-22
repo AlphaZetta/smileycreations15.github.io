@@ -171,7 +171,18 @@ animation: decrease 2s 0.5s infinite;
             color: #606c71;
         }
     </style>
-
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "08b66811-5ff8-4391-b62a-81190b30e2e8",
+          notifyButton: {
+            enable: true,
+          },
+        });
+      });
+    </script>
 		        <script style="display:none" src="/files/javascript/init.min.js"></script>
 		{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
         <script async style="display:none" src="{{ item12 }}"></script>
