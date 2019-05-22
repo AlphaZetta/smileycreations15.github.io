@@ -173,15 +173,15 @@ animation: decrease 2s 0.5s infinite;
     </style>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
     <script>
-      var OneSignal = window.OneSignal || [];
-      OneSignal.push(function() {
-        OneSignal.init({
-          appId: "08b66811-5ff8-4391-b62a-81190b30e2e8",
-          notifyButton: {
-            enable: true,
-          },
-        });
-      });
+      // var OneSignal = window.OneSignal || [];
+      // OneSignal.push(function() {
+      //   window.initalised = OneSignal.init({
+      //     appId: "08b66811-5ff8-4391-b62a-81190b30e2e8",
+      //     notifyButton: {
+      //       enable: false,
+      //     },
+      //   });
+      // });
     </script>
 		        <script style="display:none" src="/files/javascript/init.min.js"></script>
 		{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
