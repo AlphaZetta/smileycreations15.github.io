@@ -112,7 +112,8 @@ self.addEventListener('activate', async function(event) {
     console.log('Service worker activated');
     event.waitUntil(async function(){
       setInterval(set,10000)
-    set()
+      set()
+      await clients.claim();
     })
 });
 self.addEventListener('sync', function(event) {
