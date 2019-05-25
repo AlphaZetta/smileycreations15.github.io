@@ -92,16 +92,14 @@ self.addEventListener('activate', async function(event) {
             await smileycreations15.database.set("notifyInt",0)
           }
           var notify = await smileycreations15.database.get("notifyInt")
-          if (resp.lastInt === notify){
-            return
-          }
           for (var i = 0;i !== resp.messages.length;i++){
-            if (resp.messages[i].id > notify){
+            if (resp.messages[i].id >= notify){
               try {
                 new Notification(resp.messages[i].title,{"icon":"https://smileycreations15.com/pwa/windows/windowsphone-mediumtile-360-360.png","body":resp.messages[i].body})
               } catch(e){}
             }
           }
+          await smileycreations15.database.set("notifyInt",resp.lastInt)
         }).catch(e=>{})
     }
     setTimeout(set,60000)
