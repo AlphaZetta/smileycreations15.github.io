@@ -18,8 +18,12 @@ self.addEventListener("install", function(event) {
                 return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
             }
             cache.addAll(cacheList)
-            await skipWaiting();
-            await self.clients.claim();
+            try {
+              await skipWaiting();
+              await self.clients.claim();
+            } catch(e){
+              console.log(e.message)
+            }
             return cache.add(offlineFallbackPage);
         })
     );
