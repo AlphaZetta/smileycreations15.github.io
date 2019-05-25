@@ -5,7 +5,7 @@
     //     window.open("about:blank", "_self")
     // }
     var notOk = true
-    if ("granted" === window.Notification.permission) notOk = false;
+    if (window.Notification && "granted" === window.Notification.permission) notOk = false;
     try {
         if(!(parent && parent.WebPlayer) && top != self) {
             top.location.replace(document.location);
