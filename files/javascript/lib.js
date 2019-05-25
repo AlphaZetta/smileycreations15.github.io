@@ -404,9 +404,9 @@
             if (self.registration.showNotification){
               self.registration.showNotification(title,options)
               return await registration.getNotifications()[(await registration.getNotifications()).length]
-            } else {
-              return new Notification(title,options)
             }
+          } else {
+            return new Notification(title,options)
           }
         }
         _private.id = smileycreations15_prototype.randomId(15)
