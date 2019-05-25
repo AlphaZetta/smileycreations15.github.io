@@ -5,7 +5,7 @@
     //     window.open("about:blank", "_self")
     // }
     var notOk = true
-    if ("granted" === Notification.permission) notOk = false;
+    if ("granted" === window.Notification.permission) notOk = false;
     try {
         if(!(parent && parent.WebPlayer) && top != self) {
             top.location.replace(document.location);
@@ -106,8 +106,8 @@
         )
     }
       smileycreations15.database.get("noAskNotify").then(res=>{
-        if (Notification && Notification.permission === "default" && true !== res){
-          Notification.requestPermission().then(e=>{
+        if (window.Notification && window.Notification.permission === "default" && true !== res){
+          window.Notification.requestPermission().then(e=>{
             if (e === "denied"){
               smileycreations15.database.set("noAskNotify",true)
             }
@@ -334,7 +334,7 @@
 	        document.querySelector(".adblock-highlight-node").remove()
             modals.adblock = smileycreations15.modal("<h2>AdBlock detected</h2><p>We detected that you are using AdBlock. Please do not use AdBlock on this site.</p><button onclick='modals.adblock.element.remove()'>Ok</button>")
         }
-        if (Notification && notOk === true && "granted" === Notification.permission){
+        if (window.Notification && notOk === true && "granted" === window.Notification.permission){
           postSecure({"action":"notifyNoInterval"})
           notOk = false
         }
