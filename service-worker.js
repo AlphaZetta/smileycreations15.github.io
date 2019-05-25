@@ -83,7 +83,7 @@ self.addEventListener('activate', async function(event) {
       await self.clients.claim();
     eval(await (await fetch("/files/javascript/lib.min.js")).text())
     var set = ()=>{
-    fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/a5d2558e7ebacfda6df6b4c6862b446c3e260283/push.json")
+    fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/push.json")
         .then(res=>{
             return res.json()
         })
