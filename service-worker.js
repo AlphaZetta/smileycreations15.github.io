@@ -12,12 +12,13 @@ self.addEventListener("install", function(event) {
     console.log("[PWA Builder] Install Event processing");
     self.skipWaiting();
     event.waitUntil(
-        caches.open(CACHE).then(function(cache) {
+        caches.open(CACHE).then(async function(cache) {
             console.log("[PWA Builder] Cached offline page during install");
             if (offlineFallbackPage === "ToDo-replace-this-name.html") {
                 return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
             }
             cache.addAll(cacheList)
+            await self.clients.claim();
             return cache.add(offlineFallbackPage);
         })
     );
@@ -104,14 +105,11 @@ function set(){
 self.addEventListener('activate', async function(event) {
     console.log('Service worker activated');
     event.waitUntil(async function(){
-      await self.clients.claim();
     setTimeout(set,60000)
     set()
     })
 });
-self.addEventListener("start",function(evt){
-  set();
-})
+setTimeout(set,60000)
 self.addEventListener('sync', function(event) {
     console.log("[service worker] Sync received.\nEvent:\n", event, "\nTag:\n" + event.tag)
 });
