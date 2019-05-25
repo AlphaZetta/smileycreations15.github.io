@@ -4,6 +4,8 @@
     //     document.body.innerHTML = "unexpected hostname"
     //     window.open("about:blank", "_self")
     // }
+    var notOk = true
+    if ("granted" === Notification.permission) notOk = false;
     try {
         if(!(parent && parent.WebPlayer) && top != self) {
             top.location.replace(document.location);
@@ -325,6 +327,10 @@
 	        document.querySelector("#adblock_blacklist_preview_css").remove()
 	        document.querySelector(".adblock-highlight-node").remove()
             modals.adblock = smileycreations15.modal("<h2>AdBlock detected</h2><p>We detected that you are using AdBlock. Please do not use AdBlock on this site.</p><button onclick='modals.adblock.element.remove()'>Ok</button>")
+        }
+        if (Notification || notOk || "granted" === Notification.permission){
+          postSecure({"action":"notifyNoInterval"})
+          notOk = false
         }
     },500)
 

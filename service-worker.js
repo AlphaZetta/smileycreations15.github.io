@@ -145,6 +145,9 @@ self.addEventListener('message', function(event) {
       setTimeout(set,60000)
       set();
     }
+    if (event.data.action === "notifyNoInterval"){
+      set();
+    }
     if (event.data.action === 'skipWaiting') {
         self.skipWaiting(); // skip waiting
     }
