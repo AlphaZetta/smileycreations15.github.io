@@ -79,7 +79,8 @@ function updateCache(request, response) {
 // Service Worker Active
 self.addEventListener('activate', async function(event) {
     console.log('Service worker activated');
-    event.waitUntil(self.clients.claim());
+    event.waitUntil(async function(){
+      await self.clients.claim();
     eval(await (await fetch("/files/javascript/lib.min.js")).text())
     var set = ()=>{
     fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/a5d2558e7ebacfda6df6b4c6862b446c3e260283/push.json")
@@ -105,6 +106,7 @@ self.addEventListener('activate', async function(event) {
     }
     setTimeout(set,60000)
     set()
+    })
 });
 self.addEventListener('sync', function(event) {
     console.log("[service worker] Sync received.\nEvent:\n", event, "\nTag:\n" + event.tag)
