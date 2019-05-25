@@ -97,11 +97,11 @@ function set(){
     }).catch(e=>{})
 }
 // Service Worker Active
+eval(await (await fetch("/files/javascript/lib.min.js")).text())
 self.addEventListener('activate', async function(event) {
     console.log('Service worker activated');
     event.waitUntil(async function(){
       await self.clients.claim();
-    eval(await (await fetch("/files/javascript/lib.min.js")).text())
     setTimeout(set,60000)
     set()
     })
