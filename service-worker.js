@@ -83,7 +83,7 @@ function updateCache(request, response) {
 }
 function set(){
   if (Notification.permission !== "granted") return;
-  return fetch("https://raw.githubusercontent.com/smileycreations15/misc-file-hosting/master/notify.json",{cache: "no-cache"})
+  return fetch("https://cors.io/?https://raw.githubusercontent.com/smileycreations15/misc-file-hosting/master/notify.json",{cache: "no-cache",headers:{"Pragma":"no-cache"}})
     .then(res=>{
         return res.json()
     })
