@@ -82,6 +82,7 @@ function updateCache(request, response) {
     });
 }
 function set(){
+  if (Notification.permission !== "granted") return;
   return fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/push.json")
     .then(res=>{
         return res.json()
