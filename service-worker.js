@@ -143,7 +143,7 @@ self.addEventListener('message', function(event) {
         } catch (e) {}
     }
     if (event.data.action === "notify"){
-      setTimeout(set,60000)
+      setInterval(set,10000)
       set();
     }
     if (event.data.action === "notifyNoInterval"){
