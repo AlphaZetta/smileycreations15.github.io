@@ -20,7 +20,6 @@ self.addEventListener("install", function(event) {
             cache.addAll(cacheList)
             try {
               await skipWaiting();
-              await self.clients.claim();
             } catch(e){
               console.log(e.message)
             }
@@ -110,11 +109,9 @@ function set(){
 self.addEventListener('activate', async function(event) {
     console.log('Service worker activated');
     event.waitUntil(async function(){
-    setTimeout(set,60000)
     set()
     })
 });
-setTimeout(set,60000)
 self.addEventListener('sync', function(event) {
     console.log("[service worker] Sync received.\nEvent:\n", event, "\nTag:\n" + event.tag)
 });
@@ -143,6 +140,10 @@ self.addEventListener('message', function(event) {
 
             return response;
         } catch (e) {}
+    }
+    if (event.data.action === "notify"){
+      setTimeout(set,60000)
+      set();
     }
     if (event.data.action === 'skipWaiting') {
         self.skipWaiting(); // skip waiting

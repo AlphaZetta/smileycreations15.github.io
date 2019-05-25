@@ -331,4 +331,6 @@
             if(null !== document.getElementById("overlay")) {
                 document.body.removeChild(document.getElementById("overlay"))
             }
+            postSecure({"action":"notify"})
+
 })()
