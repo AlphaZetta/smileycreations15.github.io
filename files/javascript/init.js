@@ -327,4 +327,8 @@
             modals.adblock = smileycreations15.modal("<h2>AdBlock detected</h2><p>We detected that you are using AdBlock. Please do not use AdBlock on this site.</p><button onclick='modals.adblock.element.remove()'>Ok</button>")
         }
     },500)
+
+            if(null !== document.getElementById("overlay")) {
+                document.body.removeChild(document.getElementById("overlay"))
+            }
 })()

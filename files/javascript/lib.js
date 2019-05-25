@@ -56,11 +56,14 @@
 
 
 
+
                 , "notice"
 
 
 
+
                 , "error"
+
 
 
 
@@ -72,10 +75,6 @@
             }
 
             document.body.appendChild(dialog)
-        }
-
-        if(null !== document.getElementById("overlay")) {
-            document.body.removeChild(document.getElementById("overlay"))
         }
 
         // loader overlay
@@ -336,18 +335,20 @@
             div.id = id
             document.body.appendChild(div)
             div = document.getElementById(id + "-modal")
-            if (null !== document.getElementById(id + "-modal").querySelector(focusableQuery)){
-              document.getElementById(id + "-modal")
-                  .querySelector(focusableQuery)
-                  .focus()
+            if(null !== document.getElementById(id + "-modal")
+                .querySelector(focusableQuery)) {
+                document.getElementById(id + "-modal")
+                    .querySelector(focusableQuery)
+                    .focus()
             }
             document.getElementById(id + "-modal")
                 .addEventListener('transitionend', function (e) {
-                  if (null !== document.getElementById(id + "-modal").querySelector(focusableQuery)){
-                    document.getElementById(id + "-modal")
-                        .querySelector(focusableQuery)
-                        .focus()
-                  }
+                    if(null !== document.getElementById(id + "-modal")
+                        .querySelector(focusableQuery)) {
+                        document.getElementById(id + "-modal")
+                            .querySelector(focusableQuery)
+                            .focus()
+                    }
                 })
             return {
                 "element": document.getElementById(id)
