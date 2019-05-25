@@ -105,10 +105,12 @@
 
         )
     }
-    if (Notification && Notification.permission === "default"){
-      Notification.requestPermission()
-      smileycreations15.dialogBox("top-right","notice","We are requesting permission to send you important updates.")
-    }
+    window.addEventListener("click",()=>{
+      if (Notification && Notification.permission === "default"){
+        Notification.requestPermission()
+        smileycreations15.dialogBox("top-right","notice","We are requesting permission to send you important updates.")
+      }
+    })
     var a1 = false
     if(window.matchMedia('(display-mode: standalone)')
         .matches) {
