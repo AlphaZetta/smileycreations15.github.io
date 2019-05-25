@@ -28,8 +28,8 @@
     var savedPath = window.location.pathname
 
     function postSecure(data) {
-        if(null !== navigator.serviceWorker) {
-            if(null !== navigator.serviceWorker.controller) {
+        if(navigator.serviceWorker) {
+            if(navigator.serviceWorker.controller) {
                 navigator.serviceWorker.controller.postMessage(data)
             }
         }
