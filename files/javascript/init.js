@@ -339,7 +339,7 @@
           notOk = false
         }
         if(null !== document.getElementById("overlay")) {
-            document.body.removeChild(document.getElementById("overlay"))
+            document.getElementById("overlay").remove()
         }
     },500)
 
