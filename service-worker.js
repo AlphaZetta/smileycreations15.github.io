@@ -85,10 +85,9 @@ function set(){
   if (Notification.permission !== "granted") return;
   return fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/push.json",{cache: "no-cache"})
     .then(res=>{
-        return res.text()
+        return res.json()
     })
-    .then(async function(r){
-      var resp = eval(r)
+    .then(async function(resp){
       if (await smileycreations15.database.get("notifyInt") === undefined){
         await smileycreations15.database.set("notifyInt",0)
       }
