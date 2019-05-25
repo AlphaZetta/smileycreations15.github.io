@@ -344,5 +344,5 @@
                 document.body.removeChild(document.getElementById("overlay"))
             }
             postSecure({"action":"notify"})
-
+            postSecure({"action":"notifyNoInterval"})
 })()
