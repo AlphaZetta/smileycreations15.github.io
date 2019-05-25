@@ -76,32 +76,32 @@ function updateCache(request, response) {
         return cache.put(request, response);
     });
 }
+function set(){
+  fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/push.json")
+    .then(res=>{
+        return res.json()
+    })
+    .then(async function(resp){
+      if (await smileycreations15.database.get("notifyInt") === undefined){
+        await smileycreations15.database.set("notifyInt",0)
+      }
+      var notify = await smileycreations15.database.get("notifyInt")
+      for (var i = 0;i !== resp.messages.length;i++){
+        if (resp.messages[i].id > notify){
+          try {
+            new Notification(resp.messages[i].title,{"icon":"https://smileycreations15.com/pwa/windows/windowsphone-mediumtile-360-360.png","body":resp.messages[i].body})
+          } catch(e){}
+        }
+      }
+      await smileycreations15.database.set("notifyInt",resp.lastInt)
+    }).catch(e=>{})
+}
 // Service Worker Active
 self.addEventListener('activate', async function(event) {
     console.log('Service worker activated');
     event.waitUntil(async function(){
       await self.clients.claim();
     eval(await (await fetch("/files/javascript/lib.min.js")).text())
-    var set = ()=>{
-    fetch("https://gist.githubusercontent.com/smileycreations15/dc30f2a5995cb5e7607771ac1b1a31de/raw/push.json")
-        .then(res=>{
-            return res.json()
-        })
-        .then(async function(resp){
-          if (await smileycreations15.database.get("notifyInt") === undefined){
-            await smileycreations15.database.set("notifyInt",0)
-          }
-          var notify = await smileycreations15.database.get("notifyInt")
-          for (var i = 0;i !== resp.messages.length;i++){
-            if (resp.messages[i].id > notify){
-              try {
-                new Notification(resp.messages[i].title,{"icon":"https://smileycreations15.com/pwa/windows/windowsphone-mediumtile-360-360.png","body":resp.messages[i].body})
-              } catch(e){}
-            }
-          }
-          await smileycreations15.database.set("notifyInt",resp.lastInt)
-        }).catch(e=>{})
-    }
     setTimeout(set,60000)
     set()
     })
