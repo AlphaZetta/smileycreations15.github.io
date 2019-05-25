@@ -399,6 +399,16 @@
                 document.onmousemove = null;
             }
         }
+        smileycreations15_prototype.showNotification = async function(title,options = {}){
+          if (self.registration){
+            if (self.registration.showNotification){
+              self.registration.showNotification(title,options)
+              return await registration.getNotifications()[(await registration.getNotifications()).length]
+            } else {
+              return new Notification(title,options)
+            }
+          }
+        }
         _private.id = smileycreations15_prototype.randomId(15)
         return Object.create(smileycreations15_prototype)
     }
