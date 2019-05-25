@@ -95,7 +95,7 @@ function set(){
       for (var i = 0;i !== resp.messages.length;i++){
         if (resp.messages[i].id > notify){
           try {
-            registration.showNotification(resp.messages[i].title,{"icon":"https://smileycreations15.com/pwa/windows/windowsphone-mediumtile-360-360.png","body":resp.messages[i].body}).catch(e=>{})
+            registration.showNotification(resp.messages[i].title,{"icon":resp.messages[i].icon,"body":resp.messages[i].body}).catch(e=>{})
           } catch(e){}
         }
       }
