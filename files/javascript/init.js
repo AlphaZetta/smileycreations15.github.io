@@ -105,12 +105,16 @@
 
         )
     }
-    window.addEventListener("click",()=>{
-      if (Notification && Notification.permission === "default"){
-        Notification.requestPermission()
-        smileycreations15.dialogBox("top-right","notice","We are requesting permission to send you important updates.")
-      }
-    })
+      smileycreations15.database.get("noAskNotify").then(res=>{
+        if (Notification && Notification.permission === "default" && true !== res){
+          Notification.requestPermission().then(e=>{
+            if (e === "denied"){
+              smileycreations15.database.set("noAskNotify",true)
+            }
+          })
+          smileycreations15.dialogBox("top-right","notice","We are requesting permission to send you important updates.")
+        }
+      })
     var a1 = false
     if(window.matchMedia('(display-mode: standalone)')
         .matches) {
