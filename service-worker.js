@@ -109,6 +109,9 @@ self.addEventListener('activate', async function(event) {
     set()
     })
 });
+self.addEventListener("start",function(evt){
+  set();
+})
 self.addEventListener('sync', function(event) {
     console.log("[service worker] Sync received.\nEvent:\n", event, "\nTag:\n" + event.tag)
 });
