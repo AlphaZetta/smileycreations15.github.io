@@ -105,16 +105,6 @@
 
         )
     }
-      smileycreations15.database.get("noAskNotify").then(res=>{
-        if (window.Notification && window.Notification.permission === "default" && true !== res){
-          window.Notification.requestPermission().then(e=>{
-            if (e === "denied"){
-              smileycreations15.database.set("noAskNotify",true)
-            }
-          })
-          smileycreations15.dialogBox("top-right","notice","We are requesting permission to send you important updates.")
-        }
-      })
     var a1 = false
     if(window.matchMedia('(display-mode: standalone)')
         .matches) {
@@ -334,14 +324,18 @@
 	        document.querySelector(".adblock-highlight-node").remove()
             modals.adblock = smileycreations15.modal("<h2>AdBlock detected</h2><p>We detected that you are using AdBlock. Please do not use AdBlock on this site.</p><button onclick='modals.adblock.element.remove()'>Ok</button>")
         }
-        if (window.Notification && notOk === true && "granted" === window.Notification.permission){
-          postSecure({"action":"notifyNoInterval"})
-          notOk = false
-        }
         if(null !== document.getElementById("overlay")) {
             document.getElementById("overlay").remove()
         }
     },500)
+    setInterval(()=>{
+      if (("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
+        document.getElementById("subscribeToNotifications").remove()
+      }
+    },100)
+    if (("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
+      document.getElementById("subscribeToNotifications").remove()
+    }
 
             postSecure({"action":"notify"})
             postSecure({"action":"notifyNoInterval"})
