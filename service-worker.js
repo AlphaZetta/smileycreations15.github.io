@@ -83,11 +83,11 @@ function updateCache(request, response) {
 }
 function set(){
   if (Notification.permission !== "granted") return;
-  return fetch("https://proxy-dikm7g5dt1fa.runkit.sh/notify.json",{cache: "no-cache"})
+  return fetch("https://cors.io?https://raw.githubusercontent.com/smileycreations15/misc-file-hosting/master/notify.json",{cache: "no-cache",headers:{pragma:"no-cache"}})
     .then(res=>{
         return res.json()
     })
-    .then(async function(resp){
+    .then(async function(res){
       if (await smileycreations15.database.get("notifyInt") === undefined){
         await smileycreations15.database.set("notifyInt",0)
       }
