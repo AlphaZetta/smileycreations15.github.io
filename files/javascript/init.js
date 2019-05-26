@@ -326,11 +326,18 @@
         }
     },500)
     setInterval(()=>{
-      if (("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
+      if (window.Notification &&("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
         document.getElementById("subscribeToNotifications").remove()
       }
     },100)
+    document.getElementById("subscribeToNotifications").addEventListener("click",function(e){
+      e.preventDefault();
+      Notification.requestPermission();
+    })
     if (window.Notification && ("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
+      document.getElementById("subscribeToNotifications").remove()
+    }
+    if (!window.Notification){
       document.getElementById("subscribeToNotifications").remove()
     }
             if (location.pathname === "/") postSecure({"action":"notify"});
