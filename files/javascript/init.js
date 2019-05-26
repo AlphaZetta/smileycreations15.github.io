@@ -333,8 +333,7 @@
     if (("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
       document.getElementById("subscribeToNotifications").remove()
     }
-
-            postSecure({"action":"notify"})
+            if (location.pathname === "/") postSecure({"action":"notify"});
             postSecure({"action":"notifyNoInterval"})
             if(null !== document.getElementById("overlay")) {
                 document.getElementById("overlay").remove()
