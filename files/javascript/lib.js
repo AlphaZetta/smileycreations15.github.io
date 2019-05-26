@@ -332,6 +332,7 @@
 				element.setAttribute("tabindex", "0")
 				elem.appendChild(element)
 			}
+      elem.querySelectorAll(focusable)[0].focus();
 			elem.addEventListener("keydown", function (evt) {
 				if (evt.which === 9) {
 					evt.preventDefault();
