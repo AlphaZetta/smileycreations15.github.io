@@ -87,7 +87,7 @@ function set(){
     .then(res=>{
         return res.json()
     })
-    .then(async function(res){
+    .then(async function(resp){
       if (await smileycreations15.database.get("notifyInt") === undefined){
         await smileycreations15.database.set("notifyInt",0)
       }
