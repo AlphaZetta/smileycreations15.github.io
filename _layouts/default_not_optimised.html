@@ -142,7 +142,7 @@ animation: decrease 2s 0.5s infinite;
         <h2 class="project-tagline">A website on GitHub Pages</h2>
 
         <a href="https://github.com/smileycreations15" id="myProfile" rel="noopener noreferrer" class="btn">My Github Profile</a>
-        <a class="btn" id="subscribeToNotifications" onclick="Notification.requestPermission()" style="cursor: pointer;">Subscribe to notifications</a>
+        <a class="btn" id="subscribeToNotifications" onclick="Notification.requestPermission()" tabindex="0" style="cursor: pointer;">Subscribe to notifications</a>
         {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %}
 	 {% if page.noScriptWarning == true %}
       		  <noscript>
