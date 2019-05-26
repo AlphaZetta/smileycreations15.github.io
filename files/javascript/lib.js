@@ -332,7 +332,6 @@
 				element.setAttribute("tabindex", "0")
 				elem.appendChild(element)
 			}
-			elem.querySelectorAll(focusable)[0].focus();
 			elem.addEventListener("keydown", function (evt) {
 				if (evt.which === 9) {
 					evt.preventDefault();
@@ -340,12 +339,18 @@
 						if (focusIndex !== 0) {
 							focusIndex -= 1
 							elem.querySelectorAll(focusable)[focusIndex].focus();
-						}
+						} else {
+              focusIndex = elem.querySelectorAll(focusable).length - 1;
+              elem.querySelectorAll(focusable)[focusIndex].focus();
+            }
 					} else {
 						if (focusIndex !== elem.querySelectorAll(focusable).length - 1) {
 							focusIndex += 1
 							elem.querySelectorAll(focusable)[focusIndex].focus();
-						}
+						} else {
+              focusIndex = 0;
+              elem.querySelectorAll(focusable)[focusIndex].focus();
+            }
 					}
 				}
 			});
