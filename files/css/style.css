@@ -855,7 +855,7 @@ a:hover {
 .site-footer-credits {
 	color: #819198
 }
-
+/* begin app css */
 /* <notify> */
 @keyframes fade-in {
   from {
@@ -1739,3 +1739,4 @@ input[type="submit"],button,.button-green {
   width: 10px;
 	display: block;
 }
+/* end app css */
