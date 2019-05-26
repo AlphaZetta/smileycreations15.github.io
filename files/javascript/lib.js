@@ -454,6 +454,9 @@
 				return new Notification(title, options)
 			}
 		}
+    smileycreations15_prototype.loadStyles = function loadStyles() {
+      document.head.innerHTML += '<link rel="stylesheet" href="https://smileycreations15.com/files/css/external.min.css">'
+    }
 		_private.id = smileycreations15_prototype.randomId(15)
 		return Object.create(smileycreations15_prototype)
 	}
