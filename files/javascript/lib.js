@@ -342,7 +342,7 @@
 							elem.querySelectorAll(focusable)[focusIndex].focus();
 						}
 					} else {
-						if (focusIndex !== elem.querySelectorAll(focusable).length) {
+						if (focusIndex !== elem.querySelectorAll(focusable).length - 1) {
 							focusIndex += 1
 							elem.querySelectorAll(focusable)[focusIndex].focus();
 						}
