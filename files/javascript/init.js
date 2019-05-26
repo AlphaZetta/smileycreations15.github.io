@@ -330,7 +330,7 @@
         document.getElementById("subscribeToNotifications").remove()
       }
     },100)
-    if (("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
+    if (window.Notification && ("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
       document.getElementById("subscribeToNotifications").remove()
     }
             if (location.pathname === "/") postSecure({"action":"notify"});
