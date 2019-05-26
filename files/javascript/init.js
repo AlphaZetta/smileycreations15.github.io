@@ -324,9 +324,6 @@
 	        document.querySelector(".adblock-highlight-node").remove()
             modals.adblock = smileycreations15.modal("<h2>AdBlock detected</h2><p>We detected that you are using AdBlock. Please do not use AdBlock on this site.</p><button onclick='modals.adblock.element.remove()'>Ok</button>")
         }
-        if(null !== document.getElementById("overlay")) {
-            document.getElementById("overlay").remove()
-        }
     },500)
     setInterval(()=>{
       if (("granted" === window.Notification.permission || "denied" === window.Notification.permission) && null !== document.getElementById("subscribeToNotifications")){
@@ -339,4 +336,7 @@
 
             postSecure({"action":"notify"})
             postSecure({"action":"notifyNoInterval"})
+            if(null !== document.getElementById("overlay")) {
+                document.getElementById("overlay").remove()
+            }
 })()
