@@ -1,8 +1,6 @@
-theme: jekyll-theme-cayman
-#defaults:
-#  -
-#    scope:
-#          path: ""
-#    values:
-#      layout: "default"
-#
+defaults:
+ -
+   scope:
+         path: ""
+   values:
+     layout: "default
