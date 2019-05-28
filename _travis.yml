@@ -1,5 +1,6 @@
 os: osx
-language: ruby
+language:
+  ruby
 script:
   - gem install bundler jekyll
   - jekyll build
