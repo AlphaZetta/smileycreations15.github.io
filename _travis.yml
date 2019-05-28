@@ -1,5 +1,6 @@
-language: ruby
 os: osx
+
+language: ruby
 rvm:
   - 2.6
 before_install:
