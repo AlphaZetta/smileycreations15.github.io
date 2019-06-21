@@ -1,8 +1,8 @@
 ## Verify your Scratch identity
-Enter your username and post the following code [here](https://scratch.mit.edu/projects/318086755/) then click Submit.
-<input type="text" id="username" placeholder="Username">
-Code: <input type="text" disabled id="code">
-<button onclick="submit()">Submit</button>
+Enter your username and post the following code [here](https://scratch.mit.edu/projects/318086755/) then click Submit.<br>
+<input type="text" id="username" placeholder="Username"><br>
+Code: <input type="text" disabled id="code"><br>
+<button onclick="verify()">Submit</button><
 <p id="status">Waiting</p>
 <script>
 var randomid = (function makeid(length) {
