@@ -1,11 +1,10 @@
-# Current Status: Tie
-
+# Current Status: AfterNetwork
 ## SPA Election Stats
 
 | Username       | Votes   |
 |----------------|---------|
 | LotusLavender  | 4 + Self vote |
-| AFNNNetworkK12 | 4 + Self vote |
+| AFNNNetworkK12 | 5 + Self vote |
 
 ## Votes
 
@@ -19,3 +18,4 @@
 | FrenchBread49     | AFNNetworkK12    |
 | Scratch-Coding    | AFNNetworkK12    |
 | AtheneNocturna    | LotusLavender    |
+| GrahamSH          | AFNNetworkK12    |
