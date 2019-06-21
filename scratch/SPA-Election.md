@@ -1,4 +1,5 @@
 ## SPA Election Stats
+
 <table>
 <thead>
 <tr>
@@ -16,8 +17,10 @@
 <td>0</td>
 </tr>
 </tbody>
+  
 </table>
 ## Votes
+
 <table>
 <thead>
 <tr>
