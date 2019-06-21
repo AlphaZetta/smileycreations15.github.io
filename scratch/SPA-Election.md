@@ -7,5 +7,6 @@
 
 ## Votes
 
-| Username | Vote |
-|----------|------|
+| Username          | Vote             |
+|-------------------|------------------|
+| smileycreations15 | None             |
