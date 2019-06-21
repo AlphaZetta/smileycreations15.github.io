@@ -3,7 +3,7 @@ Enter your username and post the following code [here](https://scratch.mit.edu/p
 <input type="text" id="username" placeholder="Username"><br><br>
 Code: <code id="code"></code><br><br>
 <button onclick="verify()">Submit</button>
-<p id="status">Waiting</p>
+<p id="status">Waiting for submission of form...</p>
 <script>
 var randomid = (function makeid(length) {
    var result           = '';
