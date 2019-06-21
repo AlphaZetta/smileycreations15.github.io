@@ -2,8 +2,8 @@
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 4 + Self vote |
-| AFNNNetworkK12 | 2 + Self vote |
+| LotusLavender  | 3 + Self vote |
+| AFNNNetworkK12 | 3 + Self vote |
 
 ## Votes
 
@@ -11,7 +11,7 @@
 |-------------------|------------------|
 | smileycreations15 | None             |
 | NYCDOT            | LotusLavender    |
-| MClovers          | LotusLavender    |
+| MClovers          | AFNNetworkK12    |
 | The Purple Shop (rep honeybreeze) | LotusLavender |
 | berryjam3506      | LotusLavender    |
 | FrenchBread49     | AFNNetworkK12    |
