@@ -2,7 +2,7 @@
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 0       |
+| LotusLavender  | 1       |
 | AFNNNetworkk12 | 0       |	
 
 ## Votes
@@ -10,3 +10,4 @@
 | Username          | Vote             |
 |-------------------|------------------|
 | smileycreations15 | None             |
+| NYCDOT            | LotusLavender    |
