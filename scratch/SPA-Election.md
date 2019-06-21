@@ -3,7 +3,7 @@
 | Username       | Votes   |
 |----------------|---------|
 | LotusLavender  | 1       |
-| AFNNNetworkk12 | 0       |	
+| AFNNNetworkK12 | 0       |	
 
 ## Votes
 
