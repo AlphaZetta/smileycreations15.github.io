@@ -1,5 +1,8 @@
 ## SPA Election Stats
-LotusLavender: 0
-AFNNetworkK12: 0
+| Username | Votes |
+|----------|-------|
+|LotusLavender| 0  |
+|AFNNNetworkk12| 0 |
 ## Votes
-None
+| Username | Vote |
+|----------|------|
