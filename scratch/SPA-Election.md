@@ -3,13 +3,13 @@
 | Username       | Votes   |
 |----------------|---------|
 | LotusLavender  | 3 + Self vote |
-| AFNNNetworkK12 | 3 + Self vote |
+| AFNNNetworkK12 | 4 + Self vote |
 
 ## Votes
 
 | Username          | Vote             |
 |-------------------|------------------|
-| smileycreations15 | None             |
+| smileycreations15 | AFNNetworkK12             |
 | NYCDOT            | LotusLavender    |
 | MClovers          | AFNNetworkK12    |
 | The Purple Shop (rep honeybreeze) | LotusLavender |
