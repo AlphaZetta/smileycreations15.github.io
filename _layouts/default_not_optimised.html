@@ -45,13 +45,14 @@
     <title>{{ page.title }}</title>
     {% else %}
     <title>smileycreations15</title>
-    {% endif %} {% if page.desc And page.desc != "" And page.desc != nil %}
+    {% endif %}
+    {% if page.desc And page.desc != "" And page.desc != nil %}
     <meta name="description" content="{{ page.desc }}"> {% else %}
     <meta name="description" content="A website on GitHub Pages."> {% endif %}
 	<link rel="manifest" href="/manifest.json">
 </head>
 
-<body>
+<body style="background: url(/files/images/wave.svg) 0 0 repeat-x;">
 
 	<!-- start overlay -->
 	<div id="overlay" style="display:none">
@@ -138,11 +139,22 @@ animation: decrease 2s 0.5s infinite;
 <a class="button-green accessible-link"tabindex="0" href="#main-content-body">Jump to content</a>
 	<!-- end overlay -->
     <section class="page-header">
-        <h1 class="project-name truncate">smileycreations15.com</h1><!-- main title /// default class="project-name" -->
-        <h2 class="project-tagline">A website on GitHub Pages</h2>
-
+      {% if page.header And page.header != "" And page.header != nil %}
+      <h1 class="project-name truncate">{{ page.header }}</h1><!-- main title /// default class="project-name" -->
+ {% else %}
+      <h1 class="project-name truncate">smileycreations15.com</h1> {% endif %}
+      {% if page.desc_note And page.desc_note != "" And page.desc_note != nil %}
+      <h2 class="project-tagline">{{ page.desc_note }}</h2><!-- main title /// default class="project-name" -->
+ {% else %}
+      <h2 class="project-tagline">A website on GitHub Pages</h2> {% endif %}
+{% if page.links And page.links != "" And page.links!= nil %}
+{% for item in page.links %}
+<a href="{{ item.href }}" id="{{ item.id }}" rel="noopener noreferrer" class="btn" onclick="{{ item.click }}">{{ item.text }}</a>
+{% endfor %}
+{% else %}
         <a href="https://github.com/smileycreations15" id="myProfile" rel="noopener noreferrer" class="btn">My Github Profile</a>
         <a class="btn" href="#" id="subscribeToNotifications" tabindex="0" style="cursor: pointer;">Subscribe to notifications</a>
+{% endif %}
         {% if page.noScriptWarning And page.noScriptWarning != "" And page.noScriptWarning != nil %}
 	 {% if page.noScriptWarning == true %}
       		  <noscript>
