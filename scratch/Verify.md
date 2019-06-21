@@ -1,7 +1,7 @@
 ## Verify your Scratch identity
 Enter your username and post the following code [here](https://scratch.mit.edu/projects/318086755/) then click Submit.<br><br>
 <input type="text" id="username" placeholder="Username"><br><br>
-Code: <input type="text" disabled id="code"><br><br>
+Code: <code id="code"></code><br><br>
 <button onclick="verify()">Submit</button>
 <p id="status">Waiting</p>
 <script>
@@ -14,7 +14,7 @@ var randomid = (function makeid(length) {
    }
    return result;
 })(20)
-document.getElementById("code").value = randomid
+document.getElementById("code").innerHTML = randomid
 function verify(){
 document.getElementById("status").innerHTML = "Loading..."
   fetch("https://cors-anywhere.herokuapp.com/https://obscure-inlet-57587.herokuapp.com/verify",{headers:{username:document.getElementById("username").value,nonce:randomid}})
