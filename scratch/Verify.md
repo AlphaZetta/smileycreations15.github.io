@@ -1,3 +1,4 @@
+# THIS EXAMPLE IS A BAD CLIENT-SIDE EXAMPLE PLEASE GO TO [THIS](https://pastoral-staircase.glitch.me) EXAMPLE FOR A SERVER-SIDE EXAMPLE.
 ## Verify your Scratch identity
 Enter your username and post the following code [here](https://scratch.mit.edu/projects/318086755/) then click Submit.<br><br>
 <input type="text" id="username" placeholder="Username"><br><br>
