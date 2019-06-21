@@ -1,8 +1,10 @@
+# Current Status: Tie
+
 ## SPA Election Stats
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 3 + Self vote |
+| LotusLavender  | 4 + Self vote |
 | AFNNNetworkK12 | 4 + Self vote |
 
 ## Votes
@@ -16,3 +18,4 @@
 | berryjam3506      | LotusLavender    |
 | FrenchBread49     | AFNNetworkK12    |
 | Scratch-Coding    | AFNNetworkK12    |
+| AtheneNocturna    | LotusLavender    |
