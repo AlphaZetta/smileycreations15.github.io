@@ -3,7 +3,7 @@ title: SPA Election Stats
 header: SPA Election Stats
 desc_note: Created by @smileycreations15.
 ---
-<h2 id="countdown" style="text-align: center;font-size: 60px;margin-top: 0px;"></h2>
+<h2 id="countdown" style="text-align: center;margin-top: 0px;"></h2>
 
 # Current Status: Tie
 ## SPA Election Stats
@@ -48,7 +48,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("countdown").innerHTML = "Voting closes in: " + days + " days " + hours + " hours "
+  document.getElementById("countdown").innerHTML = "Voting closes in: <br>" + days + " days " + hours + " hours "
   + minutes + " minutes " + seconds + " seconds ";
     
   // If the count down is over, write some text 
