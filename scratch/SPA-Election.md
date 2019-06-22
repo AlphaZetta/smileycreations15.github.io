@@ -5,7 +5,7 @@ desc_note: Created by @smileycreations15.
 ---
 <h2 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h2>
 
-# Current Status: Tie
+# Current Status: LotusLavender
 ## SPA Election Stats
 
 | Username       | Votes   |
