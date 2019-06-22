@@ -11,7 +11,7 @@ desc_note: Created by @smileycreations15.
 | Username       | Votes   |
 |----------------|---------|
 | LotusLavender  | 7 + Self vote |
-| AFNNNetworkK12 | 6 + Self vote |
+| AFNNNetworkK12 | 5 + Self vote |
 
 ## Votes
 
@@ -28,7 +28,7 @@ desc_note: Created by @smileycreations15.
 | GrahamSH          | AFNNetworkK12    |
 | findanegg         | LotusLavender    |
 | coolcatcool2 | LotusLavender |
-| ZPgaming | AfterNetwork |
+| ZPgaming (Invalidated) | AfterNetwork |
 | ajsya | Lola |
 
 <script>
