@@ -10,7 +10,7 @@ desc_note: Created by @smileycreations15.
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 7 = 7 |
+| LotusLavender  | 6  + Self Vote = 7 |
 | AFNNNetworkK12 | 6 + Self vote = 7 |
 
 ## Votes
@@ -24,7 +24,6 @@ desc_note: Created by @smileycreations15.
 | berryjam3506      | LotusLavender    |
 | FrenchBread49     | AFNNetworkK12    |
 | Scratch-Coding    | AFNNetworkK12    |
-| AtheneNocturna    | LotusLavender    |
 | GrahamSH          | AFNNetworkK12    |
 | findanegg         | LotusLavender    |
 | coolcatcool2 | LotusLavender |
