@@ -27,6 +27,7 @@ desc_note: Created by @smileycreations15.
 | AtheneNocturna    | LotusLavender    |
 | GrahamSH          | AFNNetworkK12    |
 | findanegg         | LotusLavender    |
+| coolcatcool2 | LotusLavender |
 
 <script>
 // Set the date we're counting down to
