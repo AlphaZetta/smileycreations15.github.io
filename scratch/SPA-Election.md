@@ -11,7 +11,7 @@ desc_note: Created by @smileycreations15.
 | Username       | Votes   |
 |----------------|---------|
 | LotusLavender  | 5 + Self vote |
-| AFNNNetworkK12 | 5 + Self vote |
+| AFNNNetworkK12 | 6 + Self vote |
 
 ## Votes
 
