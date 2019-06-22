@@ -5,12 +5,12 @@ desc_note: Created by @smileycreations15.
 ---
 <h2 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h2>
 
-# Current Status: LotusLavender
+# Current Status: TIE
 ## SPA Election Stats
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 7 + Self vote |
+| LotusLavender  | 7 <strike>+ Self vote</strike> |
 | AFNNNetworkK12 | 6 + Self vote |
 
 ## Votes
