@@ -4,6 +4,28 @@ header: SPA Election Stats
 desc_note: Created by @smileycreations15.
 ---
 <h2 id="countdown" style="text-align: center;font-size: 60px;margin-top: 0px;"></h2>
+# Current Status: Tie
+## SPA Election Stats
+
+| Username       | Votes   |
+|----------------|---------|
+| LotusLavender  | 5 + Self vote |
+| AFNNNetworkK12 | 5 + Self vote |
+
+## Votes
+
+| Username          | Vote             |
+|-------------------|------------------|
+| smileycreations15 | AFNNetworkK12    |
+| NYCDOT            | LotusLavender    |
+| MClovers          | AFNNetworkK12    |
+| honeybreeze       | LotusLavender    |
+| berryjam3506      | LotusLavender    |
+| FrenchBread49     | AFNNetworkK12    |
+| Scratch-Coding    | AFNNetworkK12    |
+| AtheneNocturna    | LotusLavender    |
+| GrahamSH          | AFNNetworkK12    |
+| findanegg         | LotusLavender    |
 
 <script>
 // Set the date we're counting down to
@@ -35,25 +57,3 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
-# Current Status: Tie
-## SPA Election Stats
-
-| Username       | Votes   |
-|----------------|---------|
-| LotusLavender  | 5 + Self vote |
-| AFNNNetworkK12 | 5 + Self vote |
-
-## Votes
-
-| Username          | Vote             |
-|-------------------|------------------|
-| smileycreations15 | AFNNetworkK12    |
-| NYCDOT            | LotusLavender    |
-| MClovers          | AFNNetworkK12    |
-| honeybreeze       | LotusLavender    |
-| berryjam3506      | LotusLavender    |
-| FrenchBread49     | AFNNetworkK12    |
-| Scratch-Coding    | AFNNetworkK12    |
-| AtheneNocturna    | LotusLavender    |
-| GrahamSH          | AFNNetworkK12    |
-| findanegg         | LotusLavender    |
