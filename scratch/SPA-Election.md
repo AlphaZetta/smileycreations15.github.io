@@ -10,14 +10,14 @@ desc_note: Created by @smileycreations15.
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 6 + Self vote |
-| AFNNNetworkK12 | 7 + Self vote |
+| LotusLavender  | 7 + Self vote |
+| AFNNNetworkK12 | 6 + Self vote |
 
 ## Votes
 
 | Username          | Vote             |
 |-------------------|------------------|
-| smileycreations15 | AFNNetworkK12    |
+| smileycreations15 | Lola    |
 | NYCDOT            | LotusLavender    |
 | MClovers          | AFNNetworkK12    |
 | honeybreeze       | LotusLavender    |
