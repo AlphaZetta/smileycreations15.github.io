@@ -3,7 +3,7 @@ title: SPA Election Stats
 header: SPA Election Stats
 desc_note: Created by @smileycreations15.
 ---
-<p id="demo" style="text-align: center;font-size: 60px;margin-top: 0px;"></p>
+<h2 id="countdown" style="text-align: center;font-size: 60px;margin-top: 0px;"></h2>
 
 <script>
 // Set the date we're counting down to
