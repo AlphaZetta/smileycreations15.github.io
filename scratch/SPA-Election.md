@@ -10,8 +10,8 @@ desc_note: Created by @smileycreations15.
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 7 <strike>+ Self vote</strike> |
-| AFNNNetworkK12 | 6 + Self vote |
+| LotusLavender  | 7 = 7 |
+| AFNNNetworkK12 | 6 + Self vote = 7 |
 
 ## Votes
 
