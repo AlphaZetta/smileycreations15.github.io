@@ -10,7 +10,7 @@ desc_note: Created by @smileycreations15.
 
 | Username       | Votes   |
 |----------------|---------|
-| LotusLavender  | 5 + Self vote |
+| LotusLavender  | 6 + Self vote |
 | AFNNNetworkK12 | 7 + Self vote |
 
 ## Votes
@@ -29,6 +29,7 @@ desc_note: Created by @smileycreations15.
 | findanegg         | LotusLavender    |
 | coolcatcool2 | LotusLavender |
 | ZPgaming | AfterNetwork |
+| ajsya | Lola |
 
 <script>
 // Set the date we're counting down to
