@@ -5,13 +5,13 @@ desc_note: Created by @smileycreations15.
 ---
 <h2 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h2>
 
-# Current Status: TIE
+# Current Status: LotusLavender
 ## SPA Election Stats
 
 | Username       | Votes   |
 |----------------|---------|
 | LotusLavender  | 6  + Self Vote = 7 |
-| AFNNNetworkK12 | 6 + Self vote = 7 |
+| AFNNNetworkK12 | 5 + Self vote = 6 |
 
 ## Votes
 
@@ -19,7 +19,6 @@ desc_note: Created by @smileycreations15.
 |-------------------|------------------|
 | smileycreations15 | Lola    |
 | NYCDOT            | LotusLavender    |
-| MClovers          | AFNNetworkK12    |
 | honeybreeze       | LotusLavender    |
 | berryjam3506      | LotusLavender    |
 | FrenchBread49     | AFNNetworkK12    |
