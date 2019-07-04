@@ -2,6 +2,7 @@
 title: SPA Election Stats
 header: SPA Election Stats
 desc_note: Created by @smileycreations15.
+links: []
 ---
 <h2 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h2>
 
