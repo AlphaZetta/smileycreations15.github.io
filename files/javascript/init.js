@@ -6,7 +6,7 @@
     // }
     var notOk = true
     if (window.Notification && "granted" === window.Notification.permission) notOk = false;
-    try {
+    /*try {
         if(!(parent && parent.WebPlayer) && top != self) {
             top.location.replace(document.location);
             alert('For security reasons, framing is not allowed; click OK to remove the frames.');
@@ -24,7 +24,7 @@
             window.open("about:blank", "_self")
             return
         }
-    }
+    }*/
     var savedPath = window.location.pathname
 
     function postSecure(data) {
