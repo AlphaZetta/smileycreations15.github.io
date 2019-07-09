@@ -5,4 +5,4 @@ Browse a moderated web.
 (Press enter to submit URL)
 
 Better one:
-jftp.smileycreations15.com
+[jftp.smileycreations15.com](https://jftp.smileycreations15.com)
