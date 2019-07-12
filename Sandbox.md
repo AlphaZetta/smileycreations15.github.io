@@ -1,0 +1,14 @@
+headings:
+# level 1
+## level 2
+### level 3
+#### level 4
+code:
+```
+code  
+```  
+`inline` code  
+<b>Html works too!</b>  
+**bold**  
+_italic_  
+***bolditalic***
