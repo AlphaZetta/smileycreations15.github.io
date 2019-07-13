@@ -13,5 +13,6 @@ code
 _italic_  
 ***bolditalic***
 
-#Hello, this is level heading 1
-###_And This is 3 in intalics_
+# Hello, this is level heading 1
+### _And This is 3 in intalics_
+Make sure that you have spaces between text and the group of # hashes
