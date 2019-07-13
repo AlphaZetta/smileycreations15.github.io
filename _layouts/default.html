@@ -54,6 +54,7 @@
 
 <body>
 
+	<script>function setStatus(e){document.querySelector("text-overlay").innerHTML = "Loading" + e?" ":"" + e} </script>
 	<!-- start overlay -->
 	<div id="overlay" style="display:none;z-index: 1000000000000;">
   <div id="text-overlay" style="font-family:sans-serif">Loading</div>
@@ -177,7 +178,7 @@ animation: decrease 2s 0.5s infinite;
 	
 <script>
 	document.getElementById("overlay").style.display = "block"
-	</script>
+	</script><script>setStatus("heading")</script>
 <a class="button-green accessible-link"tabindex="0" href="#main-content-body">Jump to content</a><nav id="navbar" style="    z-index: 1000000;
     align-content: center;
 	box-shadow:0 -1px 20px 0 black;
@@ -197,7 +198,7 @@ animation: decrease 2s 0.5s infinite;
     color: white;
     margin: calc((80px - 25px) / 2);
 ">smileycreations15</h4></nav>
-	<!-- end overlay -->
+	<!-- end overlay --><script>setStatus("page header")</script>
     <section class="page-header">
       {% if page.header And page.header != "" And page.header != nil %}
       <h1 class="project-name truncate">{{ page.header }}</h1><!-- main title /// default class="project-name" -->
@@ -228,7 +229,7 @@ animation: decrease 2s 0.5s infinite;
           	  <p>Please enable JavaScript for the website to function.</p>
        		 </noscript>
         {% endif %}
-    </section>
+    </section><script>setStatus("content")</script>
     <section class="main-content" id="main-content-body">
         {{ content }} {% if page.html And page.html != "" And page.html != nil %} {% include {{ page.html }} %} {% endif %}
         <!-- <footer class="site-footer">
@@ -239,21 +240,21 @@ animation: decrease 2s 0.5s infinite;
     <span class="site-footer-credits">Content is licensed under BSD-3 Clause License</span>
       </footer>
     </section>
-
+<script>setStatus("styles")</script>
 	<link rel="stylesheet" href="/files/css/style.min.css">
 	    <!-- css override -->
 	<style>
         .site-footer-credits {
             color: #606c71;
         }
-    </style>
+    </style><script>setStatus("scripts")</script>
 		        <script style="display:none" src="/files/javascript/init.min.js"></script>
 		{% if page.asyncScripts And page.asyncScripts != "" And page.asyncScripts != nil %} {% for item12 in page.asyncScripts %}
         <script async style="display:none" src="{{ item12 }}"></script>
         {% endfor %} {% endif %}
 {% if page.scripts And page.scripts != "" And page.scripts != nil %} {% for item1 in page.scripts %}
         <script style="display:none" src="{{ item1 }}"></script>
-        {% endfor %} {% endif %}
+        {% endfor %} {% endif %}<script>setStatus("wave effect")</script>
         <div class="loading-side-tooltip" id="loading-side-tooltip" style="display:none"></div>
         <div class="wave"><style>.wave {
   background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221600%22%20height%3D%22198%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M.005%20121C311%20121%20409.898-.25%20811%200c400%200%20500%20121%20789%20121v77H0s.005-48%20.005-77z%22%20transform%3D%22matrix(-1%200%200%201%201600%200)%22%20fill%3D%22%23e1e1e1%22%2F%3E%0A%3C%2Fsvg%3E") repeat-x;
@@ -284,7 +285,7 @@ animation: decrease 2s 0.5s infinite;
 
   gtag('config', 'UA-77829124-2');
 </script>
-
+<script>setStatus("done")</script>
 </body>
 
 </html>
