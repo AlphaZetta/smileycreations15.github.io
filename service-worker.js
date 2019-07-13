@@ -81,7 +81,7 @@ function updateCache(request, response) {
         return cache.put(request, response);
     });
 }
-function set(){
+function set(){/*
   if (Notification.permission !== "granted") return;
   return fetch("https://raw.githubusercontent.com/smileycreations15/misc-file-hosting/master/notify.json",{cache: "no-cache"})
     .then(res=>{
@@ -100,7 +100,7 @@ function set(){
         }
       }
       await smileycreations15.database.set("notifyInt",resp.lastInt)
-    }).catch(e=>{console.error(e)})
+    }).catch(e=>{console.error(e)})*/
 }
 // Service Worker Active
 (async function () {
