@@ -293,13 +293,6 @@
                 }
 
             )
-        document.getElementById("openSource")
-            .href = "javascript:void(0)"
-
-        document.getElementById("openSource")
-            .addEventListener("click", function () {
-                openPwaUrl('https://github.com/smileycreations15/smileycreations15.github.io')
-            })
     }
     (async function () {
         if(window.location.pathname === "/pwa" && await smileycreations15.database.get("pwaNotify") === true) {
@@ -312,7 +305,7 @@
             smileycreations15.dialogBox("top-left", "success", "App installed successfully")
         }
     })()
-    // sessionStorage.setItem("pwa","true")
+    // sessionStorage.setItem("pwa","true") 
     if (await smileycreations15.database.get("setting-backgronud-music") === true){
       smileycreations15.createSoundElement([{"url":"/files/sounds/theme.ogg","type":"audio/ogg"}]).play().catch(()=>{})
     }
