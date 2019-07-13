@@ -54,7 +54,7 @@
 
 <body>
 
-	<script>function setStatus(e){document.querySelector("#text-overlay").innerHTML = "Loading" + e?" ":"" + e} </script>
+	<script>function setStatus(e){document.querySelector("#text-overlay").innerHTML = "Loading" + (e?" ":"") + e} </script>
 	<!-- start overlay -->
 	<div id="overlay" style="display:none;z-index: 1000000000000;">
   <div id="text-overlay" style="font-family:sans-serif">Loading</div>
