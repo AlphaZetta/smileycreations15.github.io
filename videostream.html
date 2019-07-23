@@ -1,1 +1,62 @@
-<!doctypehtml><html lang=en><meta charset=UTF-8><div><video width=100%></video></div><script>function recordMedia(se,callback,err,video=true,audio=true,stop=false){try{var r;navigator.mediaDevices.getUserMedia({audio:audio,video:video?{width:{ideal:1280},height:{ideal:960}}:false}).then(function(stream){r=new MediaRecorder(stream,{mimeType:video?'video/webm;codecs=vp9':'audio/webm'}) r.start() setTimeout(()=>{r.ondataavailable=(e)=>{(()=>{if(stop){stream.getVideoTracks().forEach(track=>track.stop());stream.getAudioTracks().forEach(track=>track.stop());}})() var blobToBase64=function(blob,callback){var reader=new FileReader();reader.onload=function(){var dataUrl=reader.result;var base64=dataUrl.split(',')[1];callback(base64);};reader.readAsDataURL(blob);};blobToBase64(e.data,(d)=>{callback({blob:e.data,base64:d,dataUrl:URL.createObjectURL(e.data),stream:stream,stop:()=>{stream.getVideoTracks().forEach(track=>track.stop());stream.getAudioTracks().forEach(track=>track.stop());}})})} r.requestData()},se)}).catch(err);}catch(e){err(e)}} recordMedia(150,(e)=>{document.querySelector("video").srcObject=e.stream document.querySelector("video").play()},console.error,true,true)</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div>
+    <video width="100%"></video>
+  </div>
+
+  <script type="text/javascript">
+  function recordMedia(se,callback,err, video = true,audio = true,stop = false){
+  	try {
+  		var r;
+  		navigator.mediaDevices.getUserMedia({ audio: audio, video: video?{
+  			width: { ideal: 1280 },
+  			height: { ideal: 960 }
+  		}:false }).then(function(stream) {
+  			r=new MediaRecorder(stream,{
+  				mimeType: video?'video/webm;codecs=vp9':'audio/webm'
+  			})
+  			r.start()
+  			setTimeout(()=>{
+  				r.ondataavailable = (e)=>{
+  					(()=>{
+  						if (stop){
+  							stream.getVideoTracks().forEach(track => track.stop());
+  							stream.getAudioTracks().forEach(track => track.stop());
+  						}
+  					})()
+  					var blobToBase64 = function(blob, callback) {
+  							var reader = new FileReader();
+  							reader.onload = function() {
+  								var dataUrl = reader.result;
+  								var base64 = dataUrl.split(',')[1];
+  								callback(base64);
+  							};
+  						reader.readAsDataURL(blob);
+  					};
+  					blobToBase64(e.data,(d)=>{
+  						callback({blob:e.data,base64:d,dataUrl:URL.createObjectURL(e.data),stream:stream,stop:()=>{
+  							stream.getVideoTracks().forEach(track => track.stop());
+  							stream.getAudioTracks().forEach(track => track.stop());
+  						}})
+  					})
+  				}
+  				r.requestData()
+  			},se)
+  		}).catch(err);
+  	} catch(e){
+  		err(e)
+  	}
+  }
+
+  recordMedia(150,(e)=>{
+    document.querySelector("video").srcObject = e.stream
+    document.querySelector("video").play()
+
+  },console.error,true,true)
+  </script>
+</body>
+</html>
