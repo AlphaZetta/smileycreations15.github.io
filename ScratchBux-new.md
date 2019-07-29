@@ -48,7 +48,7 @@ Private balance form:
 > Board of Directors<br>
 > Chairman: Nambaseking01<br>
 > Vice Chairman: jbrow78<br>
-> Asst. Chairman: open<br>
+> Asst. Chairman: Panda_Gamer1212<br>
 > Directors: open<br>
 
 * is a strike.
@@ -78,4 +78,4 @@ Also, please note that we do not in any way endorse gambling.
 
 ## Credits
 Private Balances: dead currinco (kekcoin)
-Disdclaimer: ShopBux
+Disclaimer: ShopBux
