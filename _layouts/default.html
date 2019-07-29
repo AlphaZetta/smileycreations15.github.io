@@ -23,6 +23,7 @@
 		    <!-- <link rel="stylesheet" href="/files/css/style.min.css" media="bogus"> -->
 	  <link rel="preload" href="/files/css/style.min.css" as="style">
   <link rel="preload" href="/files/javascript/init.min.js" as="script">
+<meta property="og:image" content="https://smileycreations15.com/image.png">
 
 	{% if page.keywords And page.keywords != "" And page.keywords != nil %}
     {% assign metaString = page.keywords | join: "," %}
@@ -48,7 +49,7 @@
     {% endif %}
     {% if page.desc And page.desc != "" And page.desc != nil %}
     <meta name="description" content="{{ page.desc }}"> {% else %}
-    <meta name="description" content="A website on GitHub Pages."> {% endif %}
+    <meta name="description" content="&quot;First innovate, then impress.&quot; &mdash; @smileycreations15"> {% endif %}
 	<link rel="manifest" href="/manifest.json">
 </head>
 
@@ -202,11 +203,11 @@ animation: decrease 2s 0.5s infinite;
       {% if page.header And page.header != "" And page.header != nil %}
       <h1 class="project-name truncate">{{ page.header }}</h1><!-- main title /// default class="project-name" -->
  {% else %}
-      <h1 class="project-name truncate">smileycreations15.com</h1> {% endif %}
+      <h1 class="project-name truncate">smileycreations15</h1> {% endif %}
       {% if page.desc_note And page.desc_note != "" And page.desc_note != nil %}
       <h2 class="project-tagline">{{ page.desc_note }}</h2><!-- main title /// default class="project-name" -->
  {% else %}
-      <h2 class="project-tagline">A website on GitHub Pages</h2> {% endif %}
+      <h2 class="project-tagline"><i>&quot;First innovate, then impress.&quot; &mdash; @smileycreations15</i></h2> {% endif %}
 {% if page.links And page.links != "" And page.links!= nil %}
 {% for item in page.links %}
 <a href="{{ item.href }}" id="{{ item.id }}" rel="noopener noreferrer" class="btn" onclick="{{ item.click }}">{{ item.text }}</a>
@@ -255,7 +256,7 @@ animation: decrease 2s 0.5s infinite;
         <script style="display:none" src="{{ item1 }}"></script>
         {% endfor %} {% endif %}<script>setStatus("wave effect")</script>
         <div class="loading-side-tooltip" id="loading-side-tooltip" style="display:none"></div>
-        <div class="wave"><style>.wave {
+        <div class="wave1"><style>.wave {
   background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221600%22%20height%3D%22198%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M.005%20121C311%20121%20409.898-.25%20811%200c400%200%20500%20121%20789%20121v77H0s.005-48%20.005-77z%22%20transform%3D%22matrix(-1%200%200%201%201600%200)%22%20fill%3D%22%23e1e1e1%22%2F%3E%0A%3C%2Fsvg%3E") repeat-x;
   position: fixed;
   width: 6400px;
@@ -285,6 +286,25 @@ animation: decrease 2s 0.5s infinite;
   gtag('config', 'UA-77829124-2');
 </script>
 <script>setStatus("done")</script>
+	<style>
+		body {
+			position:absolute;
+			opacity:0;
+			top:-30px;
+			left:-30px;
+			transition: top 1s ease-in-out,opacity 1s ease-in-out,left 1s ease-in-out
+		}
+		body {
+			opacity:1;
+			top:0px;
+			left:0px;
+    			background: linear-gradient(50deg, #00ffe5, #5600ff);
+			color: white;
+		}
+		h1, h2, h3, h4, h5, h6 {color:#eafff5;}
+		a {text-decoration: underline;
+    color: #ffffff;}
+	</style>
 </body>
 
 </html>
