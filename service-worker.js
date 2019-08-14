@@ -16,7 +16,7 @@ self.addEventListener('backgroundfetchsuccess', event => {
         const records = await event.registration.matchAll();
         const promises = records.map(async record => {
           const response = await record.responseReady;
-          await smilejs.indexedDB.set("resource-" + response.url, Uint8Array(await response.arrayBuffer()))
+          await smilejs.indexedDB.set("resource-" + response.url, new Uint8Array(await response.arrayBuffer()))
         });
       } catch (err) {
         console.error(err)
