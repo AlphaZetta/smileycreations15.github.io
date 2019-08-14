@@ -8,6 +8,22 @@ const offlineFallbackPage = "/offline.html";
 const noCache = []
 const cacheList = ["https://smileycreations15.com/favicon.ico", "https://smileycreations15.com/files/images/favicon.ico", "https://fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2", "https://fonts.gstatic.com/s/opensans/v16/mem5YaGs126MiZpBA-UN7rgOUuhpKKSTjw.woff2"]
 // Install stage sets up the offline page in the cache and opens a new cache
+self.addEventListener('backgroundfetchsuccess', event => {
+  console.log('[Service Worker]: Background Fetch Success', event.registration);
+      event.waitUntil(
+    (async function() {
+      try {
+        const records = await event.registration.matchAll();
+        const promises = records.map(async record => {
+          const response = await record.responseReady;
+          await smilejs.indexedDB.set("resource-" + response.url, Uint8Array(await response.arrayBuffer()))
+        });
+      } catch (err) {
+        console.error(err)
+      }
+    })()
+  );
+});
 self.addEventListener("install", function(event) {
     console.log("[PWA Builder] Install Event processing");
     self.skipWaiting();
