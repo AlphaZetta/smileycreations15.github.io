@@ -1,4 +1,4 @@
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+// This is the Service Worker with the combined offline experience (Offline page + Offline copy of pages)
 //
 const CACHE = "pwabuilder-offline-page";
 
@@ -25,11 +25,11 @@ self.addEventListener('backgroundfetchsuccess', event => {
   );
 });
 self.addEventListener("install", function(event) {
-    console.log("[PWA Builder] Install Event processing");
+    console.log("[Service Worker] Install Event processing");
     self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE).then(async function(cache) {
-            console.log("[PWA Builder] Cached offline page during install");
+            console.log("[Service Worker] Cached offline page during install");
             if (offlineFallbackPage === "ToDo-replace-this-name.html") {
                 return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
             }
@@ -44,7 +44,6 @@ self.addEventListener("install", function(event) {
     );
 });
 // If any fetch fails, it will look for the request in the cache and serve it from there first
-fetch("https://smileycreations15.com/smilejs/loader.js").then(e=>e.text()).then(a=>{eval(a)})
 self.addEventListener("fetch", function(event) {
     let urlData = new URL(event.request.url)
     if (noCache.includes(urlData.pathname)) return;
@@ -59,7 +58,7 @@ self.addEventListener("fetch", function(event) {
  event.respondWith(
     fetch(req)
       .then(function (response) {
-        console.log("[PWA Builder] add page to offline cache: " + response.url);
+        console.log("[Service Worker] add page to offline cache: " + response.url);
 
         // If request was success, add or update it in the cache
         event.waitUntil(updateCache(event.request, response.clone()));
@@ -67,7 +66,7 @@ self.addEventListener("fetch", function(event) {
         return response;
       })
       .catch(function (error) {
-        console.log("[PWA Builder] Network request Failed. Serving content from cache: " + error);
+        console.log("[Service Worker] Network request Failed. Serving content from cache: " + error);
         return fromCache(event.request);
       })
   );
@@ -120,12 +119,13 @@ function set(){/*
     }).catch(e=>{console.error(e)})*/
 }
 // Service Worker Active
+function smilejsCallback(){console.log("[Service Worker] loaded smile.js")}
 (async function () {
   eval(await (await fetch("/files/javascript/lib.min.js")).text())
-
+  eval(await (await fetch("/smilejs/loader.js")).text())
 })()
 self.addEventListener('activate', async function(event) {
-    console.log('Service worker activated');
+    console.log("[Service Worker] Service Worker activated")
     event.waitUntil(async function(){
       setInterval(set,10000)
       set()
@@ -133,15 +133,15 @@ self.addEventListener('activate', async function(event) {
     })
 });
 self.addEventListener('sync', function(event) {
-    console.log("[service worker] Sync received.\nEvent:\n", event, "\nTag:\n" + event.tag)
+    console.log("[Service Worker] Sync received.\nEvent:\n", event, "\nTag:\n" + event.tag)
 });
 self.addEventListener('message', function(event) {
-    console.log("[service worker] Message received.\nEvent:\n", event, "\nData:\n", event.data)
+    console.log("[Service Worker] Message received.\nEvent:\n", event, "\nData:\n", event.data)
     if (typeof event.data !== "object") return;
     if (event.data.action === "cachePwa") {
         fetch("/pwa")
             .then(function(response) {
-                console.log("[service worker] add page to offline cache by request: " + response.url);
+                console.log("[Service Worker] add page to offline cache by request: " + response.url);
 
                 // If request was success, add or update it in the cache
                 updateCache("/pwa", response.clone())
@@ -153,7 +153,7 @@ self.addEventListener('message', function(event) {
         try {
             fetch((new URL("event.data.cacheUrl")).pathname)
                 .then(function(response) {
-                    console.log("[service worker] add page to offline cache by request: " + response.url);
+                    console.log("[Service Worker] add page to offline cache by request: " + response.url);
                 })
             // If request was success, add or update it in the cache
             updateCache((new URL("event.data.cacheUrl")).pathname, response.clone())
@@ -208,5 +208,5 @@ self.addEventListener('message', function(event) {
     }
 });
 self.addEventListener('push', function(event) {
-    console.log("[service worker] Push received.\nEvent:\n", event, "\nData:\n" + event.data.text())
+    console.log("[Service Worker] Push received.\nEvent:\n", event, "\nData:\n" + event.data.text())
 })
