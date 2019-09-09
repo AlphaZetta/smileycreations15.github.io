@@ -13,6 +13,7 @@ var checked = []
 function fetchUrl(username) {
     if (checked.includes(username)) return
     checked.push(username)
+    var e = checked.length - 1
     postMessage(username)
     setTimeout(()=>{    fetch("https://bypasscors.herokuapp.com/api/?url=https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
         e.forEach(e => {
@@ -20,6 +21,7 @@ function fetchUrl(username) {
         })
     }).catch((e) => {
         errs.push(e)
+        delete checked[e]
     })},100)
 }
 fetchUrl("smileycreations15")`])))
