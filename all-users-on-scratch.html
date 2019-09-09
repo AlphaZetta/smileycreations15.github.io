@@ -14,14 +14,13 @@ function fetchUrl(username) {
     if (checked.includes(username)) return
     checked.push(username)
     postMessage(username)
-
-    fetch("https://cors-anywhere.herokuapp.com/https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
+    setTimeout(()=>{    fetch("https://bypasscors.herokuapp.com/api/?url=https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
         e.forEach(e => {
             fetchUrl(e.username)
         })
     }).catch((e) => {
         errs.push(e)
-    })
+    })},100)
 }
 fetchUrl("smileycreations15")`])))
   worker.onmessage = (e)=>{
