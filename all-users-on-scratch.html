@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>All users on scratch!</title>
+  </head>
+  <body style="margin:0;">
+    <script type="text/javascript">
+      var users = []
+      var worker = new Worker(URL.createObjectURL(new Blob([`var checked = []
+var errs = []
+var checked = []
+function fetchUrl(username) {
+    if (checked.includes(username)) return
+    checked.push(username)
+    postMessage(username)
+
+    fetch("https://bypasscors.herokuapp.com/api/?url=https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
+        e.forEach(e => {
+            fetchUrl(e.username)
+        })
+    }).catch((e) => {
+        errs.push(e)
+    })
+}
+fetchUrl("smileycreations15")`])))
+  worker.onmessage = (e)=>{
+    var textarea = document.querySelector("textarea")
+    var data = e.data
+    users.push(e.data)
+    textarea.innerHTML = `${users.slice(users.length - 100,users.length - 1).join("\n")}`
+    textarea.scrollTo(0,1000)
+  }
+    </script>
+    <textarea style="height:100vh;width:100vw;resize:none;"></textarea>
+  </body>
+</html>
