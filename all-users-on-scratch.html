@@ -15,7 +15,7 @@ function fetchUrl(username) {
     checked.push(username)
     postMessage(username)
 
-    fetch("https://bypasscors.herokuapp.com/api/?url=https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
+    fetch("https://cors-anywhere.herokuapp.com/?url=https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
         e.forEach(e => {
             fetchUrl(e.username)
         })
