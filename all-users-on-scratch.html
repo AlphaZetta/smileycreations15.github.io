@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>All users on scratch!</title>
   </head>
-  <body style="margin:0;overflow:hidden">
+  <body style="margin:0;overflow:hidden"><h2></h2>
     <script type="text/javascript">
       var users = []
       var worker = new Worker(URL.createObjectURL(new Blob([`var checked = []
@@ -27,6 +27,8 @@ function fetchUrl(username) {
 fetchUrl("smileycreations15")`])))
   worker.onmessage = (e)=>{
     var textarea = document.querySelector("textarea")
+        var h2 = document.querySelector("h2").innerHTML = users.length
+
     var data = e.data
     users.push(e.data)
     textarea.innerHTML = `${users.slice(users.length - 100,users.length - 1).join("\n")}`
