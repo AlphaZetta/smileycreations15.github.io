@@ -6,9 +6,9 @@
   "display" : "standalone",
   "start_url" : "https://smileycreations15.com/pwa",
   "short_name" : "smiley15",
-  "theme_color" : "#157878",
+  "theme_color" : "#3399ff",
   "description" : "A page on Github Pages.",
-  "background_color" : "#157878",
+  "background_color" : "#3399ff",
   "orientation" : "any",
   "prefer_related_applications" : false,
   "icons" : [
