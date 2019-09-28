@@ -16,7 +16,7 @@ function fetchUrl(username) {
     console.log(username)
     var e = checked.length - 1
     postMessage(username)
-    setTimeout(()=>{    fetch("https://bypasscors.herokuapp.com/api/?url=https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
+    setTimeout(()=>{    fetch("https://corsanywherehost.herokuapp.com/https://api.scratch.mit.edu/users/" + username + "/followers").then(e => e.json()).then(e => {
         e.forEach(e => {
             fetchUrl(e.username)
         })
