@@ -4,5 +4,3 @@ Browse a moderated web.
 <iframe src="about:blank" id="i" style="width:100%;height:75vh;display:block;"></iframe>
 (Press enter to submit URL)
 
-Better one:
-[jftp.smileycreations15.com](https://jftp.smileycreations15.com)
