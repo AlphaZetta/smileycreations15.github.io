@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RSA Encryption</title>
+    <script src="crypto.js"></script>
+    <script src="https://smileycreations15.com/smilejs/loader.js"></script>
+
+</head>
+<body style="    height: fit-content;
+text-align: center;
+margin: 0 0 20px 0;
+min-height: 100vh;
+width: 100vw;
+font-family: 'Chilanka','Open Sans',sans-serif;
+font-size: 30px;
+color: #fff;
+background: #1f1f1f;">
+    <div style="padding: 20px;text-align: center;">RSA Encryption</div>
+    <p><h4>Keys:</h4>
+        <h5>Public:</h5>
+        <textarea id="public" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="key2()" spellcheck="false"></textarea>
+        <h5>Private:</h5>
+<textarea id="private" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="key1()" spellcheck="false"></textarea>
+ <h5>Hash:</h5>
+ <textarea id="hash" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" disabled="" spellcheck="false"></textarea><br><br>
+ <h5>Sign:</h5>
+ <h6>Input:</h6>
+ <textarea id="unsigned" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;"onchange="sign()" spellcheck="false"></textarea><br><br>
+ <h6>Output:</h6>
+
+ <textarea id="signed" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" disabled onchange="unsign()" spellcheck="false"></textarea><br><br>
+ <h5>Verify:</h5>
+ <h6>Input:</h6>
+ <textarea id="inputSignVerify" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="verify()" spellcheck="false"></textarea><br><br>
+ <h6>Signature:</h6>
+ <textarea id="signatureSignVerify" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;"onchange="verify()" spellcheck="false"></textarea><br><br>
+
+ <h6>Result:</h6>
+
+ <textarea id="res" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" disabled spellcheck="false"></textarea><br><br>
+
+
+ <h5>Encrypt/Decrypt:</h5>
+ <h6>Unencrypted:</h6>
+ <textarea id="Unencrypted" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="encrypt()" spellcheck="false"></textarea><br><br>
+ <h6>Encrypted:</h6>
+
+ <textarea id="Encrypted" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="decrypt()"  spellcheck="false"></textarea><br><br>
+    </p>    
+    <button class="smilejs-button smilejs-ripple" onclick="gendude()" style="left:0;right:0;position: relative;font-family: monospace;">Generate keys</button>
+    <script>
+        function gendude(){
+            key = new JSEncrypt({default_key_size:2048});
+        key.getKey()
+        console.log()
+        document.getElementById("private").value = "-----BEGIN RSA PRIVATE KEY-----\n" +  key.getPrivateKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END RSA PRIVATE KEY-----"
+        document.getElementById("public").value = "-----BEGIN PUBLIC KEY-----\n" +  key.getPublicKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END PUBLIC KEY-----"
+        sha256(atob(key.getPublicKeyB64())).then(e=>document.getElementById("hash").value = e.base64)
+        }
+        function key1(){
+            key.setPrivateKey(document.getElementById("private").value)
+            document.getElementById("private").value = "-----BEGIN RSA PRIVATE KEY-----\n" +  key.getPrivateKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END RSA PRIVATE KEY-----"
+            document.getElementById("public").value = "-----BEGIN PUBLIC KEY-----\n" +  key.getPublicKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END PUBLIC KEY-----"
+            sha256(atob(key.getPublicKeyB64())).then(e=>document.getElementById("hash").value = e.base64)
+        }
+        function key2(){
+            key.setPublicKey(document.getElementById("public").value)
+            document.getElementById("private").value = ""
+            document.getElementById("public").value = "-----BEGIN PUBLIC KEY-----\n" +  key.getPublicKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END PUBLIC KEY-----"
+            sha256(atob(key.getPublicKeyB64())).then(e=>document.getElementById("hash").value = e.base64)
+        }
+        function sign(){
+            document.getElementById("signed").value = key.sign(document.getElementById("unsigned").value,sha512,"sha256")
+        }
+        function verify(){
+            document.getElementById("res").value = key.verify(document.getElementById("inputSignVerify").value,document.getElementById("signatureSignVerify").value,sha512)
+        }
+        function encrypt(){
+            document.getElementById("Encrypted").value = key.encrypt(document.getElementById("Unencrypted").value)
+        }
+        function decrypt(){
+            document.getElementById("Unencrypted").value = key.decrypt(document.getElementById("Encrypted").value)
+        }
+    </script>
+
+</body>
+</html>
