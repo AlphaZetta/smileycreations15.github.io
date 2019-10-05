@@ -67,7 +67,7 @@ background: #1f1f1f;">
  <textarea id="Encrypted" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="decrypt()"  spellcheck="false"></textarea><br><br>
     </p>    
     <script>
-        var key;
+        var key = new JSEncrypt;
         function gendude(){
             key = new JSEncrypt({default_key_size:Number(document.getElementById("keysize").value)});
         key.getKey()
