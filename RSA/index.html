@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RSA Encryption</title>
     <script src="crypto.js"></script>
-    <script src="https://smileycreations15.com/smilejs/loader.js"></script>
 
 </head>
 <body style="    height: fit-content;
@@ -17,10 +16,26 @@ font-family: 'Chilanka','Open Sans',sans-serif;
 font-size: 30px;
 color: #fff;
 background: #1f1f1f;">
-    <div style="padding: 20px;text-align: center;">RSA Encryption</div><br>
-        <button class="smilejs-button smilejs-ripple" onclick="gendude()" style="left:0;right:0;position: relative;font-family: monospace;">Generate keys</button>
-<br>
+    <div style="padding: 20px;text-align: center;">RSA Encryption</div>
     <p><h4>Keys:</h4>
+        Key size:
+        <div style="
+    width: 100px;
+    margin: auto;
+    left: 0;
+    background: none;
+    color: #eee;
+    right: 0;
+    position: relative;
+    height: fit-content;
+    display: block;
+"><input type="number" class="smilejs-line-ripple-input" placeholder="" style="
+    color: #eee;
+    background: transparent;
+    width: inherit;
+" maxlength="4" id="keysize"><span class="smilejs-line-ripple"></span></div><br>
+
+<button class="smilejs-button smilejs-ripple" onclick="gendude()" style="left:0;right:0;position: relative;font-family: monospace;">Generate keys</button><br>
         <h5>Public:</h5>
         <textarea id="public" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="key2()" spellcheck="false"></textarea>
         <h5>Private:</h5>
@@ -53,7 +68,7 @@ background: #1f1f1f;">
     </p>    
     <script>
         function gendude(){
-            key = new JSEncrypt({default_key_size:2048});
+            key = new JSEncrypt({default_key_size:Number(document.getElementById("keysize").value)});
         key.getKey()
         console.log()
         document.getElementById("private").value = "-----BEGIN RSA PRIVATE KEY-----\n" +  key.getPrivateKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END RSA PRIVATE KEY-----"
