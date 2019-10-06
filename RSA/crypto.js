@@ -5435,8 +5435,8 @@ async function sha256(message) {
   
     var INPUT_ERROR = 'input is invalid type';
     var FINALIZE_ERROR = 'finalize already called';
-    var globalThis = typeof globalThis === 'object';
-    var root = globalThis ? globalThis : {};
+    var thisEnabled = typeof globalThis === 'object';
+    var root = thisEnabled ? globalThis : {};
     if (root.JS_SHA512_NO_globalThis) {
       globalThis = false;
     }
