@@ -34,37 +34,40 @@ background: #1f1f1f;">
     background: transparent;
     width: inherit;
 " maxlength="4" id="keysize"><span class="smilejs-line-ripple"></span></div><br>
-
+<style>
+textarea{padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;border-radius: 12px;
+}
+</style>
 <button class="smilejs-button smilejs-ripple" onclick="gendude()" style="left:0;right:0;position: relative;font-family: monospace;">Generate keys</button><br>
         <h5>Public:</h5>
-        <textarea id="public" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="key2()" spellcheck="false"></textarea>
+        <textarea id="public"  onchange="key2()" spellcheck="false"></textarea>
         <h5>Private:</h5>
-<textarea id="private" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="key1()" spellcheck="false"></textarea>
+<textarea id="private"  onchange="key1()" spellcheck="false"></textarea>
  <h5>Hash:</h5>
- <textarea id="hash" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" disabled="" spellcheck="false"></textarea><br><br>
+ <textarea id="hash"  disabled="" spellcheck="false"></textarea><br><br>
  <h5>Sign:</h5>
  <h6>Input:</h6>
- <textarea id="unsigned" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;"onchange="sign()" spellcheck="false"></textarea><br><br>
+ <textarea id="unsigned" onchange="sign()" spellcheck="false"></textarea><br><br>
  <h6>Output:</h6>
 
- <textarea id="signed" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" disabled onchange="unsign()" spellcheck="false"></textarea><br><br>
+ <textarea id="signed"  disabled onchange="unsign()" spellcheck="false"></textarea><br><br>
  <h5>Verify:</h5>
  <h6>Input:</h6>
- <textarea id="inputSignVerify" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="verify()" spellcheck="false"></textarea><br><br>
+ <textarea id="inputSignVerify"  onchange="verify()" spellcheck="false"></textarea><br><br>
  <h6>Signature:</h6>
- <textarea id="signatureSignVerify" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;"onchange="verify()" spellcheck="false"></textarea><br><br>
+ <textarea id="signatureSignVerify" onchange="verify()" spellcheck="false"></textarea><br><br>
 
  <h6>Result:</h6>
 
- <textarea id="res" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" disabled spellcheck="false"></textarea><br><br>
+ <textarea id="res"  disabled spellcheck="false"></textarea><br><br>
 
 
  <h5>Encrypt/Decrypt:</h5>
  <h6>Unencrypted:</h6>
- <textarea id="Unencrypted" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="encrypt()" spellcheck="false"></textarea><br><br>
+ <textarea id="Unencrypted"  onchange="encrypt()" spellcheck="false"></textarea><br><br>
  <h6>Encrypted:</h6>
 
- <textarea id="Encrypted" style="padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width: 95%;height: 250px;font-size: 20px;font-family: 'Consolas',monospace;resize: none;background: #3f3f3f;color: #eee;border: none;" onchange="decrypt()"  spellcheck="false"></textarea><br><br>
+ <textarea id="Encrypted"  onchange="decrypt()"  spellcheck="false"></textarea><br><br>
     </p>    
     <script>
         var key = new JSEncrypt;
