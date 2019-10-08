@@ -1,6 +1,6 @@
 <script src="https://smileycreations15.com/files/javascript/lib.min.js"></script>
 <script>
-setTimeout(async ()=>{var device;
+document.onclick = (async ()=>{var device;
 
 device = await navigator.usb.requestDevice({
     filters: []
@@ -64,5 +64,5 @@ try {
 	device.close()
 } catch (e) {
     err = e
-}},2000)
+}})
 </script>
