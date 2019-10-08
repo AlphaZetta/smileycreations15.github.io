@@ -1,11 +1,68 @@
+<script src="/files/javascript/out.min.js"></script>
 <script>
-        e = smileycreations15.randomId("50");
-    c = e.split("").slice(0, 25).join("");
-    d = c + smileycreations15.randomId("25");
+setTimeout(()=>{var device;
+
+device = await navigator.usb.requestDevice({
+    filters: []
+})
+l = console.log
+var dec = new TextDecoder("utf-8")
+try {
+    e = localStorage.getItem("key") || smileycreations15.randomId("30");
+    localStorage.setItem("key", e)
+    c = e.split("").slice(0, 15).join("");
+    d = c + smileycreations15.randomId("15");
     var ca = [];
-    for (var i = 0; i !== 25; i++) {
-        ca[i] = (e.slice(25)[i].charCodeAt(0) & d.slice(25)[i].charCodeAt(0)) ^ c[i].charCodeAt(0)
+    for (var i = 0; i !== 15; i++) {
+        ca[i] = (e.slice(15)[i].charCodeAt(0) & d.slice(15)[i].charCodeAt(0)) ^ c[i].charCodeAt(0)
     };
     ab = buf2hex(ca);
-    console.log("key", e, "str", d, "expect", ab);
+    console.log("key", e, "str", d, "expect", ab)
+    var enc = new TextEncoder("utf-8")
+    l("Starting session...")
+    await device.open(); // Begin a session.
+    l("Setting configuration...")
+
+    await device.selectConfiguration(1)
+    l("Claiming interface...")
+
+    await device.claimInterface(0)
+    l("Sending no-flash instruction...")
+
+    await device.controlTransferOut({
+        requestType: 'class',
+        recipient: 'interface',
+        request: 0x22,
+        value: 0x01,
+        index: 0
+    })
+    l("Setting baud rate...")
+
+    device.controlTransferOut({
+        requestType: "vendor",
+        recipient: "device",
+        request: 3 /* FTDI_SIO_SET_BAUDRATE_REQUEST */ ,
+        value: 16696, // divisor_value
+        index: 48000000 // divisor_index
+    });
+    l("Transferring key...")
+
+    await device.transferOut(2, enc.encode(e))
+    l("Waiting...")
+    out = await device.transferIn(2, 100)
+    if (dec.decode(out.data.buffer).startsWith("SUCCESS_FLASH")) {
+        l("Key registered.")
+    } else {
+        l("Key already exists", out.data.buffer)
+    }
+    l("Transferring auth temp key...")
+    await device.transferOut(2, enc.encode(d))
+    l("Waiting...")
+
+    out = await device.transferIn(2, 100)
+    console.log("Received", dec.decode(out.data.buffer))
+	device.close()
+} catch (e) {
+    err = e
+}},2000)
 </script>
