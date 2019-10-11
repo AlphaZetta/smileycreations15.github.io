@@ -70,16 +70,17 @@ textarea{padding:20px;left: 0px;right: 0px;margin: 0px;position: relative;width:
  <textarea id="Encrypted" onchange="decrypt()" spellcheck="false"></textarea><br><br>
     <p></p>    
     <script>
+	    function immediate(cb){if (window.setImmediate){setImmediate(cb)}else{setTimeout(cb,100)}}
         var key = new JSEncrypt;
         function gendude(){
 document.getElementById("wait").style.display = ""
-			setTimeout(()=>{            key = new JSEncrypt({default_key_size:Number(document.getElementById("keysize").value)});
+			immediate(()=>{            key = new JSEncrypt({default_key_size:Number(document.getElementById("keysize").value)});
         key.getKey()
         console.log()
         document.getElementById("private").value = "-----BEGIN RSA PRIVATE KEY-----\n" +  key.getPrivateKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END RSA PRIVATE KEY-----"
         document.getElementById("public").value = "-----BEGIN PUBLIC KEY-----\n" +  key.getPublicKeyB64().match(/.{1,64}/g).join("\n") + "\n-----END PUBLIC KEY-----"
         sha256(atob(key.getPublicKeyB64())).then(e=>document.getElementById("hash").value = e.base64)
-document.getElementById("wait").style.display = "none"},0)
+document.getElementById("wait").style.display = "none"})
         }
         function key1(){
             key.setPrivateKey(document.getElementById("private").value)
