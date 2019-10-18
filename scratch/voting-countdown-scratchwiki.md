@@ -37,7 +37,7 @@ var x = setInterval(function() {
   // Output the result in an element with id="demo"
   document.getElementById("countdown").innerHTML = "Voting opens in: " + days + " days " + hours + " hours "
   + minutes + " minutes " + seconds + " seconds ";
-  logger.debug("Voting opens in: <br>" + days + " days " + hours + " hours "
+  logger.debug("Voting opens in: " + days + " days " + hours + " hours "
   + minutes + " minutes " + seconds + " seconds ")
     
   // If the count down is over, write some text 
@@ -67,7 +67,7 @@ function instantiateOpen(){
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Output the result in an element with id="demo"
-    document.getElementById("countdown").innerHTML = "Voting closes in: <br>" + days + " days " + hours + " hours "
+    document.getElementById("countdown").innerHTML = "Voting closes in: " + days + " days " + hours + " hours "
     + minutes + " minutes " + seconds + " seconds ";
   logger.debug("Voting closes in: " + days + " days " + hours + " hours "
   + minutes + " minutes " + seconds + " seconds ")
@@ -126,6 +126,8 @@ logger.warn = (e) => {
     consoleCopy.log("%c[Warning]%c" + e, "color:#fff;padding:20px;border-radius:12px 0px 0px 12px;background-color:#b7b700;", "color:#fff;padding:20px;border-radius:0px 12px 12px 0;background-color:#5f5f5f;")
 
 }
-    logger.success("Initiated start countdown.")
+    
 logger.info("Hi! Want to contribute? Open an issue here: https://github.com/smileycreations15/smileycreations15.github.io/issues")
+console.groupCollapsed("Countdown")
+logger.success("Initiated start countdown.")
 </script>
