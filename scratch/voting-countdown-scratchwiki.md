@@ -127,5 +127,5 @@ logger.warn = (e) => {
 
 }
     logger.success("Initiated start countdown.")
-logger.note("Hi! Want to contribute? Open an issue here: https://github.com/smileycreations15/smileycreations15.github.io/issues")
+logger.info("Hi! Want to contribute? Open an issue here: https://github.com/smileycreations15/smileycreations15.github.io/issues")
 </script>
