@@ -1,7 +1,7 @@
 ---
 title: Scratch Wiki Voting Countdown
 header: Scratch Wiki Voting Countdown
-desc_note: Created by @smileycreations15.
+desc_note: Created by @smileycreations15. (unofficial)
 links: []
 ---
 <h1 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h1>
