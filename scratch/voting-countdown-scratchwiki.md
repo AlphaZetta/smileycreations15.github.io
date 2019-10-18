@@ -2,6 +2,7 @@
 title: Scratch Wiki Voting Countdown
 header: Scratch Wiki Voting Countdown
 desc_note: Created by @smileycreations15. (unofficial)
+desc: Created by @smileycreations15. (unofficial)
 links: []
 ---
 <h1 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h1>
@@ -41,14 +42,15 @@ var x = setInterval(function() {
     instantiateOpen()
   }
 }, 1000);
-function instantiateOpen(){
+function instantiateOpen(){,
+  var countDownDate2 = new Date("26 October, 2019 00:00:00 UTC+0000").getTime();
   var y = setInterval(function() {
 
     // Get today's date and time
     var now = new Date().getTime();
 
     // Find the distance between now and the count down date
-    var distance = countDownDate - now;
+    var distance = countDownDate2 - now;
 
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
