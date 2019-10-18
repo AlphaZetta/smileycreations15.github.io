@@ -107,7 +107,7 @@ logger.log = (e) => {
 
 }
 logger.info = (e) => {
-    consoleCopy.log("%c[info]%c" + e, "color:#fff;padding:20px;border-radius:12px 0px 0px 12px;background-color:#5f5f5f;", "color:#fff;padding:20px;border-radius:0px 12px 12px 0;background-color:#5f5f5f;")
+    consoleCopy.log("%c[Info]%c" + e, "color:#fff;padding:20px;border-radius:12px 0px 0px 12px;background-color:#5f5f5f;", "color:#fff;padding:20px;border-radius:0px 12px 12px 0;background-color:#5f5f5f;")
 
 }
 logger.debug = (e) => {
