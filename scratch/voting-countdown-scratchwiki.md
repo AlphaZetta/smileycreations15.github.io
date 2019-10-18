@@ -42,7 +42,7 @@ var x = setInterval(function() {
     instantiateOpen()
   }
 }, 1000);
-function instantiateOpen(){,
+function instantiateOpen(){
   var countDownDate2 = new Date("26 October, 2019 00:00:00 UTC+0000").getTime();
   var y = setInterval(function() {
 
