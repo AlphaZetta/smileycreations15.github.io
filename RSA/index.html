@@ -98,7 +98,7 @@ document.getElementById("wait").style.display = "none"})
             document.getElementById("signed").value = key.sign(document.getElementById("unsigned").value,sha1,"sha1")
         }
         function verify(){
-            document.getElementById("res").value = key.verify(document.getElementById("inputSignVerify").value,document.getElementById("signatureSignVerify").value,sha512)
+            document.getElementById("res").value = key.verify(document.getElementById("inputSignVerify").value,document.getElementById("signatureSignVerify").value,sha1)
         }
         function encrypt(){
             document.getElementById("Encrypted").value = key.encrypt(document.getElementById("Unencrypted").value)
