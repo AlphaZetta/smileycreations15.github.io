@@ -95,7 +95,7 @@ document.getElementById("wait").style.display = "none"})
             sha256(atob(key.getPublicKeyB64())).then(e=>document.getElementById("hash").value = e.base64)
         }
         function sign(){
-            document.getElementById("signed").value = key.sign(document.getElementById("unsigned").value,sha512,"sha256")
+            document.getElementById("signed").value = key.sign(document.getElementById("unsigned").value,sha512,"sha1")
         }
         function verify(){
             document.getElementById("res").value = key.verify(document.getElementById("inputSignVerify").value,document.getElementById("signatureSignVerify").value,sha512)
