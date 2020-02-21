@@ -8,12 +8,14 @@ links: []
 <h1 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h1>
 
 <script>
-  function tracc(act){  var xml = new XMLHttpRequest
-xml.open("post","https://hospitable-floss-e4rhqoh9c9.glitch.me/",false)
-xml.setRequestHeader("Content-Type","application/json")
-xml.send(JSON.stringify({uagent:navigator.userAgent,action:act,page:"scratch-1-cor"}))}
+  function tracc(act){
+  navigator.sendBeacon("https://hospitable-floss-e4rhqoh9c9.glitch.me/",new Blob([JSON.stringify({uagent:navigator.userAgent,action:act,page:"scratch-1-cor"})],{type:"application/json"}))
+}
   tracc("enter")
-  onunload = ()=>{ tracc("unload")}
+  window.addEventListener("unload", function logData() {
+tracc("unload")
+});
+
 // Set the date we're counting down to
 var countDownDate = new Date(1582331675000).getTime();
 
