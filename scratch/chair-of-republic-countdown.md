@@ -8,10 +8,13 @@ links: []
 <h1 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h1>
 
 <script>
-  function tracc(act){  var xml = new XMLHttpRequest
-xml.open("post","https://hospitable-floss-e4rhqoh9c9.glitch.me/",false)
-xml.setRequestHeader("Content-Type","application/json")
-xml.send(JSON.stringify({uagent:navigator.userAgent,action:act,page:"scratch-1-cor"}))}
+  function tracc(act){
+  var param = new URLSearchParams
+param.append("uagent",navigator.userAgent)
+param.append("action",act)
+param.append("page",location.pathname)
+  navigator.sendBeacon("https://hospitable-floss-e4rhqoh9c9.glitch.me/",param)
+}
   tracc("enter")
   window.addEventListener("beforeunload", function logData() {
 tracc("unload")
