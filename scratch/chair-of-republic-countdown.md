@@ -13,7 +13,7 @@ xml.open("post","https://hospitable-floss-e4rhqoh9c9.glitch.me/",false)
 xml.setRequestHeader("Content-Type","application/json")
 xml.send(JSON.stringify({uagent:navigator.userAgent,action:act,page:"scratch-1-cor"}))}
   tracc("enter")
-  window.addEventListener("unload", function logData() {
+  window.addEventListener("beforeunload", function logData() {
 tracc("unload")
 });
 
