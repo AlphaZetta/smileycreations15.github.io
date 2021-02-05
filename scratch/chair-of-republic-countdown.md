@@ -8,18 +8,6 @@ links: []
 <h1 id="countdown" style="text-align: center;margin-top: 0px;">Loading countdown...</h1>
 
 <script>
-  function tracc(act){
-  var param = new URLSearchParams
-param.append("uagent",navigator.userAgent)
-param.append("action",act)
-param.append("page",location.pathname)
-  navigator.sendBeacon("https://hospitable-floss-e4rhqoh9c9.glitch.me/",param)
-}
-  tracc("enter")
-  window.addEventListener("beforeunload", function logData() {
-tracc("unload")
-});
-
 // Set the date we're counting down to
 var countDownDate = new Date(1613954075000).getTime();
 
