@@ -21,7 +21,7 @@ tracc("unload")
 });
 
 // Set the date we're counting down to
-var countDownDate = new Date(1582331675000).getTime();
+var countDownDate = new Date(1613954075000).getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -39,7 +39,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("countdown").innerHTML = "1 year birthday in: <br>" + days + " days " + hours + " hours "
+  document.getElementById("countdown").innerHTML = "2 years birthday in: <br>" + days + " days " + hours + " hours "
   + minutes + " minutes " + seconds + " seconds ";
     
   // If the count down is over, write some text 
